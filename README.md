@@ -14,6 +14,7 @@ BartApp is a Bay Area Bart commuter application for iOS. The app is able to chos
 
 - [ ] Authenticating users for data tracking.
 - [ ] See full schedule of train times.
+- [ ] Ability to enter a desired arrival time when searching for train schedules.
 - [ ] Rider advisory notifications.
 - [ ] Caltrain functionality.
 - [ ] Caltrain reminder to tap on/off.
