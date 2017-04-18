@@ -1,6 +1,6 @@
 # BartApp
 
-## User Stories
+## MVP User Stories
 
 - [ ] Intakes starting location, ending location, and desired leave time.
 - [ ] Gives user best timed Bart train.
@@ -8,7 +8,7 @@
 - [ ] User able to select a route option and sees a map view of current location, departure station, arrival station, transfer stations, and train stops.
 - [ ] Notification alarm when user within certain distance from tranfer/destination location. (Note: Cannot access Alarm app.)
 
-## (Optional) User Stories
+## Optional User Stories
 
 - [ ] Authenticating users for data tracking.
 - [ ] See full schedule of train times.
