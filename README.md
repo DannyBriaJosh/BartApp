@@ -1,5 +1,7 @@
 # BartApp
 
+BartApp is a Bay Area Bart commuter application for iOS. The app is able to chose a range of train times for the user based on a given start, end location and a desired time to leave. Users are then able to select the train time they plan to use and are able to see a map view of their current location, departure station, transfer station(s), and arrival station. The application will also utilize geofencing to alert users when their stop is coming soon to ensure they are ready to get off the train. 
+
 ## MVP User Stories
 
 - [ ] Intakes starting location, ending location, and desired leave time.
@@ -18,6 +20,9 @@
 - [ ] Save common locations (work,home,etc).
 - [ ] Factor in time to train stop.
 - [ ] Send reminder of when to leave.
+
+## Wireframes
+TODO
 
 ## License
 
