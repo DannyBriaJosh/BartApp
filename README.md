@@ -23,7 +23,7 @@ BartApp is a Bay Area Bart commuter application for iOS. The app is able to chos
 - [ ] Send reminder of when to leave.
 
 ## Wireframes
-TODO
+wireframes.png
 
 ## License
 
