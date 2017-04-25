@@ -25,6 +25,45 @@ BartApp is a Bay Area Bart commuter application for iOS. The app is able to chos
 ## Wireframes
 wireframes.png
 
+
+## Specs
+Choose destination (Bria):
+Required
+- Choose starting station
+- Choose destination station
+- Select time
+- Setup station data
+- Pass start station, destination station, and time
+Optionals:
+- Closest station to current location (starting and end)
+- Enter custom address
+- Select arrival time
+- Autopopulate when going back to home screen
+
+Select route (Danny):
+- Display trips and transfers
+- Display trip times
+- GET request to retrieve list
+- Ability to select trips
+- Pass two station objects and time
+Optionals:
+- Real time updates
+
+Map (Josh):
+- Show stations on map (start, transfers, end)
+- Display estimated ETA
+- Setup geofencing for every station
+- Send local notification with sound
+Optionals:
+- Trace route
+
+Project Optionals:
+- Save favorite stations and routes
+- Lose service notification
+- Cancel trip based on time
+- Theme manager
+
+
 ## License
 
     Copyright [yyyy] [name of copyright owner]
