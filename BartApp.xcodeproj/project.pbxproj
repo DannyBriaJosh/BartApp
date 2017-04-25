@@ -12,6 +12,7 @@
 		C9256F9E1EA5BE5C00A2118B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9256F9C1EA5BE5C00A2118B /* Main.storyboard */; };
 		C9256FA01EA5BE5C00A2118B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9256F9F1EA5BE5C00A2118B /* Assets.xcassets */; };
 		C9256FA31EA5BE5C00A2118B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9256FA11EA5BE5C00A2118B /* LaunchScreen.storyboard */; };
+		C95E26411EAFFFB6001B262B /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E26401EAFFFB6001B262B /* GlobalVariables.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		C9256F9F1EA5BE5C00A2118B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9256FA21EA5BE5C00A2118B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9256FA41EA5BE5C00A2118B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C95E26401EAFFFB6001B262B /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				C9256F9F1EA5BE5C00A2118B /* Assets.xcassets */,
 				C9256FA11EA5BE5C00A2118B /* LaunchScreen.storyboard */,
 				C9256FA41EA5BE5C00A2118B /* Info.plist */,
+				C95E26401EAFFFB6001B262B /* GlobalVariables.swift */,
 			);
 			path = BartApp;
 			sourceTree = "<group>";
@@ -96,6 +99,7 @@
 				TargetAttributes = {
 					C9256F941EA5BE5C00A2118B = {
 						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = D4PT88369P;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -136,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C95E26411EAFFFB6001B262B /* GlobalVariables.swift in Sources */,
 				C9256F9B1EA5BE5C00A2118B /* ViewController.swift in Sources */,
 				C9256F991EA5BE5C00A2118B /* AppDelegate.swift in Sources */,
 			);
@@ -260,6 +265,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D4PT88369P;
 				INFOPLIST_FILE = BartApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.briawallace.BartApp;
@@ -272,6 +278,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D4PT88369P;
 				INFOPLIST_FILE = BartApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.briawallace.BartApp;
@@ -299,6 +306,7 @@
 				C9256FA91EA5BE5C00A2118B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
