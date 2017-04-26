@@ -39,18 +39,31 @@ class BartRouteInputViewController: UIViewController, ChooseBartStationDelegate 
         timePicker.isHidden = true
         startingTimeInputButton.isHidden = false
         findRouteButton.isHidden = false
+        setFindButtonStatus()
     }
     
     func setStartingStation(chooseBartStationViewController: ChooseBartStationViewController, didSetStartingStation startingStation: BartStation) {
         startingStationInputButton.setTitle("     \(startingStation.name!)     ", for: .normal)
         startingStationInputButton.setTitleColor(UIColor.black, for: .normal)
         userInputs["Start Station"] = startingStation
+        setFindButtonStatus()
     }
     
     func setEndingStation(chooseBartStationViewController: ChooseBartStationViewController, didSetEndingStation endingStation: BartStation) {
         endingStationInputButton.setTitle("     \(endingStation.name!)     ", for: .normal)
         endingStationInputButton.setTitleColor(UIColor.black, for: .normal)
         userInputs["End Station"] = endingStation
+        setFindButtonStatus()
+    }
+    
+    func setFindButtonStatus() {
+        if userInputs.count == 3 {
+            findRouteButton.isEnabled = true
+            findRouteButton.setTitleColor(UIColor.black, for: .normal)
+        } else {
+            findRouteButton.isEnabled = false
+            findRouteButton.setTitleColor(UIColor.lightGray, for: .normal)
+        }
     }
     
     func formatTime(date: Date) -> (String){
@@ -109,6 +122,7 @@ class BartRouteInputViewController: UIViewController, ChooseBartStationDelegate 
         startingTimeInputButton.layer.borderColor = UIColor.black.cgColor
         startingTimeInputButton.layer.borderWidth = 0.5
         startingTimeInputButton.layer.cornerRadius = 5
+        setFindButtonStatus()
     }
 
     override func didReceiveMemoryWarning() {
