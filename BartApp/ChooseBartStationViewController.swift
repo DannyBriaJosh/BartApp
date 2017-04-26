@@ -39,5 +39,4 @@ class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UI
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
 }
