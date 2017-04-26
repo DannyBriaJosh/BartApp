@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BartRouteInputViewController: UIViewController {
+class BartRouteInputViewController: UIViewController, ChooseBartStationDelegate {
 
     @IBOutlet weak var startingStationInputButton: UIButton!
     @IBOutlet weak var endingStationInputButton: UIButton!
@@ -16,13 +16,17 @@ class BartRouteInputViewController: UIViewController {
     @IBOutlet weak var startingTimeTextField: UITextField!
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var findRouteButton: UIButton!
     
     var startingTime: Date!
+    var userInputs = [String : Any]()
     
     @IBAction func onStartingTimeButton(_ sender: Any) {
+        startingTimeInputButton.isHidden = true
+        findRouteButton.isHidden = true
         doneButton.isHidden = false
         timePicker.isHidden = false
-        timePicker.layer.backgroundColor = UIColor.lightGray.cgColor
+//        timePicker.layer.backgroundColor = UIColor.lightGray.cgColor
     }
     
     @IBAction func onDoneButton(_ sender: Any) {
@@ -30,8 +34,23 @@ class BartRouteInputViewController: UIViewController {
         let startingTimeString = formatTime(date: startingTime)
         startingTimeInputButton.setTitle(startingTimeString, for: .normal)
         startingTimeInputButton.setTitleColor(UIColor.black, for: .normal)
+        userInputs["Start Time"] = startingTime
         doneButton.isHidden = true
         timePicker.isHidden = true
+        startingTimeInputButton.isHidden = false
+        findRouteButton.isHidden = false
+    }
+    
+    func setStartingStation(chooseBartStationViewController: ChooseBartStationViewController, didSetStartingStation startingStation: BartStation) {
+        startingStationInputButton.setTitle("     \(startingStation.name!)     ", for: .normal)
+        startingStationInputButton.setTitleColor(UIColor.black, for: .normal)
+        userInputs["Start Station"] = startingStation
+    }
+    
+    func setEndingStation(chooseBartStationViewController: ChooseBartStationViewController, didSetEndingStation endingStation: BartStation) {
+        endingStationInputButton.setTitle("     \(endingStation.name!)     ", for: .normal)
+        endingStationInputButton.setTitleColor(UIColor.black, for: .normal)
+        userInputs["End Station"] = endingStation
     }
     
     func formatTime(date: Date) -> (String){
@@ -65,10 +84,15 @@ class BartRouteInputViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SelectStartingStationSegue" {
             let vc = segue.destination as! ChooseBartStationViewController
-            vc.instruction = "Choose a starting station:"
+            vc.starting = true
+            vc.delegate = self
         } else if segue.identifier == "SelectEndingStationSegue" {
             let vc = segue.destination as! ChooseBartStationViewController
-            vc.instruction = "Choose an ending station:"
+            vc.ending = true
+            vc.delegate = self
+        } else if segue.identifier == "FindRoutesSegue" {
+            let vc = segue.destination as! RoutesViewController
+            vc.userInput = userInputs
         }
     }
     
