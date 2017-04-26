@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nKa-aS-I5A">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Bart Route Input View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BartRouteInputViewController" customModule="BartApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,213 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKy-M7-a1w">
+                                <rect key="frame" x="113" y="144" width="150" height="26"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ending Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t5E-me-SgG">
+                                <rect key="frame" x="118" y="290" width="140.5" height="26"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkG-Zy-qjs">
+                                <rect key="frame" x="123" y="436" width="129" height="26"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker hidden="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9eW-AL-BIj">
+                                <rect key="frame" x="1" y="451" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="514872645.155249">
+                                    <!--2017-04-26 04:10:45 +0000-->
+                                </date>
+                            </datePicker>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="This is the departure time." borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qYV-6z-2Xe">
+                                <rect key="frame" x="83" y="470" width="209" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9d-lw-FJl">
+                                <rect key="frame" x="113.5" y="580" width="147" height="42"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
+                                <state key="normal" title="FIND ROUTES">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dfi-CT-oSK" kind="show" id="lJk-KB-qn1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtG-PC-1eZ">
+                                <rect key="frame" x="93" y="178" width="189" height="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
+                                <state key="normal" title="This is the starting station.">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="EZj-vK-B4Z" kind="show" identifier="SelectStartingStationSegue" id="uuV-Nw-M11"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hao-dd-xwu">
+                                <rect key="frame" x="95.5" y="324" width="184" height="32"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
+                                <state key="normal" title="This is the ending station.">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="EZj-vK-B4Z" kind="show" identifier="SelectEndingStationSegue" id="bk2-BS-yen"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Hao-dd-xwu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LCt-7L-Ped"/>
+                            <constraint firstItem="f9d-lw-FJl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ou2-YS-RQe"/>
+                            <constraint firstItem="t5E-me-SgG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qk6-lv-0XD"/>
+                            <constraint firstItem="KkG-Zy-qjs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QkN-aQ-FSd"/>
+                            <constraint firstItem="f9d-lw-FJl" firstAttribute="top" secondItem="qYV-6z-2Xe" secondAttribute="bottom" constant="80" id="RzM-3h-U2U"/>
+                            <constraint firstItem="qYV-6z-2Xe" firstAttribute="top" secondItem="KkG-Zy-qjs" secondAttribute="bottom" constant="8" id="UaI-yv-SvP"/>
+                            <constraint firstItem="cKy-M7-a1w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WIj-sF-ID0"/>
+                            <constraint firstItem="KkG-Zy-qjs" firstAttribute="top" secondItem="Hao-dd-xwu" secondAttribute="bottom" constant="80" id="Y6c-vv-wWj"/>
+                            <constraint firstItem="t5E-me-SgG" firstAttribute="top" secondItem="gtG-PC-1eZ" secondAttribute="bottom" constant="80" id="YTs-kE-tYa"/>
+                            <constraint firstItem="qYV-6z-2Xe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZJO-Pu-XNw"/>
+                            <constraint firstItem="gtG-PC-1eZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dDl-f8-0D1"/>
+                            <constraint firstItem="cKy-M7-a1w" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="izv-wP-utf"/>
+                            <constraint firstItem="gtG-PC-1eZ" firstAttribute="top" secondItem="cKy-M7-a1w" secondAttribute="bottom" constant="8" id="paJ-CZ-uA9"/>
+                            <constraint firstItem="Hao-dd-xwu" firstAttribute="top" secondItem="t5E-me-SgG" secondAttribute="bottom" constant="8" id="rrc-56-XpY"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="08r-ie-aCR"/>
+                    <connections>
+                        <outlet property="endingStationInputButton" destination="Hao-dd-xwu" id="TN0-rG-iRM"/>
+                        <outlet property="startingStationInputButton" destination="gtG-PC-1eZ" id="691-mp-ZG3"/>
+                        <outlet property="startingTimeTextField" destination="qYV-6z-2Xe" id="dKz-Ms-Mux"/>
+                        <outlet property="timePicker" destination="9eW-AL-BIj" id="brW-EJ-B1L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="922" y="139"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7f2-hp-QcR">
+            <objects>
+                <viewController id="dfi-CT-oSK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y8a-In-M0S"/>
+                        <viewControllerLayoutGuide type="bottom" id="tFM-rY-rff"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="s9I-Zl-rnJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Routes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DG9-iF-g2F">
+                                <rect key="frame" x="17" y="98" width="225" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kpx-J9-4t2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1746" y="139"/>
+        </scene>
+        <!--Choose Bart Station View Controller-->
+        <scene sceneID="HEW-ka-akh">
+            <objects>
+                <viewController id="EZj-vK-B4Z" customClass="ChooseBartStationViewController" customModule="BartApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lY4-iG-Exq"/>
+                        <viewControllerLayoutGuide type="bottom" id="TfM-Ge-EzY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FgT-am-xxU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a starting station:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jh-IB-N2X">
+                                <rect key="frame" x="10" y="80" width="225" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nah-Fb-cCa">
+                                <rect key="frame" x="10" y="121.5" width="355" height="545.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BartStationCell" rowHeight="59" id="jLD-mK-0Me" customClass="BartStationCell" customModule="BartApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="355" height="59"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jLD-mK-0Me" id="6Kk-jA-hor" customClass="BartStationCell" customModule="BartApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="58.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pleasant Hill/Contra Costa Centre" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnq-DN-hIs">
+                                                    <rect key="frame" x="16" y="19" width="252" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Tnq-DN-hIs" firstAttribute="leading" secondItem="6Kk-jA-hor" secondAttribute="leading" constant="16" id="4UN-l7-u6T"/>
+                                                <constraint firstItem="Tnq-DN-hIs" firstAttribute="centerY" secondItem="6Kk-jA-hor" secondAttribute="centerY" id="oM3-o6-Lp7"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="stationNameLabel" destination="Tnq-DN-hIs" id="Ese-O8-Pxg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TfM-Ge-EzY" firstAttribute="top" secondItem="Nah-Fb-cCa" secondAttribute="bottom" id="9E7-Ot-xMe"/>
+                            <constraint firstAttribute="trailing" secondItem="Nah-Fb-cCa" secondAttribute="trailing" constant="10" id="HFX-tE-Nr1"/>
+                            <constraint firstItem="6Jh-IB-N2X" firstAttribute="leading" secondItem="FgT-am-xxU" secondAttribute="leading" constant="10" id="Hbh-t0-e1C"/>
+                            <constraint firstItem="Nah-Fb-cCa" firstAttribute="leading" secondItem="FgT-am-xxU" secondAttribute="leading" constant="10" id="cYe-mv-gVH"/>
+                            <constraint firstItem="Nah-Fb-cCa" firstAttribute="top" secondItem="6Jh-IB-N2X" secondAttribute="bottom" constant="16" id="fcH-ki-3TI"/>
+                            <constraint firstItem="6Jh-IB-N2X" firstAttribute="top" secondItem="lY4-iG-Exq" secondAttribute="bottom" constant="16" id="nli-iK-A4s"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="instructionLabel" destination="6Jh-IB-N2X" id="of3-sH-guV"/>
+                        <outlet property="tableView" destination="Nah-Fb-cCa" id="U4K-YH-Vav"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Twf-HC-TWy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="921" y="926"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3JT-KD-Uuv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nKa-aS-I5A" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hjb-d4-Efr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="icD-sB-V8A"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y33-xX-MOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="uuV-Nw-M11"/>
+    </inferredMetricsTieBreakers>
 </document>

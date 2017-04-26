@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		C9256F991EA5BE5C00A2118B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9256F981EA5BE5C00A2118B /* AppDelegate.swift */; };
-		C9256F9B1EA5BE5C00A2118B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9256F9A1EA5BE5C00A2118B /* ViewController.swift */; };
 		C9256F9E1EA5BE5C00A2118B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9256F9C1EA5BE5C00A2118B /* Main.storyboard */; };
 		C9256FA01EA5BE5C00A2118B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9256F9F1EA5BE5C00A2118B /* Assets.xcassets */; };
 		C9256FA31EA5BE5C00A2118B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9256FA11EA5BE5C00A2118B /* LaunchScreen.storyboard */; };
 		C95E26411EAFFFB6001B262B /* BartStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E26401EAFFFB6001B262B /* BartStation.swift */; };
+		C95E26481EB05DA5001B262B /* BartRouteInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E26471EB05DA5001B262B /* BartRouteInputViewController.swift */; };
+		C95E264A1EB05DC4001B262B /* ChooseBartStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E26491EB05DC4001B262B /* ChooseBartStationViewController.swift */; };
+		C95E264C1EB05E7C001B262B /* BartStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E264B1EB05E7C001B262B /* BartStationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C9256F951EA5BE5C00A2118B /* BartApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BartApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9256F981EA5BE5C00A2118B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C9256F9A1EA5BE5C00A2118B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C9256F9D1EA5BE5C00A2118B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9256F9F1EA5BE5C00A2118B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9256FA21EA5BE5C00A2118B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9256FA41EA5BE5C00A2118B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C95E26401EAFFFB6001B262B /* BartStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartStation.swift; sourceTree = "<group>"; };
+		C95E26471EB05DA5001B262B /* BartRouteInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartRouteInputViewController.swift; sourceTree = "<group>"; };
+		C95E26491EB05DC4001B262B /* ChooseBartStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBartStationViewController.swift; sourceTree = "<group>"; };
+		C95E264B1EB05E7C001B262B /* BartStationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartStationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,7 @@
 		76B6507E1EB03F2600F811EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C95E264B1EB05E7C001B262B /* BartStationCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -47,7 +52,8 @@
 		76B6507F1EB03F2D00F811EC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C9256F9A1EA5BE5C00A2118B /* ViewController.swift */,
+				C95E26471EB05DA5001B262B /* BartRouteInputViewController.swift */,
+				C95E26491EB05DC4001B262B /* ChooseBartStationViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -79,6 +85,7 @@
 		C9256F971EA5BE5C00A2118B /* BartApp */ = {
 			isa = PBXGroup;
 			children = (
+				C95E26441EB0561C001B262B /* API */,
 				76B650801EB03F3500F811EC /* Models */,
 				76B6507F1EB03F2D00F811EC /* View Controllers */,
 				76B6507E1EB03F2600F811EC /* Views */,
@@ -89,6 +96,13 @@
 				C9256FA41EA5BE5C00A2118B /* Info.plist */,
 			);
 			path = BartApp;
+			sourceTree = "<group>";
+		};
+		C95E26441EB0561C001B262B /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,9 +178,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C95E264A1EB05DC4001B262B /* ChooseBartStationViewController.swift in Sources */,
 				C95E26411EAFFFB6001B262B /* BartStation.swift in Sources */,
-				C9256F9B1EA5BE5C00A2118B /* ViewController.swift in Sources */,
+				C95E26481EB05DA5001B262B /* BartRouteInputViewController.swift in Sources */,
 				C9256F991EA5BE5C00A2118B /* AppDelegate.swift in Sources */,
+				C95E264C1EB05E7C001B262B /* BartStationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
