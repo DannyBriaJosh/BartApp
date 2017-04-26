@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		769395751EB058E6008C21C0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769395741EB058E6008C21C0 /* MapViewController.swift */; };
 		C9256F991EA5BE5C00A2118B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9256F981EA5BE5C00A2118B /* AppDelegate.swift */; };
 		C9256F9E1EA5BE5C00A2118B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9256F9C1EA5BE5C00A2118B /* Main.storyboard */; };
 		C9256FA01EA5BE5C00A2118B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9256F9F1EA5BE5C00A2118B /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		769395741EB058E6008C21C0 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C9256F951EA5BE5C00A2118B /* BartApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BartApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9256F981EA5BE5C00A2118B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9256F9D1EA5BE5C00A2118B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 		76B6507F1EB03F2D00F811EC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				769395741EB058E6008C21C0 /* MapViewController.swift */,
 				C95E26471EB05DA5001B262B /* BartRouteInputViewController.swift */,
 				C95E26491EB05DC4001B262B /* ChooseBartStationViewController.swift */,
 			);
@@ -182,6 +185,7 @@
 				C95E26411EAFFFB6001B262B /* BartStation.swift in Sources */,
 				C95E26481EB05DA5001B262B /* BartRouteInputViewController.swift in Sources */,
 				C9256F991EA5BE5C00A2118B /* AppDelegate.swift in Sources */,
+				769395751EB058E6008C21C0 /* MapViewController.swift in Sources */,
 				C95E264C1EB05E7C001B262B /* BartStationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
