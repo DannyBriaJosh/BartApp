@@ -17,6 +17,8 @@
 		C95E264A1EB05DC4001B262B /* ChooseBartStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E26491EB05DC4001B262B /* ChooseBartStationViewController.swift */; };
 		C95E264C1EB05E7C001B262B /* BartStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E264B1EB05E7C001B262B /* BartStationCell.swift */; };
 		C95E264E1EB15765001B262B /* RoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E264D1EB15765001B262B /* RoutesViewController.swift */; };
+		C96A44BC1EB1CDEB006EE840 /* BartRouteInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A44BB1EB1CDEB006EE840 /* BartRouteInputView.swift */; };
+		C96A44BE1EB1CE0C006EE840 /* ChooseBartStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A44BD1EB1CE0C006EE840 /* ChooseBartStationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		C95E26491EB05DC4001B262B /* ChooseBartStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBartStationViewController.swift; sourceTree = "<group>"; };
 		C95E264B1EB05E7C001B262B /* BartStationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartStationCell.swift; sourceTree = "<group>"; };
 		C95E264D1EB15765001B262B /* RoutesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesViewController.swift; sourceTree = "<group>"; };
+		C96A44BB1EB1CDEB006EE840 /* BartRouteInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartRouteInputView.swift; sourceTree = "<group>"; };
+		C96A44BD1EB1CE0C006EE840 /* ChooseBartStationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBartStationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,8 @@
 			isa = PBXGroup;
 			children = (
 				C95E264B1EB05E7C001B262B /* BartStationCell.swift */,
+				C96A44BB1EB1CDEB006EE840 /* BartRouteInputView.swift */,
+				C96A44BD1EB1CE0C006EE840 /* ChooseBartStationView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -190,6 +196,8 @@
 				C9256F991EA5BE5C00A2118B /* AppDelegate.swift in Sources */,
 				769395751EB058E6008C21C0 /* MapViewController.swift in Sources */,
 				C95E264C1EB05E7C001B262B /* BartStationCell.swift in Sources */,
+				C96A44BE1EB1CE0C006EE840 /* ChooseBartStationView.swift in Sources */,
+				C96A44BC1EB1CDEB006EE840 /* BartRouteInputView.swift in Sources */,
 				C95E264E1EB15765001B262B /* RoutesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
