@@ -10,12 +10,15 @@ import UIKit
 
 class ChooseBartStationView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet weak var instructionLabel: UILabel!
+    
+    func setInstructionLabel(starting: Bool, ending: Bool) {
+        if starting {
+            instructionLabel.text = "Choose a starting station:"
+        }
+        if ending {
+            instructionLabel.text = "Choose an ending station:"
+        }
     }
-    */
 
 }

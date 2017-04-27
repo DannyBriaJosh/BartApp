@@ -174,7 +174,7 @@
                         <viewControllerLayoutGuide type="top" id="lY4-iG-Exq"/>
                         <viewControllerLayoutGuide type="bottom" id="TfM-Ge-EzY"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FgT-am-xxU">
+                    <view key="view" contentMode="scaleToFill" id="FgT-am-xxU" customClass="ChooseBartStationView" customModule="BartApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -231,9 +231,12 @@
                             <constraint firstItem="Nah-Fb-cCa" firstAttribute="top" secondItem="6Jh-IB-N2X" secondAttribute="bottom" constant="16" id="fcH-ki-3TI"/>
                             <constraint firstItem="6Jh-IB-N2X" firstAttribute="top" secondItem="lY4-iG-Exq" secondAttribute="bottom" constant="16" id="nli-iK-A4s"/>
                         </constraints>
+                        <connections>
+                            <outlet property="instructionLabel" destination="6Jh-IB-N2X" id="rNV-cF-4A0"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="instructionLabel" destination="6Jh-IB-N2X" id="of3-sH-guV"/>
+                        <outlet property="chooseBartStationView" destination="FgT-am-xxU" id="cvc-8j-les"/>
                         <outlet property="tableView" destination="Nah-Fb-cCa" id="U4K-YH-Vav"/>
                     </connections>
                 </viewController>

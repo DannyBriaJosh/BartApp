@@ -21,6 +21,7 @@ class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UI
     var starting = false
     var ending = false
     
+    @IBOutlet var chooseBartStationView: ChooseBartStationView!
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,13 +31,7 @@ class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UI
         tableView.dataSource = self
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         bartStations = appDelegate.allBartStations
-        if starting {
-            instructionLabel.text = "Choose a starting station:"
-        }
-        if ending {
-            instructionLabel.text = "Choose a ending station:"
-        }
-        
+        chooseBartStationView.setInstructionLabel(starting: starting, ending: ending)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,8 +40,7 @@ class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BartStationCell", for: indexPath) as! BartStationCell
-        let station = bartStations[indexPath.row]
-        cell.stationName = station.name
+        cell.station = bartStations[indexPath.row]
         return cell
     }
     
@@ -59,7 +53,6 @@ class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UI
             delegate?.setEndingStation(chooseBartStationViewController: self, didSetEndingStation: bartStations[indexPath.row])
         }
         dismiss(animated: true, completion: nil)
-        
     }
 
     override func didReceiveMemoryWarning() {
