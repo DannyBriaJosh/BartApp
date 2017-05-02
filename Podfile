@@ -7,8 +7,8 @@ target 'BartApp' do
 
   # Pods for BartApp
   pod 'AFNetworking', '~> 2.5'
-
-
+  pod 'SWXMLHash', '~> 3.0.0'
+  pod 'Alamofire', '~> 4.4'
 
 
 end

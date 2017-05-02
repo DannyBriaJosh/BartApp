@@ -53,6 +53,9 @@ class BartRouteInputViewController: UIViewController, ChooseBartStationDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         bartRouteInputView.onLoad()
+        
+        BartClient.sharedInstance.grabRoute()
+        
     }
 
     override func didReceiveMemoryWarning() {
