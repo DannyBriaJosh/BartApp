@@ -13,16 +13,16 @@ class BartRouteInputViewController: UIViewController, ChooseBartStationDelegate 
     @IBOutlet var bartRouteInputView: BartRouteInputView!
     
     var startingTime: Date!
-    var userInputs = [String : Any]()
+    var trip = TripRequest()
     
     func setStartingStation(chooseBartStationViewController: ChooseBartStationViewController, didSetStartingStation startingStation: BartStation) {
         bartRouteInputView.setStartingStation(startingStation: startingStation)
-        userInputs["Start Station"] = startingStation
+        trip.startStation = startingStation
     }
     
     func setEndingStation(chooseBartStationViewController: ChooseBartStationViewController, didSetEndingStation endingStation: BartStation) {
         bartRouteInputView.setEndingStation(endingStation: endingStation)
-        userInputs["End Station"] = endingStation
+        trip.endStation = endingStation
     }
     
     @IBAction func onStartingTimeButton(_ sender: Any) {
@@ -32,7 +32,7 @@ class BartRouteInputViewController: UIViewController, ChooseBartStationDelegate 
     @IBAction func onDoneButton(_ sender: Any) {
         bartRouteInputView.onDoneButton()
         startingTime = bartRouteInputView.timePicker.date
-        userInputs["Start Time"] = startingTime
+        trip.departureTime = startingTime
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,7 +46,7 @@ class BartRouteInputViewController: UIViewController, ChooseBartStationDelegate 
             vc.delegate = self
         } else if segue.identifier == "FindRoutesSegue" {
             let vc = segue.destination as! RoutesViewController
-            vc.userInput = userInputs
+            vc.userInput = trip
         }
     }
     
