@@ -53,8 +53,10 @@ class BartRouteInputViewController: UIViewController, ChooseBartStationDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         bartRouteInputView.onLoad()
+        //"https://api.bart.gov/api/sched.aspx?cmd=depart&orig=ASHB&dest=CIVC&date=now&key=MW9S-
         
-        BartClient.sharedInstance.grabRoute()
+        BartClient.sharedInstance.grabRoute(cmd: "depart", origin: "ASHB", destination: "CIVC", date: "now")
+        
         
     }
 
