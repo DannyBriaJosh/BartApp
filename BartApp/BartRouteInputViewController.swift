@@ -35,6 +35,26 @@ class BartRouteInputViewController: UIViewController, ChooseBartStationDelegate 
         trip.departureTime = startingTime
     }
     
+    @IBAction func onSwitchStartEndStationButton(_ sender: Any) {
+        let previousStart = trip.startStation
+        let previousEnd = trip.endStation
+        if previousEnd != nil {
+            bartRouteInputView.setStartingStation(startingStation: previousEnd!)
+            trip.startStation = previousEnd
+        } else if previousStart != nil {
+            bartRouteInputView.clearStartingStation()
+            trip.startStation = nil
+        }
+        if previousStart != nil {
+            bartRouteInputView.setEndingStation(endingStation: previousStart!)
+            trip.endStation = previousStart
+        } else if previousEnd != nil {
+            bartRouteInputView.clearEndingStation()
+            trip.endStation = nil
+        }
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SelectStartingStationSegue" {
             let vc = segue.destination as! ChooseBartStationViewController
@@ -53,11 +73,6 @@ class BartRouteInputViewController: UIViewController, ChooseBartStationDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         bartRouteInputView.onLoad()
-       
-        
-       
-        
-        
     }
 
     override func didReceiveMemoryWarning() {

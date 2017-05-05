@@ -89,9 +89,8 @@
                                     <!--2017-04-26 04:10:45 +0000-->
                                 </date>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYc-8I-bhj">
-                                <rect key="frame" x="309" y="473" width="45" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYc-8I-bhj">
+                                <rect key="frame" x="320" y="451" width="39" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -100,10 +99,22 @@
                                     <action selector="onDoneButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oJd-kQ-le3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="job-EU-bln">
+                                <rect key="frame" x="168" y="211" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="5NT-Xh-bHw"/>
+                                    <constraint firstAttribute="width" constant="40" id="VjD-z2-iHR"/>
+                                </constraints>
+                                <state key="normal" image="np_double-arrow_947250_000000"/>
+                                <connections>
+                                    <action selector="onSwitchStartEndStationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A1v-yQ-b6a"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="9eW-AL-BIj" secondAttribute="trailing" id="3K1-Qe-sw3"/>
+                            <constraint firstItem="job-EU-bln" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="97D-dp-Jy2"/>
                             <constraint firstItem="9eW-AL-BIj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="G8x-rh-NVv"/>
                             <constraint firstItem="Hao-dd-xwu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LCt-7L-Ped"/>
                             <constraint firstItem="9eW-AL-BIj" firstAttribute="top" secondItem="KkG-Zy-qjs" secondAttribute="bottom" constant="8" id="MOG-M5-8Ny"/>
@@ -114,8 +125,11 @@
                             <constraint firstItem="Ysv-o2-zuq" firstAttribute="top" secondItem="KkG-Zy-qjs" secondAttribute="bottom" constant="8" id="Whz-T5-sD4"/>
                             <constraint firstItem="KkG-Zy-qjs" firstAttribute="top" secondItem="Hao-dd-xwu" secondAttribute="bottom" constant="80" id="Y6c-vv-wWj"/>
                             <constraint firstItem="t5E-me-SgG" firstAttribute="top" secondItem="gtG-PC-1eZ" secondAttribute="bottom" constant="80" id="YTs-kE-tYa"/>
+                            <constraint firstAttribute="trailing" secondItem="vYc-8I-bhj" secondAttribute="trailing" constant="16" id="akw-fR-bWs"/>
                             <constraint firstItem="gtG-PC-1eZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dDl-f8-0D1"/>
+                            <constraint firstItem="vYc-8I-bhj" firstAttribute="top" secondItem="9eW-AL-BIj" secondAttribute="top" id="fDw-BL-l3d"/>
                             <constraint firstItem="cKy-M7-a1w" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="61" id="izv-wP-utf"/>
+                            <constraint firstItem="job-EU-bln" firstAttribute="top" secondItem="gtG-PC-1eZ" secondAttribute="bottom" constant="20" id="kjf-eZ-FLj"/>
                             <constraint firstItem="Ysv-o2-zuq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lpZ-ug-NEv"/>
                             <constraint firstItem="gtG-PC-1eZ" firstAttribute="top" secondItem="cKy-M7-a1w" secondAttribute="bottom" constant="8" id="paJ-CZ-uA9"/>
                             <constraint firstItem="Hao-dd-xwu" firstAttribute="top" secondItem="t5E-me-SgG" secondAttribute="bottom" constant="8" id="rrc-56-XpY"/>
@@ -249,7 +263,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nKa-aS-I5A" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hjb-d4-Efr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hjb-d4-Efr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -293,6 +307,9 @@
             <point key="canvasLocation" x="2487" y="139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="np_double-arrow_947250_000000" width="24" height="24"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uuV-Nw-M11"/>
     </inferredMetricsTieBreakers>

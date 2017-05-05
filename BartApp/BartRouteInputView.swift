@@ -41,6 +41,20 @@ class BartRouteInputView: UIView {
         setFindButtonStatus()
     }
     
+    func clearStartingStation() {
+        startingStationButton.setTitle("This is the starting station.", for: .normal)
+        startingStationButton.setTitleColor(UIColor.white, for: .normal)
+        userInputs.removeValue(forKey: "Start Station")
+        setFindButtonStatus()
+    }
+    
+    func clearEndingStation() {
+        endingStationButton.setTitle("This is the ending station.", for: .normal)
+        endingStationButton.setTitleColor(UIColor.white, for: .normal)
+        userInputs.removeValue(forKey: "End Station")
+        setFindButtonStatus()
+    }
+    
     func setEndingStation(endingStation: BartStation) {
         endingStationButton.setTitle("     \(endingStation.name!)     ", for: .normal)
         endingStationButton.setTitleColor(UIColor.black, for: .normal)
