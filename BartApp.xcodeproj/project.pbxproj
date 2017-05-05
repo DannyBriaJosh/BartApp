@@ -22,6 +22,7 @@
 		C95E264E1EB15765001B262B /* RoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E264D1EB15765001B262B /* RoutesViewController.swift */; };
 		C96A44BC1EB1CDEB006EE840 /* BartRouteInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A44BB1EB1CDEB006EE840 /* BartRouteInputView.swift */; };
 		C96A44BE1EB1CE0C006EE840 /* ChooseBartStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A44BD1EB1CE0C006EE840 /* ChooseBartStationView.swift */; };
+		C96A44C01EBA92D3006EE840 /* TripRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A44BF1EBA92D3006EE840 /* TripRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		C95E264D1EB15765001B262B /* RoutesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesViewController.swift; sourceTree = "<group>"; };
 		C96A44BB1EB1CDEB006EE840 /* BartRouteInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartRouteInputView.swift; sourceTree = "<group>"; };
 		C96A44BD1EB1CE0C006EE840 /* ChooseBartStationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBartStationView.swift; sourceTree = "<group>"; };
+		C96A44BF1EBA92D3006EE840 /* TripRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			children = (
 				C95E26401EAFFFB6001B262B /* BartStation.swift */,
 				5F8D6FAF1EBB951C0090523E /* Trip.swift */,
+				C96A44BF1EBA92D3006EE840 /* TripRequest.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				C95E264A1EB05DC4001B262B /* ChooseBartStationViewController.swift in Sources */,
 				C95E26411EAFFFB6001B262B /* BartStation.swift in Sources */,
 				5F8D6FB01EBB951C0090523E /* Trip.swift in Sources */,
+				C96A44C01EBA92D3006EE840 /* TripRequest.swift in Sources */,
 				C95E26481EB05DA5001B262B /* BartRouteInputViewController.swift in Sources */,
 				5F7384CB1EB6A61D00B11B6A /* BartClient.swift in Sources */,
 				C9256F991EA5BE5C00A2118B /* AppDelegate.swift in Sources */,

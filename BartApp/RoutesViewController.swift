@@ -10,7 +10,7 @@ import UIKit
 
 class RoutesViewController: UIViewController {
     
-    var userInput: [String: Any]!
+    var userInput: TripRequest!
 
     override func viewDidLoad() {
         super.viewDidLoad()
