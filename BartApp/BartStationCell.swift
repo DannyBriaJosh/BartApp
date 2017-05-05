@@ -18,6 +18,10 @@ class BartStationCell: UITableViewCell {
         }
     }
     
+    func makeFontGray() {
+        stationNameLabel.textColor = UIColor.gray
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

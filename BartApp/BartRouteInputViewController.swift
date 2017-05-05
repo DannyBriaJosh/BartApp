@@ -59,10 +59,12 @@ class BartRouteInputViewController: UIViewController, ChooseBartStationDelegate 
         if segue.identifier == "SelectStartingStationSegue" {
             let vc = segue.destination as! ChooseBartStationViewController
             vc.starting = true
+            vc.otherSelectedStation = trip.endStation
             vc.delegate = self
         } else if segue.identifier == "SelectEndingStationSegue" {
             let vc = segue.destination as! ChooseBartStationViewController
             vc.ending = true
+            vc.otherSelectedStation = trip.startStation
             vc.delegate = self
         } else if segue.identifier == "FindRoutesSegue" {
             let vc = segue.destination as! RoutesViewController
