@@ -14,8 +14,8 @@ class RoutesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(userInput)
 
+        BartClient.sharedInstance.grabRoutes(cmd: "depart", origin: "ASHB", destination: "CIVC", date: "now")
         // Do any additional setup after loading the view.
     }
 
