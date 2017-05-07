@@ -11,11 +11,28 @@ import UIKit
 class RoutesViewController: UIViewController {
     
     var userInput: TripRequest!
-
+    var trips = [Trip]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        BartClient.sharedInstance.grabRoutes(cmd: "depart", origin: "ASHB", destination: "CIVC", date: "now")
+        
+        
+        let originStation = userInput.startStation?.initial
+        let destinationStation = userInput.endStation?.initial
+        
+        print(originStation)
+        print(destinationStation)
+        
+        
+        BartClient.sharedInstance.grabRoutes(cmd: "depart", origin: originStation!, destination: destinationStation!, date: "now", success: { (trips: [Trip]) -> () in
+            self.trips = trips
+            print("trips: \(self.trips)")
+            
+//            self.tweetsTableView.reloadData()
+            
+        }, failure: { (error: Error) -> () in
+            //
+        })
         // Do any additional setup after loading the view.
     }
 
