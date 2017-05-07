@@ -13,6 +13,8 @@ class RoutesViewController: UIViewController {
     var userInput: TripRequest!
     var trips = [Trip]()
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,13 +28,14 @@ class RoutesViewController: UIViewController {
         
         BartClient.sharedInstance.grabRoutes(cmd: "depart", origin: originStation!, destination: destinationStation!, date: "now", success: { (trips: [Trip]) -> () in
             self.trips = trips
-            print("trips: \(self.trips)")
-            
-//            self.tweetsTableView.reloadData()
+          //  print("trips: \(self.trips)")
+            self.tableView.reloadData()
             
         }, failure: { (error: Error) -> () in
             //
         })
+        
+        tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
 
@@ -52,4 +55,30 @@ class RoutesViewController: UIViewController {
     }
     */
 
+}
+
+extension RoutesViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let trip = trips[section]
+        return trip.legs!.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let legs = trips[indexPath.section].legs
+        let leg = legs?[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TripStationCell") as! TripStationCell
+        cell.leg = leg
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("hello world \(indexPath.section)")
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return trips.count
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Trip \(section + 1)"
+    }
 }
