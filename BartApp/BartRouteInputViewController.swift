@@ -8,37 +8,76 @@
 
 import UIKit
 
-class BartRouteInputViewController: UIViewController {
+class BartRouteInputViewController: UIViewController, ChooseBartStationDelegate {
 
-    @IBOutlet weak var startingStationInputButton: UIButton!
-    @IBOutlet weak var endingStationInputButton: UIButton!
-    @IBOutlet weak var startingTimeTextField: UITextField!
-    @IBOutlet weak var timePicker: UIDatePicker!
+    @IBOutlet var bartRouteInputView: BartRouteInputView!
     
-//    @IBAction func onStartingStationButton(_ sender: Any) {
-//        performSegue(withIdentifier: "SelectStartingStationSegue", sender: self)
-//    }
-//    
-//    @IBAction func onEndingStationButton(_ sender: Any) {
-//        performSegue(withIdentifier: "SelectEndingStationSegue", sender: self)
-//    }
+    var startingTime: Date!
+    var trip = TripRequest()
+    
+    func setStartingStation(chooseBartStationViewController: ChooseBartStationViewController, didSetStartingStation startingStation: BartStation) {
+        bartRouteInputView.setStartingStation(startingStation: startingStation)
+        trip.startStation = startingStation
+    }
+    
+    func setEndingStation(chooseBartStationViewController: ChooseBartStationViewController, didSetEndingStation endingStation: BartStation) {
+        bartRouteInputView.setEndingStation(endingStation: endingStation)
+        trip.endStation = endingStation
+    }
+    
+    @IBAction func onStartingTimeButton(_ sender: Any) {
+        bartRouteInputView.onStartingTimeButton()
+    }
+    
+    @IBAction func onDoneButton(_ sender: Any) {
+        bartRouteInputView.onDoneButton()
+        startingTime = bartRouteInputView.timePicker.date
+        trip.departureTime = startingTime
+    }
+    
+    @IBAction func onSwitchStartEndStationButton(_ sender: Any) {
+        let previousStart = trip.startStation
+        let previousEnd = trip.endStation
+        if previousEnd != nil {
+            bartRouteInputView.setStartingStation(startingStation: previousEnd!)
+            trip.startStation = previousEnd
+        } else if previousStart != nil {
+            bartRouteInputView.clearStartingStation()
+            trip.startStation = nil
+        }
+        if previousStart != nil {
+            bartRouteInputView.setEndingStation(endingStation: previousStart!)
+            trip.endStation = previousStart
+        } else if previousEnd != nil {
+            bartRouteInputView.clearEndingStation()
+            trip.endStation = nil
+        }
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SelectStartingStationSegue" {
             let vc = segue.destination as! ChooseBartStationViewController
-            vc.instruction = "Choose a starting station:"
+            vc.starting = true
+            vc.otherSelectedStation = trip.endStation
+            vc.delegate = self
         } else if segue.identifier == "SelectEndingStationSegue" {
             let vc = segue.destination as! ChooseBartStationViewController
-            vc.instruction = "Choose an ending station:"
+            vc.ending = true
+            vc.otherSelectedStation = trip.startStation
+            vc.delegate = self
+        } else if segue.identifier == "FindRoutesSegue" {
+            let vc = segue.destination as! RoutesViewController
+            vc.userInput = trip
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bartRouteInputView.onLoad()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
 }

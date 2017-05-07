@@ -12,10 +12,14 @@ class BartStationCell: UITableViewCell {
 
     @IBOutlet weak var stationNameLabel: UILabel!
     
-    var stationName: String! {
+    var station: BartStation! {
         didSet {
-            stationNameLabel.text = stationName
+            stationNameLabel.text = station.name
         }
+    }
+    
+    func makeFontGray() {
+        stationNameLabel.textColor = UIColor.gray
     }
     
     override func awakeFromNib() {
