@@ -18,6 +18,7 @@ class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UI
     weak var delegate: ChooseBartStationDelegate?
     
     var bartStations: [BartStation]! = []
+    var otherSelectedStation: BartStation?
     var starting = false
     var ending = false
     
@@ -41,6 +42,10 @@ class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BartStationCell", for: indexPath) as! BartStationCell
         cell.station = bartStations[indexPath.row]
+        if cell.station.name == otherSelectedStation?.name {
+            cell.isUserInteractionEnabled = false
+            cell.makeFontGray()
+        }
         return cell
     }
     
