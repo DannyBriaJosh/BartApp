@@ -177,8 +177,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Depart Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bB-Tt-QMs">
-                                                    <rect key="frame" x="8" y="12" width="111" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AHSB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bB-Tt-QMs">
+                                                    <rect key="frame" x="8" y="12" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -189,17 +189,34 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGI-G5-Uc3">
+                                                    <rect key="frame" x="56" y="12" width="16" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABCD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKh-m0-4GJ">
+                                                    <rect key="frame" x="75" y="12" width="46" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="kGI-G5-Uc3" firstAttribute="leading" secondItem="0bB-Tt-QMs" secondAttribute="trailing" constant="3" id="2Nj-16-Pjl"/>
+                                                <constraint firstItem="kGI-G5-Uc3" firstAttribute="centerY" secondItem="gTY-FT-qgd" secondAttribute="centerY" id="3qD-UQ-dMt"/>
                                                 <constraint firstItem="c48-4m-kyr" firstAttribute="trailing" secondItem="gTY-FT-qgd" secondAttribute="trailingMargin" id="64g-MF-XoU"/>
                                                 <constraint firstItem="0bB-Tt-QMs" firstAttribute="leading" secondItem="gTY-FT-qgd" secondAttribute="leadingMargin" id="6Jg-dp-NP5"/>
                                                 <constraint firstItem="0bB-Tt-QMs" firstAttribute="centerY" secondItem="gTY-FT-qgd" secondAttribute="centerY" id="EfC-Ed-hcB"/>
                                                 <constraint firstItem="c48-4m-kyr" firstAttribute="centerY" secondItem="gTY-FT-qgd" secondAttribute="centerY" id="JkJ-UL-4Bk"/>
+                                                <constraint firstItem="rKh-m0-4GJ" firstAttribute="centerY" secondItem="gTY-FT-qgd" secondAttribute="centerY" id="rtW-gK-K92"/>
+                                                <constraint firstItem="rKh-m0-4GJ" firstAttribute="leading" secondItem="kGI-G5-Uc3" secondAttribute="trailing" constant="3" id="xII-wz-e4w"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="departStationLabel" destination="0bB-Tt-QMs" id="anL-nV-tKj"/>
                                             <outlet property="departTimeLabel" destination="c48-4m-kyr" id="cL8-Yp-nZ4"/>
+                                            <outlet property="destinationStationLabel" destination="rKh-m0-4GJ" id="3Tj-xq-pj3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -35,6 +35,7 @@ class RoutesViewController: UIViewController {
             //
         })
         
+        tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
@@ -72,9 +73,9 @@ extension RoutesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("hello world \(indexPath.section)")
+        let trip = trips[indexPath.section]
+        print("did select \(trip)")
     }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return trips.count
     }

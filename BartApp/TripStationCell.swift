@@ -13,10 +13,17 @@ class TripStationCell: UITableViewCell {
     @IBOutlet weak var departStationLabel: UILabel!
     @IBOutlet weak var departTimeLabel: UILabel!
     
+    @IBOutlet weak var destinationStationLabel: UILabel!
+    
     var leg: Leg? {
         didSet {
+            print(leg)
+            if let origin = leg?.origin {
+                departStationLabel.text = origin
+            }
+            
             if let destination = leg?.destination {
-                departStationLabel.text = destination
+                destinationStationLabel.text = destination
             }
             if let departTime = leg?.departTime {
                 departTimeLabel.text = departTime
