@@ -85,6 +85,8 @@ class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BartStationCell", for: indexPath) as! BartStationCell
+        cell.resetCell()
+        cell.isUserInteractionEnabled = true
         cell.station = bartStations[indexPath.row]
         if cell.station.name == otherSelectedStation?.name {
             cell.isUserInteractionEnabled = false
