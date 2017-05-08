@@ -65,16 +65,23 @@ extension RoutesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TripStationCell") as! TripStationCell
         let legs = trips[indexPath.section].legs
         let leg = legs?[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TripStationCell") as! TripStationCell
+        
         cell.leg = leg
+        cell.selectionStyle = .none
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let trip = trips[indexPath.section]
-        print("did select \(trip)")
+        if let legs = trip.legs {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+            vc.legs = legs
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return trips.count

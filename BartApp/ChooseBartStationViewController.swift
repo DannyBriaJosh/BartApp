@@ -40,23 +40,15 @@ class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UI
     
     func loadHomeWorkStations() {
         let defaults = UserDefaults.standard
-        let homeStationInitial = defaults.value(forKey: "Home") as? String
-        if homeStationInitial != nil {
-            for (_,station) in bartStations.enumerated() {
-                if station.initial == homeStationInitial {
-                    homeStation = station
-                }
-            }
+        
+        if let homeStationIndex = defaults.value(forKey: "Home") as? Int {
+            homeStation = bartStations[homeStationIndex]
         }
-        let workStationInitial = defaults.value(forKey: "Work") as? String
-        if workStationInitial != nil {
-            for (_,station) in bartStations.enumerated() {
-    
-                if station.initial == workStationInitial {
-                    workStation = station
-                }
-            }
+        
+        if let workStationIndex = defaults.value(forKey: "Work") as? Int {
+            workStation = bartStations[workStationIndex]
         }
+        
         var copyBartStations = bartStations!
         var newBartStationsArray = [BartStation]()
         if homeStation != nil {

@@ -17,12 +17,14 @@ class MapViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let locationManager = CLLocationManager()
     let GEOFENCE_RADIUS = 400.0 //in meters
+    var bartStations: [BartStation] = []
+    var legs: [Leg] = []
     var stations: [BartStation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let bartStations = appDelegate.allBartStations
-        stations = [bartStations[17], bartStations[26], bartStations[33]]
+        bartStations = appDelegate.allBartStations
+        addStations()
         initMap()
         UNUserNotificationCenter.current().delegate = self
     }
@@ -30,6 +32,16 @@ class MapViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         getLocation()
+    }
+    
+    func addStations() {
+        for leg in legs {
+            for (_,station) in bartStations.enumerated() {
+                if station.initial == leg.destination {
+                    stations.append(station)
+                }
+            }
+        }
     }
     
     func initMap() {
