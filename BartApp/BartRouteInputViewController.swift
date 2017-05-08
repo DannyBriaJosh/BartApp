@@ -12,7 +12,9 @@ class BartRouteInputViewController: UIViewController, ChooseBartStationDelegate 
 
     @IBOutlet var bartRouteInputView: BartRouteInputView!
     
-    var startingTime: Date!
+    var arrival = false
+    var departure = true
+    var time: Date!
     var trip = TripRequest()
     
     func setStartingStation(chooseBartStationViewController: ChooseBartStationViewController, didSetStartingStation startingStation: BartStation) {
@@ -25,14 +27,25 @@ class BartRouteInputViewController: UIViewController, ChooseBartStationDelegate 
         trip.endStation = endingStation
     }
     
+    @IBAction func onDepartureButton(_ sender: Any) {
+        bartRouteInputView.onDepartureButton()
+        departure = true
+        arrival = false
+    }
+    
+    @IBAction func onArrivalButton(_ sender: Any) {
+        bartRouteInputView.onArrivalButton()
+        departure = false
+        arrival = true
+    }
+    
     @IBAction func onStartingTimeButton(_ sender: Any) {
         bartRouteInputView.onStartingTimeButton()
     }
     
     @IBAction func onDoneButton(_ sender: Any) {
         bartRouteInputView.onDoneButton()
-        startingTime = bartRouteInputView.timePicker.date
-        trip.departureTime = startingTime
+        time = bartRouteInputView.timePicker.date
     }
     
     @IBAction func onSwitchStartEndStationButton(_ sender: Any) {
@@ -68,6 +81,13 @@ class BartRouteInputViewController: UIViewController, ChooseBartStationDelegate 
             vc.delegate = self
         } else if segue.identifier == "FindRoutesSegue" {
             let vc = segue.destination as! RoutesViewController
+            if arrival {
+                trip.arrivalTime = time
+            }
+            if departure {
+                trip.departureTime = time
+            }
+            print(trip)
             vc.userInput = trip
         }
     }
