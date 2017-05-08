@@ -21,6 +21,8 @@ class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UI
     var otherSelectedStation: BartStation?
     var starting = false
     var ending = false
+    var homeStation: BartStation?
+    var workStation: BartStation?
     
     @IBOutlet var chooseBartStationView: ChooseBartStationView!
     @IBOutlet weak var instructionLabel: UILabel!
@@ -33,6 +35,48 @@ class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UI
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         bartStations = appDelegate.allBartStations
         chooseBartStationView.setInstructionLabel(starting: starting, ending: ending)
+        loadHomeWorkStations()
+    }
+    
+    func loadHomeWorkStations() {
+        let defaults = UserDefaults.standard
+        let homeStationInitial = defaults.value(forKey: "Home") as? String
+        if homeStationInitial != nil {
+            for (_,station) in bartStations.enumerated() {
+                if station.initial == homeStationInitial {
+                    homeStation = station
+                }
+            }
+        }
+        let workStationInitial = defaults.value(forKey: "Work") as? String
+        if workStationInitial != nil {
+            for (_,station) in bartStations.enumerated() {
+    
+                if station.initial == workStationInitial {
+                    workStation = station
+                }
+            }
+        }
+        var copyBartStations = bartStations!
+        var newBartStationsArray = [BartStation]()
+        if homeStation != nil {
+            newBartStationsArray += [homeStation!]
+        }
+        if workStation != nil {
+            newBartStationsArray += [workStation!]
+        }
+        for (index,station) in copyBartStations.enumerated() {
+            if station.initial == homeStation?.initial {
+                copyBartStations.remove(at: index)
+            }
+        }
+        for (index,station) in copyBartStations.enumerated() {
+            if station.initial == workStation?.initial {
+                copyBartStations.remove(at: index)
+            }
+        }
+        newBartStationsArray += copyBartStations
+        bartStations = newBartStationsArray
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,6 +85,8 @@ class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BartStationCell", for: indexPath) as! BartStationCell
+        cell.resetCell()
+        cell.isUserInteractionEnabled = true
         cell.station = bartStations[indexPath.row]
         if cell.station.name == otherSelectedStation?.name {
             cell.isUserInteractionEnabled = false

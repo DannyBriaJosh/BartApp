@@ -13,6 +13,8 @@ class BartRouteInputView: UIView {
     @IBOutlet weak var findRoutesButton: UIButton!
     @IBOutlet weak var startingStationButton: UIButton!
     @IBOutlet weak var endingStationButton: UIButton!
+    @IBOutlet weak var departureLabelButton: UIButton!
+    @IBOutlet weak var arrivalLabelButton: UIButton!
     @IBOutlet weak var startingTimeButton: UIButton!
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var doneButton: UIButton!
@@ -60,7 +62,16 @@ class BartRouteInputView: UIView {
         endingStationButton.setTitleColor(UIColor.black, for: .normal)
         userInputs["End Station"] = endingStation
         setFindButtonStatus()
-
+    }
+    
+    func onDepartureButton() {
+        departureLabelButton.setTitleColor(UIColor.black, for: .normal)
+        arrivalLabelButton.setTitleColor(UIColor.lightGray, for: .normal)
+    }
+    
+    func onArrivalButton() {
+        departureLabelButton.setTitleColor(UIColor.lightGray, for: .normal)
+        arrivalLabelButton.setTitleColor(UIColor.black, for: .normal)
     }
     
     func onStartingTimeButton() {

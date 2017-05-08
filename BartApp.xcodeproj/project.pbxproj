@@ -11,6 +11,7 @@
 		5F48D1671EBF9E760043EFA3 /* TripStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48D1661EBF9E760043EFA3 /* TripStationCell.swift */; };
 		5F7384CB1EB6A61D00B11B6A /* BartClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7384CA1EB6A61D00B11B6A /* BartClient.swift */; };
 		5F8D6FB01EBB951C0090523E /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8D6FAF1EBB951C0090523E /* Trip.swift */; };
+		7655A22C1EC0C9DF00273660 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7655A22B1EC0C9DF00273660 /* SettingsViewController.swift */; };
 		769395751EB058E6008C21C0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769395741EB058E6008C21C0 /* MapViewController.swift */; };
 		C9256F991EA5BE5C00A2118B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9256F981EA5BE5C00A2118B /* AppDelegate.swift */; };
 		C9256F9E1EA5BE5C00A2118B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9256F9C1EA5BE5C00A2118B /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 		5F48D1661EBF9E760043EFA3 /* TripStationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripStationCell.swift; sourceTree = "<group>"; };
 		5F7384CA1EB6A61D00B11B6A /* BartClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartClient.swift; sourceTree = "<group>"; };
 		5F8D6FAF1EBB951C0090523E /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		7655A22B1EC0C9DF00273660 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		769395741EB058E6008C21C0 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		79F1C0BBC1BEAF6D8752F040 /* Pods-BartApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BartApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BartApp/Pods-BartApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7B0B14D394FBF31FC01CCA28 /* Pods_BartApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BartApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +82,7 @@
 				C95E26471EB05DA5001B262B /* BartRouteInputViewController.swift */,
 				C95E26491EB05DC4001B262B /* ChooseBartStationViewController.swift */,
 				C95E264D1EB15765001B262B /* RoutesViewController.swift */,
+				7655A22B1EC0C9DF00273660 /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				C9256F991EA5BE5C00A2118B /* AppDelegate.swift in Sources */,
 				769395751EB058E6008C21C0 /* MapViewController.swift in Sources */,
 				C95E264C1EB05E7C001B262B /* BartStationCell.swift in Sources */,
+				7655A22C1EC0C9DF00273660 /* SettingsViewController.swift in Sources */,
 				5F48D1671EBF9E760043EFA3 /* TripStationCell.swift in Sources */,
 				C96A44BE1EB1CE0C006EE840 /* ChooseBartStationView.swift in Sources */,
 				C96A44BC1EB1CDEB006EE840 /* BartRouteInputView.swift in Sources */,

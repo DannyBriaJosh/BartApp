@@ -22,6 +22,10 @@ class BartStationCell: UITableViewCell {
         stationNameLabel.textColor = UIColor.gray
     }
     
+    func resetCell() {
+        stationNameLabel.textColor = UIColor.black
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
