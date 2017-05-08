@@ -11,11 +11,32 @@ import UIKit
 class RoutesViewController: UIViewController {
     
     var userInput: TripRequest!
-
+    var trips = [Trip]()
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        BartClient.sharedInstance.grabRoutes(cmd: "depart", origin: "ASHB", destination: "CIVC", date: "now")
+        
+        
+        let originStation = userInput.startStation?.initial
+        let destinationStation = userInput.endStation?.initial
+        
+        print(originStation)
+        print(destinationStation)
+        
+        
+        BartClient.sharedInstance.grabRoutes(cmd: "depart", origin: originStation!, destination: destinationStation!, date: "now", success: { (trips: [Trip]) -> () in
+            self.trips = trips
+          //  print("trips: \(self.trips)")
+            self.tableView.reloadData()
+            
+        }, failure: { (error: Error) -> () in
+            //
+        })
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
 
@@ -35,4 +56,30 @@ class RoutesViewController: UIViewController {
     }
     */
 
+}
+
+extension RoutesViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let trip = trips[section]
+        return trip.legs!.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let legs = trips[indexPath.section].legs
+        let leg = legs?[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TripStationCell") as! TripStationCell
+        cell.leg = leg
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let trip = trips[indexPath.section]
+        print("did select \(trip)")
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return trips.count
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Trip \(section + 1)"
+    }
 }

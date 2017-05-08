@@ -9,19 +9,22 @@
 import UIKit
 import CoreLocation
 import MapKit
+import UserNotifications
+import AVFoundation
 
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let locationManager = CLLocationManager()
-    
+    let GEOFENCE_RADIUS = 400.0 //in meters
     var stations: [BartStation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let bartStations = appDelegate.allBartStations
-        stations = [bartStations[0], bartStations[3], bartStations[7]]
-        pinStationsToMap()
+        stations = [bartStations[17], bartStations[26], bartStations[33]]
+        initMap()
+        UNUserNotificationCenter.current().delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -29,20 +32,59 @@ class MapViewController: UIViewController {
         getLocation()
     }
     
-    func pinStationsToMap() {
+    func initMap() {
         for station in stations {
-            let annotation = MKPointAnnotation()
-            if let stationName = station.name {
-                annotation.title = stationName
-            }
-            
-            if let coordinates = station.stationCoordinate {
-                annotation.coordinate = coordinates
-            }
-            
-            mapView.addAnnotation(annotation)
+            pinStationToMap(station: station)
+            addGeofence(station: station)
         }
+        mapView.showsUserLocation = true
         mapView.showAnnotations(mapView.annotations, animated: true)
+    }
+    
+    func pinStationToMap(station: BartStation) {
+        let annotation = MKPointAnnotation()
+        if let stationName = station.name {
+            annotation.title = stationName
+        }
+        
+        if let coordinates = station.stationCoordinate {
+            annotation.coordinate = coordinates
+        }
+        
+        mapView.addAnnotation(annotation)
+    }
+    
+    func addGeofence(station: BartStation) {
+        let annotation = MKPointAnnotation()
+        if let coordinates = station.stationCoordinate {
+            annotation.coordinate = coordinates
+            mapView.addAnnotation(annotation)
+            let bartStation = CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
+            
+            mapView?.add(MKCircle(center: bartStation, radius: GEOFENCE_RADIUS))
+            startMonitoringGeotification(station: station)
+        }
+    }
+    
+    func startMonitoringGeotification(station: BartStation) {
+        if !CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+            print("Geofencing is not supported on this device")
+            return
+        }
+        
+        let region = regionWithGeotification(station: station)
+        locationManager.startMonitoring(for: region)
+    }
+    
+    func regionWithGeotification(station: BartStation) -> CLCircularRegion {
+        var region = CLCircularRegion()
+        if let coordinates = station.stationCoordinate, let initial = station.initial {
+            region = CLCircularRegion(center: coordinates, radius: GEOFENCE_RADIUS, identifier: initial)
+            region.notifyOnEntry = true
+            region.notifyOnExit = true
+        }
+        
+        return region
     }
 }
 
@@ -51,9 +93,12 @@ extension MapViewController: CLLocationManagerDelegate {
         let status = CLLocationManager.authorizationStatus()
         
         switch  status {
-//        case .authorizedAlways:
+        case .authorizedAlways:
+            locationManager.delegate = self
+            locationManager.startUpdatingLocation()
+            break
         case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
+            locationManager.requestAlwaysAuthorization()
             break
         case .denied, .restricted, .authorizedWhenInUse:
             let alert = UIAlertController(title: "Oops", message: "Please select \"Always\" from the Allow Location Access options", preferredStyle: .alert)
@@ -67,15 +112,54 @@ extension MapViewController: CLLocationManagerDelegate {
             alert.addAction(cancelAction)
             present(alert, animated: true, completion: nil)
             break
-        default:
-            locationManager.delegate = self
-            locationManager.startUpdatingLocation()
-            break
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        // Force map to follow user
+//        let location = locationManager.location! as CLLocation
+//        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+//        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+//        mapView.setRegion(region, animated: true)
+//    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Unable to track user's location: \(error.localizedDescription)")
     }
     
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        createLocalNotification()
+    }
+    
+}
+
+extension MapViewController: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // is running in foreground
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        // is running in backgrond
+        completionHandler()
+    }
+    
+    func createLocalNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = String.localizedUserNotificationString(forKey: "Almost there!",
+                                                               arguments: nil)
+        content.body = String.localizedUserNotificationString(forKey: "You are now approaching your stop",
+                                                              arguments: nil)
+        content.sound = UNNotificationSound.default()
+//        content.sound = UNNotificationSound(named: "MySound.aiff")
+        let request = UNNotificationRequest(identifier: "StationAlarm", content: content, trigger: nil)
+        let center = UNUserNotificationCenter.current()
+        center.add(request, withCompletionHandler: nil)
+        vibratePhone()
+    }
+    
+    func vibratePhone() {
+        AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+    }
 }
