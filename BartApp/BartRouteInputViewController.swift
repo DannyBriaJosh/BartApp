@@ -81,6 +81,8 @@ class BartRouteInputViewController: UIViewController, ChooseBartStationDelegate 
             vc.delegate = self
         } else if segue.identifier == "FindRoutesSegue" {
             let vc = segue.destination as! RoutesViewController
+            trip.arrivalTime = nil
+            trip.departureTime = nil
             if arrival {
                 trip.arrivalTime = time
             }
