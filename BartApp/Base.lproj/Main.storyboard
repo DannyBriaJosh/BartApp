@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nKa-aS-I5A">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nKa-aS-I5A">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -107,15 +107,15 @@
             </objects>
             <point key="canvasLocation" x="920.79999999999995" y="-681.40929535232385"/>
         </scene>
-        <!--Bart Route Input View Controller-->
+        <!--Route Input View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="BartRouteInputViewController" customModule="BartApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RouteInputViewController" customModule="BartApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="BartRouteInputView" customModule="BartApp" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="RouteInputView" customModule="BartApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -284,7 +284,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bartRouteInputView" destination="8bC-Xf-vdC" id="zKg-w4-LDy"/>
+                        <outlet property="routeInputView" destination="8bC-Xf-vdC" id="E9f-cG-oaS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -311,7 +311,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TbL-82-LLP" id="gTY-FT-qgd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AHSB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bB-Tt-QMs">
@@ -375,15 +375,15 @@
             </objects>
             <point key="canvasLocation" x="1744.8" y="138.98050974512745"/>
         </scene>
-        <!--Choose Bart Station View Controller-->
+        <!--Choose Station View Controller-->
         <scene sceneID="HEW-ka-akh">
             <objects>
-                <viewController id="EZj-vK-B4Z" customClass="ChooseBartStationViewController" customModule="BartApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EZj-vK-B4Z" customClass="ChooseStationViewController" customModule="BartApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lY4-iG-Exq"/>
                         <viewControllerLayoutGuide type="bottom" id="TfM-Ge-EzY"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FgT-am-xxU" customClass="ChooseBartStationView" customModule="BartApp" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="FgT-am-xxU" customClass="ChooseStationView" customModule="BartApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -401,15 +401,15 @@
                                         <rect key="frame" x="0.0" y="28" width="355" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="88n-qq-Jlh" id="lo2-fs-yom" customClass="BartStationCell" customModule="BartApp" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="355" height="58"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="58.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BartStationCell" id="TUF-dh-cAs" customClass="BartStationCell" customModule="BartApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StationCell" id="TUF-dh-cAs" customClass="StationCell" customModule="BartApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="87" width="355" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TUF-dh-cAs" id="kqp-De-wyi">
-                                            <rect key="frame" x="0.0" y="0.0" width="355" height="58"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="58.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfx-fD-FOY">
@@ -445,7 +445,8 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="chooseBartStationView" destination="FgT-am-xxU" id="cvc-8j-les"/>
+                        <outlet property="chooseStationView" destination="FgT-am-xxU" id="XoN-Sg-pgP"/>
+                        <outlet property="instructionLabel" destination="6Jh-IB-N2X" id="SIj-yO-LUs"/>
                         <outlet property="tableView" destination="Nah-Fb-cCa" id="U4K-YH-Vav"/>
                     </connections>
                 </viewController>

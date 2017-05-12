@@ -1,5 +1,5 @@
 //
-//  BartRouteInputView.swift
+//  RouteInputView.swift
 //  BartApp
 //
 //  Created by Bria Wallace on 4/26/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BartRouteInputView: UIView {
+class RouteInputView: UIView {
 
     @IBOutlet weak var findRoutesButton: UIButton!
     @IBOutlet weak var startingStationButton: UIButton!

@@ -18,14 +18,14 @@
 		C9256FA01EA5BE5C00A2118B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9256F9F1EA5BE5C00A2118B /* Assets.xcassets */; };
 		C9256FA31EA5BE5C00A2118B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9256FA11EA5BE5C00A2118B /* LaunchScreen.storyboard */; };
 		C95E26411EAFFFB6001B262B /* BartStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E26401EAFFFB6001B262B /* BartStation.swift */; };
-		C95E26481EB05DA5001B262B /* BartRouteInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E26471EB05DA5001B262B /* BartRouteInputViewController.swift */; };
-		C95E264A1EB05DC4001B262B /* ChooseBartStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E26491EB05DC4001B262B /* ChooseBartStationViewController.swift */; };
-		C95E264C1EB05E7C001B262B /* BartStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E264B1EB05E7C001B262B /* BartStationCell.swift */; };
+		C95E26481EB05DA5001B262B /* RouteInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E26471EB05DA5001B262B /* RouteInputViewController.swift */; };
+		C95E264A1EB05DC4001B262B /* ChooseStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E26491EB05DC4001B262B /* ChooseStationViewController.swift */; };
+		C95E264C1EB05E7C001B262B /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E264B1EB05E7C001B262B /* StationCell.swift */; };
 		C95E264E1EB15765001B262B /* RoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E264D1EB15765001B262B /* RoutesViewController.swift */; };
-		C96A44BC1EB1CDEB006EE840 /* BartRouteInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A44BB1EB1CDEB006EE840 /* BartRouteInputView.swift */; };
-		C96A44BE1EB1CE0C006EE840 /* ChooseBartStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A44BD1EB1CE0C006EE840 /* ChooseBartStationView.swift */; };
+		C96A44BC1EB1CDEB006EE840 /* RouteInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A44BB1EB1CDEB006EE840 /* RouteInputView.swift */; };
+		C96A44BE1EB1CE0C006EE840 /* ChooseStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A44BD1EB1CE0C006EE840 /* ChooseStationView.swift */; };
 		C96A44C01EBA92D3006EE840 /* TripRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A44BF1EBA92D3006EE840 /* TripRequest.swift */; };
-		C96A44C41EC17484006EE840 /* Caltrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A44C31EC17484006EE840 /* Caltrain.swift */; };
+		C96A44C41EC17484006EE840 /* CaltrainStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A44C31EC17484006EE840 /* CaltrainStation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,14 +44,14 @@
 		C9256FA21EA5BE5C00A2118B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9256FA41EA5BE5C00A2118B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C95E26401EAFFFB6001B262B /* BartStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartStation.swift; sourceTree = "<group>"; };
-		C95E26471EB05DA5001B262B /* BartRouteInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartRouteInputViewController.swift; sourceTree = "<group>"; };
-		C95E26491EB05DC4001B262B /* ChooseBartStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBartStationViewController.swift; sourceTree = "<group>"; };
-		C95E264B1EB05E7C001B262B /* BartStationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartStationCell.swift; sourceTree = "<group>"; };
+		C95E26471EB05DA5001B262B /* RouteInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteInputViewController.swift; sourceTree = "<group>"; };
+		C95E26491EB05DC4001B262B /* ChooseStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseStationViewController.swift; sourceTree = "<group>"; };
+		C95E264B1EB05E7C001B262B /* StationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
 		C95E264D1EB15765001B262B /* RoutesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesViewController.swift; sourceTree = "<group>"; };
-		C96A44BB1EB1CDEB006EE840 /* BartRouteInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartRouteInputView.swift; sourceTree = "<group>"; };
-		C96A44BD1EB1CE0C006EE840 /* ChooseBartStationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBartStationView.swift; sourceTree = "<group>"; };
+		C96A44BB1EB1CDEB006EE840 /* RouteInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteInputView.swift; sourceTree = "<group>"; };
+		C96A44BD1EB1CE0C006EE840 /* ChooseStationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseStationView.swift; sourceTree = "<group>"; };
 		C96A44BF1EBA92D3006EE840 /* TripRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripRequest.swift; sourceTree = "<group>"; };
-		C96A44C31EC17484006EE840 /* Caltrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Caltrain.swift; sourceTree = "<group>"; };
+		C96A44C31EC17484006EE840 /* CaltrainStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaltrainStation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,9 +69,9 @@
 		76B6507E1EB03F2600F811EC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C95E264B1EB05E7C001B262B /* BartStationCell.swift */,
-				C96A44BB1EB1CDEB006EE840 /* BartRouteInputView.swift */,
-				C96A44BD1EB1CE0C006EE840 /* ChooseBartStationView.swift */,
+				C95E264B1EB05E7C001B262B /* StationCell.swift */,
+				C96A44BB1EB1CDEB006EE840 /* RouteInputView.swift */,
+				C96A44BD1EB1CE0C006EE840 /* ChooseStationView.swift */,
 				5F48D1661EBF9E760043EFA3 /* TripStationCell.swift */,
 			);
 			name = Views;
@@ -81,8 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				769395741EB058E6008C21C0 /* MapViewController.swift */,
-				C95E26471EB05DA5001B262B /* BartRouteInputViewController.swift */,
-				C95E26491EB05DC4001B262B /* ChooseBartStationViewController.swift */,
+				C95E26471EB05DA5001B262B /* RouteInputViewController.swift */,
+				C95E26491EB05DC4001B262B /* ChooseStationViewController.swift */,
 				C95E264D1EB15765001B262B /* RoutesViewController.swift */,
 				7655A22B1EC0C9DF00273660 /* SettingsViewController.swift */,
 			);
@@ -95,7 +95,7 @@
 				C95E26401EAFFFB6001B262B /* BartStation.swift */,
 				5F8D6FAF1EBB951C0090523E /* Trip.swift */,
 				C96A44BF1EBA92D3006EE840 /* TripRequest.swift */,
-				C96A44C31EC17484006EE840 /* Caltrain.swift */,
+				C96A44C31EC17484006EE840 /* CaltrainStation.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -283,20 +283,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C95E264A1EB05DC4001B262B /* ChooseBartStationViewController.swift in Sources */,
+				C95E264A1EB05DC4001B262B /* ChooseStationViewController.swift in Sources */,
 				C95E26411EAFFFB6001B262B /* BartStation.swift in Sources */,
 				5F8D6FB01EBB951C0090523E /* Trip.swift in Sources */,
 				C96A44C01EBA92D3006EE840 /* TripRequest.swift in Sources */,
-				C95E26481EB05DA5001B262B /* BartRouteInputViewController.swift in Sources */,
+				C95E26481EB05DA5001B262B /* RouteInputViewController.swift in Sources */,
 				5F7384CB1EB6A61D00B11B6A /* BartClient.swift in Sources */,
-				C96A44C41EC17484006EE840 /* Caltrain.swift in Sources */,
+				C96A44C41EC17484006EE840 /* CaltrainStation.swift in Sources */,
 				C9256F991EA5BE5C00A2118B /* AppDelegate.swift in Sources */,
 				769395751EB058E6008C21C0 /* MapViewController.swift in Sources */,
-				C95E264C1EB05E7C001B262B /* BartStationCell.swift in Sources */,
+				C95E264C1EB05E7C001B262B /* StationCell.swift in Sources */,
 				7655A22C1EC0C9DF00273660 /* SettingsViewController.swift in Sources */,
 				5F48D1671EBF9E760043EFA3 /* TripStationCell.swift in Sources */,
-				C96A44BE1EB1CE0C006EE840 /* ChooseBartStationView.swift in Sources */,
-				C96A44BC1EB1CDEB006EE840 /* BartRouteInputView.swift in Sources */,
+				C96A44BE1EB1CE0C006EE840 /* ChooseStationView.swift in Sources */,
+				C96A44BC1EB1CDEB006EE840 /* RouteInputView.swift in Sources */,
 				C95E264E1EB15765001B262B /* RoutesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

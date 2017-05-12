@@ -1,5 +1,5 @@
 //
-//  Caltrain.swift
+//  CaltrainStation.swift
 //  BartApp
 //
 //  Created by Bria Wallace on 5/8/17.

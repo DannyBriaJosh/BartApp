@@ -1,5 +1,5 @@
 //
-//  ChooseBartStationViewController.swift
+//  ChooseStationViewController.swift
 //  BartApp
 //
 //  Created by Bria Wallace on 4/25/17.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol ChooseBartStationDelegate: class {
-    func setStartingStation(chooseBartStationViewController: ChooseBartStationViewController, didSetStartingStation startingStation: BartStation)
-    func setEndingStation(chooseBartStationViewController: ChooseBartStationViewController, didSetEndingStation endingStation: BartStation)
+protocol ChooseStationDelegate: class {
+    func setStartingStation(chooseStationViewController: ChooseStationViewController, didSetStartingStation startingStation: BartStation)
+    func setEndingStation(chooseStationViewController: ChooseStationViewController, didSetEndingStation endingStation: BartStation)
 }
 
-class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChooseStationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    weak var delegate: ChooseBartStationDelegate?
+    weak var delegate: ChooseStationDelegate?
     
     var bartStations: [BartStation]! = []
     var otherSelectedStation: BartStation?
@@ -24,7 +24,7 @@ class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UI
     var homeStation: BartStation?
     var workStation: BartStation?
     
-    @IBOutlet var chooseBartStationView: ChooseBartStationView!
+    @IBOutlet var chooseStationView: ChooseStationView!
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,7 +34,7 @@ class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UI
         tableView.dataSource = self
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         bartStations = appDelegate.allBartStations
-        chooseBartStationView.setInstructionLabel(starting: starting, ending: ending)
+        chooseStationView.setInstructionLabel(starting: starting, ending: ending)
         loadHomeWorkStations()
     }
     
@@ -76,7 +76,7 @@ class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BartStationCell", for: indexPath) as! BartStationCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StationCell", for: indexPath) as! StationCell
         cell.resetCell()
         cell.isUserInteractionEnabled = true
         cell.station = bartStations[indexPath.row]
@@ -90,10 +90,10 @@ class ChooseBartStationViewController: UIViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if starting {
-            delegate?.setStartingStation(chooseBartStationViewController: self, didSetStartingStation: bartStations[indexPath.row])
+            delegate?.setStartingStation(chooseStationViewController: self, didSetStartingStation: bartStations[indexPath.row])
         }
         if ending {
-            delegate?.setEndingStation(chooseBartStationViewController: self, didSetEndingStation: bartStations[indexPath.row])
+            delegate?.setEndingStation(chooseStationViewController: self, didSetEndingStation: bartStations[indexPath.row])
         }
         dismiss(animated: true, completion: nil)
     }

@@ -1,5 +1,5 @@
 //
-//  BartStationCell.swift
+//  StationCell.swift
 //  BartApp
 //
 //  Created by Bria Wallace on 4/25/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BartStationCell: UITableViewCell {
+class StationCell: UITableViewCell {
 
     @IBOutlet weak var stationNameLabel: UILabel!
     

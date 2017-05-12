@@ -1,5 +1,5 @@
 //
-//  ChooseBartStationView.swift
+//  ChooseStationView.swift
 //  BartApp
 //
 //  Created by Bria Wallace on 4/26/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChooseBartStationView: UIView {
+class ChooseStationView: UIView {
 
     @IBOutlet weak var instructionLabel: UILabel!
     
