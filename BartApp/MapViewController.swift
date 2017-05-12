@@ -34,6 +34,15 @@ class MapViewController: UIViewController {
         getLocation()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if !isMovingToParentViewController {
+            stopMonitoringGeofications()
+        }
+    }
+    
+    
+    
     func addStations() {
         for leg in legs {
             for (_,station) in bartStations.enumerated() {
@@ -88,12 +97,19 @@ class MapViewController: UIViewController {
         locationManager.startMonitoring(for: region)
     }
     
+    func stopMonitoringGeofications() {
+        for region in locationManager.monitoredRegions {
+            locationManager.stopMonitoring(for: region)
+        }
+    }
+    
+    
     func regionWithGeotification(station: BartStation) -> CLCircularRegion {
         var region = CLCircularRegion()
         if let coordinates = station.stationCoordinate, let initial = station.initial {
             region = CLCircularRegion(center: coordinates, radius: GEOFENCE_RADIUS, identifier: initial)
             region.notifyOnEntry = true
-            region.notifyOnExit = true
+//            region.notifyOnExit = true
         }
         
         return region
