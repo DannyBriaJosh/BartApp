@@ -13,72 +13,120 @@ class RouteInputView: UIView {
     @IBOutlet weak var findRoutesButton: UIButton!
     @IBOutlet weak var startingStationButton: UIButton!
     @IBOutlet weak var endingStationButton: UIButton!
+    @IBOutlet weak var leaveNowButton: UIButton!
     @IBOutlet weak var departureLabelButton: UIButton!
     @IBOutlet weak var arrivalLabelButton: UIButton!
     @IBOutlet weak var startingTimeButton: UIButton!
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var timeView: UIView!
+    @IBOutlet weak var timePickerView: UIView!
     
     var userInputs = [String : Any]()
     
     func onLoad() {
-        timePicker.isHidden = true
-        doneButton.isHidden = true
-        startingStationButton.layer.borderColor = UIColor.black.cgColor
-        startingStationButton.layer.borderWidth = 0.5
-        startingStationButton.layer.cornerRadius = 5
-        endingStationButton.layer.borderColor = UIColor.black.cgColor
-        endingStationButton.layer.borderWidth = 0.5
-        endingStationButton.layer.cornerRadius = 5
-        startingTimeButton.layer.borderColor = UIColor.black.cgColor
-        startingTimeButton.layer.borderWidth = 0.5
-        startingTimeButton.layer.cornerRadius = 5
+        timePickerView.isHidden = true
+        timeView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        timeView.layer.shadowRadius = 2.0
+        timeView.layer.shadowColor = UIColor.black.cgColor
+        timeView.layer.shadowOpacity = 0.2
         setFindButtonStatus()
+        onLeaveNowButton()
     }
     
     func setStartingStation(startingStation: BartStation) {
-        startingStationButton.setTitle("     \(startingStation.name!)     ", for: .normal)
+        startingStationButton.setTitle("\(startingStation.name!)", for: .normal)
         startingStationButton.setTitleColor(UIColor.black, for: .normal)
         userInputs["Start Station"] = startingStation
         setFindButtonStatus()
     }
     
     func clearStartingStation() {
-        startingStationButton.setTitle("This is the starting station.", for: .normal)
-        startingStationButton.setTitleColor(UIColor.white, for: .normal)
+        startingStationButton.setTitle("", for: .normal)
+        startingStationButton.setTitleColor(UIColor.black, for: .normal)
         userInputs.removeValue(forKey: "Start Station")
         setFindButtonStatus()
     }
     
     func clearEndingStation() {
-        endingStationButton.setTitle("This is the ending station.", for: .normal)
-        endingStationButton.setTitleColor(UIColor.white, for: .normal)
+        endingStationButton.setTitle("", for: .normal)
+        endingStationButton.setTitleColor(UIColor.black, for: .normal)
         userInputs.removeValue(forKey: "End Station")
         setFindButtonStatus()
     }
     
     func setEndingStation(endingStation: BartStation) {
-        endingStationButton.setTitle("     \(endingStation.name!)     ", for: .normal)
+        endingStationButton.setTitle("\(endingStation.name!)", for: .normal)
         endingStationButton.setTitleColor(UIColor.black, for: .normal)
         userInputs["End Station"] = endingStation
         setFindButtonStatus()
     }
     
-    func onDepartureButton() {
-        departureLabelButton.setTitleColor(UIColor.black, for: .normal)
+    func onLeaveNowButton() {
+        leaveNowButton.setTitleColor(UIColor.white, for: .normal)
+        leaveNowButton.layer.cornerRadius = 15
+        leaveNowButton.layer.borderWidth = 5
+        leaveNowButton.layer.borderColor = UIColor(colorLiteralRed: 250/255.0, green: 116/255.0, blue: 115/255.0, alpha: 1).cgColor
+        leaveNowButton.layer.backgroundColor = UIColor(colorLiteralRed: 250/255.0, green: 116/255.0, blue: 115/255.0, alpha: 1).cgColor
+        departureLabelButton.setTitleColor(UIColor.lightGray, for: .normal)
+        departureLabelButton.layer.cornerRadius = 0
+        departureLabelButton.layer.borderWidth = 0
+        departureLabelButton.layer.borderColor = UIColor.white.cgColor
+        departureLabelButton.layer.backgroundColor = UIColor.white.cgColor
         arrivalLabelButton.setTitleColor(UIColor.lightGray, for: .normal)
+        arrivalLabelButton.layer.cornerRadius = 0
+        arrivalLabelButton.layer.borderWidth = 0
+        arrivalLabelButton.layer.borderColor = UIColor.white.cgColor
+        arrivalLabelButton.layer.backgroundColor = UIColor.white.cgColor
+        startingTimeButton.isEnabled = false
+        let time = formatTime(date: Date())
+        startingTimeButton.setTitle(time, for: .normal)
+        timePickerView.isHidden = true
+    }
+    
+    func onDepartureButton() {
+        leaveNowButton.setTitleColor(UIColor.lightGray, for: .normal)
+        leaveNowButton.layer.cornerRadius = 0
+        leaveNowButton.layer.borderWidth = 0
+        leaveNowButton.layer.borderColor = UIColor.white.cgColor
+        leaveNowButton.layer.backgroundColor = UIColor.white.cgColor
+        departureLabelButton.setTitleColor(UIColor.white, for: .normal)
+        departureLabelButton.layer.cornerRadius = 15
+        departureLabelButton.layer.borderWidth = 5
+        departureLabelButton.layer.borderColor = UIColor(colorLiteralRed: 250/255.0, green: 116/255.0, blue: 115/255.0, alpha: 1).cgColor
+        departureLabelButton.layer.backgroundColor = UIColor(colorLiteralRed: 250/255.0, green: 116/255.0, blue: 115/255.0, alpha: 1).cgColor
+        arrivalLabelButton.setTitleColor(UIColor.lightGray, for: .normal)
+        arrivalLabelButton.setTitleColor(UIColor.lightGray, for: .normal)
+        arrivalLabelButton.layer.cornerRadius = 0
+        arrivalLabelButton.layer.borderWidth = 0
+        arrivalLabelButton.layer.borderColor = UIColor.white.cgColor
+        arrivalLabelButton.layer.backgroundColor = UIColor.white.cgColor
+        startingTimeButton.isEnabled = true
     }
     
     func onArrivalButton() {
+        leaveNowButton.setTitleColor(UIColor.lightGray, for: .normal)
+        leaveNowButton.layer.cornerRadius = 0
+        leaveNowButton.layer.borderWidth = 0
+        leaveNowButton.layer.borderColor = UIColor.white.cgColor
+        leaveNowButton.layer.backgroundColor = UIColor.white.cgColor
         departureLabelButton.setTitleColor(UIColor.lightGray, for: .normal)
-        arrivalLabelButton.setTitleColor(UIColor.black, for: .normal)
+        departureLabelButton.layer.cornerRadius = 0
+        departureLabelButton.layer.borderWidth = 0
+        departureLabelButton.layer.borderColor = UIColor.white.cgColor
+        departureLabelButton.layer.backgroundColor = UIColor.white.cgColor
+        arrivalLabelButton.setTitleColor(UIColor.white, for: .normal)
+        arrivalLabelButton.layer.cornerRadius = 15
+        arrivalLabelButton.layer.borderWidth = 5
+        arrivalLabelButton.layer.borderColor = UIColor(colorLiteralRed: 250/255.0, green: 116/255.0, blue: 115/255.0, alpha: 1).cgColor
+        arrivalLabelButton.layer.backgroundColor = UIColor(colorLiteralRed: 250/255.0, green: 116/255.0, blue: 115/255.0, alpha: 1).cgColor
+        startingTimeButton.isEnabled = true
     }
     
     func onStartingTimeButton() {
-        startingTimeButton.isHidden = true
+        startingTimeButton.isEnabled = false
         findRoutesButton.isHidden = true
-        doneButton.isHidden = false
-        timePicker.isHidden = false
+        timePickerView.isHidden = false
     }
     
     func onDoneButton() {
@@ -86,9 +134,8 @@ class RouteInputView: UIView {
         let startingTimeString = formatTime(date: startingTime)
         startingTimeButton.setTitle(startingTimeString, for: .normal)
         startingTimeButton.setTitleColor(UIColor.black, for: .normal)
-        doneButton.isHidden = true
-        timePicker.isHidden = true
-        startingTimeButton.isHidden = false
+        timePickerView.isHidden = true
+        startingTimeButton.isEnabled = true
         findRoutesButton.isHidden = false
         userInputs["Start Time"] = startingTime
         setFindButtonStatus()

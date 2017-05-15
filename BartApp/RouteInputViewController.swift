@@ -27,6 +27,21 @@ class RouteInputViewController: UIViewController, ChooseStationDelegate {
         trip.endStation = endingStation
     }
     
+    @IBAction func onLeaveNowButton(_ sender: Any) {
+        routeInputView.onLeaveNowButton()
+        departure = true
+        arrival = false
+    }
+    
+    @IBAction func onCancelButton(_ sender: Any) {
+        routeInputView.clearStartingStation()
+        routeInputView.clearEndingStation()
+        routeInputView.onLeaveNowButton()
+        trip.startStation = nil
+        trip.endStation = nil
+    }
+    
+    
     @IBAction func onDepartureButton(_ sender: Any) {
         routeInputView.onDepartureButton()
         departure = true
