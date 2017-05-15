@@ -18,7 +18,6 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
     var time = Date()
     var trip = TripRequest()
     var bartStations: [BartStation]! = []
-    var otherSelectedStation: BartStation?
     var starting = false
     var ending = false
     var homeStation: BartStation?
@@ -27,12 +26,14 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func onStartStationButton(_ sender: Any) {
         starting = true
         ending = false
+        tableView.reloadData()
         routeInputView.showStationView()
     }
     
     @IBAction func onEndStationButton(_ sender: Any) {
         starting = false
         ending = true
+        tableView.reloadData()
         routeInputView.showStationView()
     }
     
@@ -110,7 +111,6 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         if let workStationIndex = defaults.value(forKey: "Work") as? Int {
             workStation = bartStations[workStationIndex]
         }
-        
         var copyBartStations = bartStations!
         var newBartStationsArray = [BartStation]()
         if homeStation != nil {
@@ -142,9 +142,16 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.resetCell()
         cell.isUserInteractionEnabled = true
         cell.station = bartStations[indexPath.row]
-        if cell.station.name == otherSelectedStation?.name {
+        print("HEEEERE")
+        if arrival && cell.station.name == trip.endStation?.name {
             cell.isUserInteractionEnabled = false
             cell.makeFontGray()
+            print("HERE")
+        }
+        if ending && cell.station.name == trip.startStation?.name {
+            cell.isUserInteractionEnabled = false
+            cell.makeFontGray()
+            print("HERE2")
         }
         return cell
     }
