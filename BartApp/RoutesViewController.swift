@@ -18,6 +18,8 @@ class RoutesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
         
         let originStation = userInput.startStation?.initial
         let destinationStation = userInput.endStation?.initial
@@ -65,14 +67,26 @@ extension RoutesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TripStationCell") as! TripStationCell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "TripStationCell") as! TripStationCell
         let legs = trips[indexPath.section].legs
         let leg = legs?[indexPath.row]
         
-        cell.leg = leg
-        cell.selectionStyle = .none
+//        cell.leg = leg
+//        cell.selectionStyle = .none
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LegTableViewCell", for: indexPath) as! LegTableViewCell
+        cell.leg = leg
+        if indexPath.row == 0 {
+            cell.place = "first"
+        } else if indexPath.row == (legs?.count)! - 1 {
+            cell.place = "last"
+        } else {
+            cell.place = "middle"
+        }
         return cell
+        
+        
+//        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

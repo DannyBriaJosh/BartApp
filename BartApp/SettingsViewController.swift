@@ -10,12 +10,18 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     @IBOutlet weak var modalView: UIView!
-    @IBOutlet weak var homeStationPickerView: UIPickerView!
-    @IBOutlet weak var workStationPickerView: UIPickerView!
+    @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var modalTopContstraint: NSLayoutConstraint!
+    @IBOutlet weak var homeTextField: UITextField!
+    @IBOutlet weak var workTextField: UITextField!
+    @IBOutlet weak var homeStationButton: UIButton!
+    @IBOutlet weak var workStationButton: UIButton!
+    @IBOutlet weak var pickerViewHeightConstraint: NSLayoutConstraint!
     
-    var homeStationIndex = 0
-    var workStationIndex = 0
+    
+    var currentTextField: UITextField?
+    var homeStationIndex: Int?
+    var workStationIndex: Int?
     
     let defaults = UserDefaults.standard
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -23,8 +29,8 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        modalTopContstraint.constant = view.frame.size.height
         self.view.alpha = 0
+        modalTopContstraint.constant = view.frame.size.height
         bartStations = appDelegate.allBartStations
         initPickerViews()
     }
@@ -34,16 +40,19 @@ class SettingsViewController: UIViewController {
     }
     
     func initPickerViews() {
-        homeStationPickerView.delegate = self
-        homeStationPickerView.dataSource = self
-        workStationPickerView.delegate = self
-        workStationPickerView.dataSource = self
+        pickerViewHeightConstraint.constant = 0
+        pickerView.delegate = self
+        pickerView.dataSource = self
         
-        homeStationIndex = defaults.integer(forKey: "Home") 
-        workStationIndex = defaults.integer(forKey: "Work")
+        if let savedHomeStationIndex = defaults.object(forKey: "Home") {
+            homeStationIndex = savedHomeStationIndex as? Int
+            homeTextField.text = bartStations[homeStationIndex!].name
+        }
         
-        homeStationPickerView.selectRow(homeStationIndex, inComponent: 0, animated: false)
-        workStationPickerView.selectRow(workStationIndex, inComponent: 0, animated: false)
+        if let savedWorkStationIndex = defaults.object(forKey: "Work") {
+            workStationIndex = savedWorkStationIndex as? Int
+            workTextField.text = bartStations[workStationIndex!].name
+        }
     }
     
     func showModal() {
@@ -61,6 +70,37 @@ class SettingsViewController: UIViewController {
             self.view.layoutIfNeeded()
         }) { (completion) in
             self.dismiss(animated: false, completion: nil)
+        }
+    }
+    
+    func showStationPicker() {
+        UIView.animate(withDuration: 0.4, animations: {
+            self.pickerViewHeightConstraint.constant = 125
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
+    @IBAction func onTapHomeStation(_ sender: UIButton) {
+        currentTextField = homeTextField
+        
+        if let index = homeStationIndex {
+            pickerView.selectRow(index, inComponent: 0, animated: true)
+        }
+        
+        if pickerViewHeightConstraint.constant == 0 {
+            showStationPicker()
+        }
+    }
+    
+    @IBAction func onTapWorkStation(_ sender: UIButton) {
+        currentTextField = workTextField
+        
+        if let index = workStationIndex {
+            pickerView.selectRow(index, inComponent: 0, animated: true)
+        }
+        
+        if pickerViewHeightConstraint.constant == 0 {
+            showStationPicker()
         }
     }
     
@@ -93,13 +133,12 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView.tag == 0 {
+        if currentTextField == homeTextField {
             homeStationIndex = row
-            return
-        }
-        
-        if pickerView.tag == 1 {
+        } else {
             workStationIndex = row
         }
+        
+        currentTextField?.text = bartStations[row].name
     }
 }
