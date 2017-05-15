@@ -668,8 +668,21 @@
                                     <constraint firstAttribute="height" constant="132" id="4iS-vd-Sr0"/>
                                 </constraints>
                             </stackView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CU8-0w-xLY">
+                                <rect key="frame" x="0.0" y="152" width="375" height="281.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CU8-0w-xLY" secondAttribute="height" multiplier="4:3" id="Ngp-XU-yNs"/>
+                                </constraints>
+                            </mapView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-icon" translatesAutoresizingMaskIntoConstraints="NO" id="pnk-Om-Thv">
+                                <rect key="frame" x="172" y="109.5" width="31" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="31" id="13a-ws-Esu"/>
+                                    <constraint firstAttribute="height" constant="18" id="WLV-PE-YdD"/>
+                                </constraints>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GMm-MF-Bra">
-                                <rect key="frame" x="0.0" y="433.5" width="375" height="233.5"/>
+                                <rect key="frame" x="0.0" y="433" width="375" height="233.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LegTableViewCell" rowHeight="65" id="RNW-Xm-HIi" customClass="LegTableViewCell" customModule="BartApp" customModuleProvider="target">
@@ -756,19 +769,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CU8-0w-xLY">
-                                <rect key="frame" x="0.0" y="152" width="375" height="281.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="CU8-0w-xLY" secondAttribute="height" multiplier="4:3" id="Ngp-XU-yNs"/>
-                                </constraints>
-                            </mapView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-icon" translatesAutoresizingMaskIntoConstraints="NO" id="pnk-Om-Thv">
-                                <rect key="frame" x="172" y="109.5" width="31" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="31" id="13a-ws-Esu"/>
-                                    <constraint firstAttribute="height" constant="18" id="WLV-PE-YdD"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
