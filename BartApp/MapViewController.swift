@@ -18,6 +18,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var arrivalTimeLabel: UILabel!
     @IBOutlet weak var departingStationLabel: UILabel!
     @IBOutlet weak var arrivalStationLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -30,6 +31,9 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
         bartStations = appDelegate.allBartStations
         setupLabels()
         addStations()
@@ -80,6 +84,12 @@ class MapViewController: UIViewController {
     
     func addStations() {
         for (index, leg) in legs.enumerated() {
+            if index == 0 {
+                if let stationIndex = BartStation.getIndex(initial: leg.origin!) {
+                    let station = bartStations[stationIndex]
+                    pinStationToMap(station: station)
+                }
+            }
             if let stationIndex = BartStation.getIndex(initial: leg.destination!) {
                 let station = bartStations[stationIndex]
                 stations.append(station)
@@ -221,5 +231,24 @@ extension MapViewController: UNUserNotificationCenterDelegate {
     
     func vibratePhone() {
         AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+    }
+}
+
+extension MapViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return legs.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LegTableViewCell", for: indexPath) as! LegTableViewCell
+        cell.leg = legs[indexPath.row]
+        if indexPath.row == 0 {
+            cell.place = "first"
+        } else if indexPath.row == legs.count - 1 {
+            cell.place = "last"
+        } else {
+            cell.place = "middle"
+        }
+        return cell
     }
 }

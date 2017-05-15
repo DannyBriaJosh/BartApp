@@ -1,0 +1,73 @@
+//
+//  LegTableViewCell.swift
+//  BartApp
+//
+//  Created by Josh Jeong on 5/14/17.
+//  Copyright © 2017 Bria Wallace. All rights reserved.
+//
+
+import UIKit
+
+class LegTableViewCell: UITableViewCell {
+    @IBOutlet weak var departingTimeLabel: UILabel!
+    @IBOutlet weak var departingStationLabel: UILabel!
+    @IBOutlet weak var departingTrainLabel: UILabel!
+    @IBOutlet weak var topLineView: UIView!
+    @IBOutlet weak var bottomLineView: UIView!
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    var leg: Leg? {
+        didSet {
+            if let time = leg?.departTime {
+                departingTimeLabel.text = time
+            }
+            
+            if let stationInitial = leg?.destination {
+                let bartStations = appDelegate.allBartStations
+                if let stationIndex = BartStation.getIndex(initial: stationInitial) {
+                    let station = bartStations[stationIndex]
+                    if let stationName = station.name {
+                        departingStationLabel.text = "\(stationName) Station"
+                    }
+                }
+            }
+            
+            if let train = leg?.line {
+                departingTrainLabel.text = train
+            }
+        }
+    }
+    
+    var place: String! {
+        didSet {
+            topLineView.isHidden = true
+            bottomLineView.isHidden = true
+            
+            switch place {
+            case "first":
+                bottomLineView.isHidden = false
+                break
+            case "last":
+                topLineView.isHidden = false
+                break
+            default:
+                topLineView.isHidden = false
+                bottomLineView.isHidden = false
+                break
+            }
+        }
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
+}
