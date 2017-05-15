@@ -8,14 +8,33 @@
 
 import UIKit
 
-class RouteInputViewController: UIViewController, ChooseStationDelegate {
+class RouteInputViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var routeInputView: RouteInputView!
+    @IBOutlet weak var tableView: UITableView!
     
     var arrival = false
     var departure = true
-    var time: Date!
+    var time = Date()
     var trip = TripRequest()
+    var bartStations: [BartStation]! = []
+    var otherSelectedStation: BartStation?
+    var starting = false
+    var ending = false
+    var homeStation: BartStation?
+    var workStation: BartStation?
+    
+    @IBAction func onStartStationButton(_ sender: Any) {
+        starting = true
+        ending = false
+        routeInputView.showStationView()
+    }
+    
+    @IBAction func onEndStationButton(_ sender: Any) {
+        starting = false
+        ending = true
+        routeInputView.showStationView()
+    }
     
     func setStartingStation(chooseStationViewController: ChooseStationViewController, didSetStartingStation startingStation: BartStation) {
         routeInputView.setStartingStation(startingStation: startingStation)
@@ -40,7 +59,6 @@ class RouteInputViewController: UIViewController, ChooseStationDelegate {
         trip.startStation = nil
         trip.endStation = nil
     }
-    
     
     @IBAction func onDepartureButton(_ sender: Any) {
         routeInputView.onDepartureButton()
@@ -82,19 +100,72 @@ class RouteInputViewController: UIViewController, ChooseStationDelegate {
         }
     }
     
+    func loadHomeWorkStations() {
+        let defaults = UserDefaults.standard
+        
+        if let homeStationIndex = defaults.value(forKey: "Home") as? Int {
+            homeStation = bartStations[homeStationIndex]
+        }
+        
+        if let workStationIndex = defaults.value(forKey: "Work") as? Int {
+            workStation = bartStations[workStationIndex]
+        }
+        
+        var copyBartStations = bartStations!
+        var newBartStationsArray = [BartStation]()
+        if homeStation != nil {
+            newBartStationsArray += [homeStation!]
+        }
+        if workStation != nil {
+            newBartStationsArray += [workStation!]
+        }
+        for (index,station) in copyBartStations.enumerated() {
+            if station.initial == homeStation?.initial {
+                copyBartStations.remove(at: index)
+            }
+        }
+        for (index,station) in copyBartStations.enumerated() {
+            if station.initial == workStation?.initial {
+                copyBartStations.remove(at: index)
+            }
+        }
+        newBartStationsArray += copyBartStations
+        bartStations = newBartStationsArray
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return bartStations.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StationCell", for: indexPath) as! StationCell
+        cell.resetCell()
+        cell.isUserInteractionEnabled = true
+        cell.station = bartStations[indexPath.row]
+        if cell.station.name == otherSelectedStation?.name {
+            cell.isUserInteractionEnabled = false
+            cell.makeFontGray()
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let station = bartStations[indexPath.row]
+        if starting {
+            routeInputView.setStartingStation(startingStation: station)
+            trip.startStation = station
+        }
+        if ending {
+            routeInputView.setEndingStation(endingStation: station)
+            trip.endStation = station
+        }
+        routeInputView.hideStationView()
+        routeInputView.setFindButtonStatus()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SelectStartingStationSegue" {
-            let vc = segue.destination as! ChooseStationViewController
-            vc.starting = true
-            vc.otherSelectedStation = trip.endStation
-            vc.delegate = self
-        } else if segue.identifier == "SelectEndingStationSegue" {
-            let vc = segue.destination as! ChooseStationViewController
-            vc.ending = true
-            vc.otherSelectedStation = trip.startStation
-            vc.delegate = self
-        } else if segue.identifier == "FindRoutesSegue" {
+        if segue.identifier == "FindRoutesSegue" {
             let vc = segue.destination as! RoutesViewController
             trip.arrivalTime = nil
             trip.departureTime = nil
@@ -107,7 +178,7 @@ class RouteInputViewController: UIViewController, ChooseStationDelegate {
                 trip.departureTime = time
                 
             }
-//            print(trip)
+            print(trip)
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "hh:mma"
             trip.timeString = dateFormatter.string(from: time)
@@ -119,6 +190,11 @@ class RouteInputViewController: UIViewController, ChooseStationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         routeInputView.onLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        bartStations = appDelegate.allBartStations
+        loadHomeWorkStations()
     }
 
     override func didReceiveMemoryWarning() {

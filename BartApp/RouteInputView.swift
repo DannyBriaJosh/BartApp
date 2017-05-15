@@ -21,6 +21,7 @@ class RouteInputView: UIView {
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var timeView: UIView!
     @IBOutlet weak var timePickerView: UIView!
+    @IBOutlet weak var stationView: UIView!
     
     var userInputs = [String : Any]()
     
@@ -32,6 +33,17 @@ class RouteInputView: UIView {
         timeView.layer.shadowOpacity = 0.2
         setFindButtonStatus()
         onLeaveNowButton()
+        hideStationView()
+    }
+    
+    func hideStationView() {
+        stationView.isHidden = true
+        timeView.isHidden = false
+    }
+    
+    func showStationView() {
+        stationView.isHidden = false
+        timeView.isHidden = true
     }
     
     func setStartingStation(startingStation: BartStation) {
@@ -137,17 +149,18 @@ class RouteInputView: UIView {
         timePickerView.isHidden = true
         startingTimeButton.isEnabled = true
         findRoutesButton.isHidden = false
-        userInputs["Start Time"] = startingTime
         setFindButtonStatus()
     }
     
     func setFindButtonStatus() {
-        if userInputs.count == 3 {
+        if userInputs.count == 2 {
             findRoutesButton.isEnabled = true
-            findRoutesButton.setTitleColor(UIColor.black, for: .normal)
+            findRoutesButton.setTitleColor(UIColor.white, for: .normal)
+            findRoutesButton.layer.backgroundColor = UIColor(colorLiteralRed: 250/255.0, green: 116/255.0, blue: 115/255.0, alpha: 1).cgColor
         } else {
             findRoutesButton.isEnabled = false
-            findRoutesButton.setTitleColor(UIColor.lightGray, for: .normal)
+            findRoutesButton.setTitleColor(UIColor.white, for: .normal)
+            findRoutesButton.layer.backgroundColor = UIColor.lightGray.cgColor
         }
     }
 

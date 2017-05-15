@@ -24,7 +24,7 @@ class ChooseStationViewController: UIViewController, UITableViewDelegate, UITabl
     var homeStation: BartStation?
     var workStation: BartStation?
     
-    @IBOutlet var chooseStationView: ChooseStationView!
+//    @IBOutlet var chooseStationView: ChooseStationView!
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,7 +34,7 @@ class ChooseStationViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.dataSource = self
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         bartStations = appDelegate.allBartStations
-        chooseStationView.setInstructionLabel(starting: starting, ending: ending)
+//        chooseStationView.setInstructionLabel(starting: starting, ending: ending)
         loadHomeWorkStations()
     }
     
