@@ -13,4 +13,5 @@ struct TripRequest{
     var endStation: BartStation?
     var departureTime: Date?
     var arrivalTime: Date?
+    var timeString: String?
 }

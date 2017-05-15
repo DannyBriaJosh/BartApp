@@ -88,8 +88,13 @@ class RouteInputViewController: UIViewController, ChooseStationDelegate {
             }
             if departure {
                 trip.departureTime = time
+                
             }
-            print(trip)
+//            print(trip)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "hh:mma"
+            trip.timeString = dateFormatter.string(from: time)
+            print("time string: \(dateFormatter.string(from: time))")
             vc.userInput = trip
         }
     }

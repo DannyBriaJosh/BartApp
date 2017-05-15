@@ -18,9 +18,10 @@ class BartClient {
 
     // sample route http://api.bart.gov/api/sched.aspx?cmd=depart&orig=ASHB&dest=CIVC&date=now&key=MW9S-E7SL-26DU-VV8V&b=2&a=2&l=1
     
-    func grabRoutes(cmd: String, origin: String, destination: String, date: String, success: @escaping ([Trip]) -> (), failure: @escaping (Error) -> ()){
+    func grabRoutes(cmd: String, origin: String, destination: String, date: String, time: String, success: @escaping ([Trip]) -> (), failure: @escaping (Error) -> ()){
         
-        let urlString = baseURLString + "&cmd=\(cmd)" + "&orig=\(origin)" + "&dest=\(destination)" + "&date=\(date)"
+        let urlString = baseURLString + "&cmd=\(cmd)" + "&orig=\(origin)" + "&dest=\(destination)" + "&date=\(date)" + "&time=\(time)" + "&a=4" + "&b=0"
+
         
         print(urlString)
         Alamofire.request(urlString).responseData { response in
