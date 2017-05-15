@@ -630,3 +630,48 @@ extension BartStation {
         return indexMap[initial] ?? nil
     }
 }
+
+extension BartStation {
+    static func routeInfo(initial: String) -> NSDictionary {
+        let routes = [
+                "ROUTE 1": ["name" : "Pittsburg/Bay Point - SFIA/Millbrae",
+                            "abbreviation": "PITT-SFIA",
+                            "color" : "#ffff33"],
+                "ROUTE 2": ["name" : "Millbrae/SFIA - Pittsburg/Bay Point",
+                            "abbreviation": "SFIA-PITT",
+                            "color" : "#ffff33"],
+                "ROUTE 3": ["name" : "Warm Springs/South Fremont - Richmond",
+                            "abbreviation": "WARM-RICH",
+                            "color" : "#ff9933"],
+                "ROUTE 4": ["name" : "Richmond - Warm Springs/South Fremont",
+                            "abbreviation": "RICH-WARM",
+                            "color" : "#ff9933"],
+                "ROUTE 5": ["name" : "Warm Springs/South Fremont - Daly City",
+                            "abbreviation": "WARM-DALY",
+                            "color" : "#339933"],
+                "ROUTE 6": ["name" : "Daly City - Warm Springs/South Fremont",
+                            "abbreviation": "DALY-WARM",
+                            "color" : "#339933"],
+                "ROUTE 7": ["name" : "Richmond - Daly City/Millbrae",
+                            "abbreviation": "RICH-MLBR",
+                            "color" : "#ff0000"],
+                "ROUTE 8": ["name" : "Millbrae/Daly City - Richmond",
+                            "abbreviation": "MLBR-RICH",
+                            "color" : "#ff0000"],
+                "ROUTE 11": ["name" : "Dublin/Pleasanton - Daly City",
+                            "abbreviation": "DUBL-DALY",
+                            "color" : "#0099cc"],
+                "ROUTE 12": ["name" : "Daly City - Dublin/Pleasanton",
+                            "abbreviation": "DALY-DUBL",
+                            "color" : "#0099cc"],
+                "ROUTE 19": ["name" : "Coliseum - Oakland Int'l Airport",
+                             "abbreviation": "COLS-OAKL",
+                             "color" : "#d5cfa3"],
+                "ROUTE 20": ["name" : "Oakland Int'l Airport - Coliseum",
+                             "abbreviation": "OAKL-COLS",
+                             "color" : "#d5cfa3"],
+        ]
+        
+        return routes[initial] as! NSDictionary
+    }
+}
