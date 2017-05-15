@@ -11,8 +11,11 @@ import UIKit
 class SettingsViewController: UIViewController {
     @IBOutlet weak var modalView: UIView!
     @IBOutlet weak var homeStationPickerView: UIPickerView!
-    @IBOutlet weak var workStationPickerView: UIPickerView!
     @IBOutlet weak var modalTopContstraint: NSLayoutConstraint!
+    @IBOutlet weak var homeTextField: UITextField!
+    @IBOutlet weak var workTextField: UITextField!
+    @IBOutlet weak var homeStationButton: UIButton!
+    @IBOutlet weak var workStationButton: UIButton!
     
     var homeStationIndex = 0
     var workStationIndex = 0
@@ -36,14 +39,14 @@ class SettingsViewController: UIViewController {
     func initPickerViews() {
         homeStationPickerView.delegate = self
         homeStationPickerView.dataSource = self
-        workStationPickerView.delegate = self
-        workStationPickerView.dataSource = self
         
         homeStationIndex = defaults.integer(forKey: "Home") 
         workStationIndex = defaults.integer(forKey: "Work")
         
+        
+        
+        
         homeStationPickerView.selectRow(homeStationIndex, inComponent: 0, animated: false)
-        workStationPickerView.selectRow(workStationIndex, inComponent: 0, animated: false)
     }
     
     func showModal() {
@@ -63,6 +66,13 @@ class SettingsViewController: UIViewController {
             self.dismiss(animated: false, completion: nil)
         }
     }
+    
+    @IBAction func onTapHomeStation(_ sender: Any) {
+    }
+    
+    @IBAction func onTapWorkStation(_ sender: Any) {
+    }
+    
     
     @IBAction func onTapBackground(_ sender: Any) {
         dismissModal()
