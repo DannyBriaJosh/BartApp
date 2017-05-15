@@ -80,6 +80,7 @@ extension RoutesViewController: UITableViewDelegate, UITableViewDataSource {
         if let legs = trip.legs {
             let vc = storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
             vc.legs = legs
+            vc.trip = trip
             navigationController?.pushViewController(vc, animated: true)
         }
     }

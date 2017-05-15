@@ -14,19 +14,28 @@ import AVFoundation
 
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var departingTimeLabel: UILabel!
+    @IBOutlet weak var arrivalTimeLabel: UILabel!
+    @IBOutlet weak var departingStationLabel: UILabel!
+    @IBOutlet weak var arrivalStationLabel: UILabel!
+    
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let locationManager = CLLocationManager()
     let GEOFENCE_RADIUS = 400.0 //in meters
     var bartStations: [BartStation] = []
     var legs: [Leg] = []
     var stations: [BartStation] = []
+    var trip: Trip?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bartStations = appDelegate.allBartStations
+        setupLabels()
         addStations()
         initMap()
         UNUserNotificationCenter.current().delegate = self
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,23 +50,46 @@ class MapViewController: UIViewController {
         }
     }
     
-    
-    
-    func addStations() {
-        for leg in legs {
-            for (_,station) in bartStations.enumerated() {
-                if station.initial == leg.destination {
-                    stations.append(station)
+    func setupLabels() {
+        if let departureTime = trip?.departureTime {
+            departingTimeLabel.text = departureTime
+        }
+        
+        if let arrivalTime = trip?.arrivalTime {
+            arrivalTimeLabel.text = arrivalTime
+        }
+        
+        if let departureStationInitial = trip?.origin {
+            if let stationIndex = BartStation.getIndex(initial: departureStationInitial) {
+                let station = bartStations[stationIndex]
+                if let stationName = station.name {
+                    departingStationLabel.text = stationName
+                }
+            }
+        }
+        
+        if let arrivalStationInitial = trip?.destination {
+            if let stationIndex = BartStation.getIndex(initial: arrivalStationInitial) {
+                let station = bartStations[stationIndex]
+                if let stationName = station.name {
+                    arrivalStationLabel.text = stationName
                 }
             }
         }
     }
     
-    func initMap() {
-        for station in stations {
-            pinStationToMap(station: station)
-            addGeofence(station: station)
+    func addStations() {
+        for (index, leg) in legs.enumerated() {
+            if let stationIndex = BartStation.getIndex(initial: leg.destination!) {
+                let station = bartStations[stationIndex]
+                stations.append(station)
+                addGeofence(station: station)
+                pinStationToMap(station: station)
+            }
         }
+    }
+    
+    func initMap() {
         mapView.showsUserLocation = true
         mapView.showAnnotations(mapView.annotations, animated: true)
     }

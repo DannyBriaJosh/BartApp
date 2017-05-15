@@ -578,3 +578,55 @@ extension BartStation {
     }
     
 }
+
+extension BartStation {
+    static func getIndex(initial: String) -> Int? {
+        var indexMap: [String: Int] = ["12TH": 0,
+                                       "16TH": 1,
+                                       "19TH": 2,
+                                       "24TH": 3,
+                                       "ASHB": 4,
+                                       "BALB": 5,
+                                       "BAYF": 6,
+                                       "CAST": 7,
+                                       "CIVC": 8,
+                                       "COLS": 9,
+                                       "COLM": 10,
+                                       "CONC": 11,
+                                       "DALY": 12,
+                                       "DBRK": 13,
+                                       "DUBL": 14,
+                                       "DELN": 15,
+                                       "PLZA": 16,
+                                       "EMBR": 17,
+                                       "FRMT": 18,
+                                       "FTVL": 19,
+                                       "GLEN": 20,
+                                       "HAYW": 21,
+                                       "LAFY": 22,
+                                       "LAKE": 23,
+                                       "MCAR": 24,
+                                       "MLBR": 25,
+                                       "MONT": 26,
+                                       "NBRK": 27,
+                                       "NCON": 28,
+                                       "OAKL": 29,
+                                       "ORIN": 30,
+                                       "PITT": 31,
+                                       "PHIL": 32,
+                                       "POWL": 33,
+                                       "RICH": 34,
+                                       "ROCK": 35,
+                                       "SBRN": 36,
+                                       "SFIA": 37,
+                                       "SANL": 38,
+                                       "SHAY": 39,
+                                       "SSAN": 40,
+                                       "UCTY": 41,
+                                       "WCRK": 42,
+                                       "WDUB": 43,
+                                       "WOAK": 44
+                                    ]
+        return indexMap[initial] ?? nil
+    }
+}

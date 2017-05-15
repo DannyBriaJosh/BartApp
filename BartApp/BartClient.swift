@@ -35,6 +35,8 @@ class BartClient {
                     trip.origin = tripData.element?.attribute(by: "origin")?.text
                     trip.destination = tripData.element?.attribute(by: "destination")?.text
                     trip.fare = tripData.element?.attribute(by: "fare")?.text
+                    trip.departureTime = tripData.element?.attribute(by: "origTimeMin")?.text
+                    trip.arrivalTime = tripData.element?.attribute(by: "destTimeMin")?.text
                     
                     for legData in tripData["leg"] {
                         var leg = Leg()

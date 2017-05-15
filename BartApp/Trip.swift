@@ -14,7 +14,8 @@ struct Trip {
     var destination: String?
     var fare: String?
     var legs: [Leg]?
-    
+    var departureTime: String?
+    var arrivalTime: String?
     
 
 }
