@@ -142,16 +142,13 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.resetCell()
         cell.isUserInteractionEnabled = true
         cell.station = bartStations[indexPath.row]
-        print("HEEEERE")
         if arrival && cell.station.name == trip.endStation?.name {
             cell.isUserInteractionEnabled = false
             cell.makeFontGray()
-            print("HERE")
         }
         if ending && cell.station.name == trip.startStation?.name {
             cell.isUserInteractionEnabled = false
             cell.makeFontGray()
-            print("HERE2")
         }
         return cell
     }

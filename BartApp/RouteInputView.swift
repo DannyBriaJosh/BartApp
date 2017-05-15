@@ -185,10 +185,11 @@ class RouteInputView: UIView {
             time += "\(minutes)"
         }
         if hour < 12 {
-            time += " AM          "
+            time += " AM"
         } else {
-            time += " PM          "
+            time += " PM"
         }
+        print(Calendar.current.component(.weekday, from: date))
         return time
     }
 

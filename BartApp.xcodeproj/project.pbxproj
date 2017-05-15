@@ -26,6 +26,7 @@
 		C96A44BC1EB1CDEB006EE840 /* RouteInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A44BB1EB1CDEB006EE840 /* RouteInputView.swift */; };
 		C96A44C01EBA92D3006EE840 /* TripRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A44BF1EBA92D3006EE840 /* TripRequest.swift */; };
 		C96A44C41EC17484006EE840 /* CaltrainStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96A44C31EC17484006EE840 /* CaltrainStation.swift */; };
+		C9B61FF01ECA30900026C7CE /* CaltrainSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B61FEF1ECA30900026C7CE /* CaltrainSchedule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		C96A44BB1EB1CDEB006EE840 /* RouteInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteInputView.swift; sourceTree = "<group>"; };
 		C96A44BF1EBA92D3006EE840 /* TripRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripRequest.swift; sourceTree = "<group>"; };
 		C96A44C31EC17484006EE840 /* CaltrainStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaltrainStation.swift; sourceTree = "<group>"; };
+		C9B61FEF1ECA30900026C7CE /* CaltrainSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaltrainSchedule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				5F8D6FAF1EBB951C0090523E /* Trip.swift */,
 				C96A44BF1EBA92D3006EE840 /* TripRequest.swift */,
 				C96A44C31EC17484006EE840 /* CaltrainStation.swift */,
+				C9B61FEF1ECA30900026C7CE /* CaltrainSchedule.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				C95E264C1EB05E7C001B262B /* StationCell.swift in Sources */,
 				76EA3F4E1EC93B2C00816B7F /* LegTableViewCell.swift in Sources */,
 				7655A22C1EC0C9DF00273660 /* SettingsViewController.swift in Sources */,
+				C9B61FF01ECA30900026C7CE /* CaltrainSchedule.swift in Sources */,
 				5F48D1671EBF9E760043EFA3 /* TripStationCell.swift in Sources */,
 				C96A44BC1EB1CDEB006EE840 /* RouteInputView.swift in Sources */,
 				C95E264E1EB15765001B262B /* RoutesViewController.swift in Sources */,

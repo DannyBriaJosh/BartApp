@@ -355,6 +355,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ngi-Hw-Nq9" userLabel="Time Picker View">
                                 <rect key="frame" x="0.0" y="204" width="375" height="463"/>
                                 <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9eW-AL-BIj">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="463"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="514872645.155249">
+                                            <!--2017-04-26 04:10:45 +0000-->
+                                        </date>
+                                    </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYc-8I-bhj">
                                         <rect key="frame" x="271" y="16" width="80" height="80"/>
                                         <constraints>
@@ -369,13 +376,6 @@
                                             <action selector="onDoneButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oJd-kQ-le3"/>
                                         </connections>
                                     </button>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9eW-AL-BIj">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="463"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="514872645.155249">
-                                            <!--2017-04-26 04:10:45 +0000-->
-                                        </date>
-                                    </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
