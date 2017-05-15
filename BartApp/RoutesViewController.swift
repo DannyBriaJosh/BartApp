@@ -22,11 +22,11 @@ class RoutesViewController: UIViewController {
         let originStation = userInput.startStation?.initial
         let destinationStation = userInput.endStation?.initial
         let timeString = userInput.timeString ?? "now"
+        let scheduleFormat = userInput.scheduleFormat ?? "depart"
         
         
         
-        
-        BartClient.sharedInstance.grabRoutes(cmd: "depart", origin: originStation!, destination: destinationStation!, date: "today", time: timeString, success: { (trips: [Trip]) -> () in
+        BartClient.sharedInstance.grabRoutes(cmd: scheduleFormat, origin: originStation!, destination: destinationStation!, date: "today", time: timeString, success: { (trips: [Trip]) -> () in
             self.trips = trips
           //  print("trips: \(self.trips)")
             self.tableView.reloadData()

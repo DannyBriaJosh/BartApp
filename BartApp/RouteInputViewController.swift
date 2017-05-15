@@ -84,9 +84,11 @@ class RouteInputViewController: UIViewController, ChooseStationDelegate {
             trip.arrivalTime = nil
             trip.departureTime = nil
             if arrival {
+                trip.scheduleFormat = "arrive"
                 trip.arrivalTime = time
             }
             if departure {
+                trip.scheduleFormat = "depart"
                 trip.departureTime = time
                 
             }

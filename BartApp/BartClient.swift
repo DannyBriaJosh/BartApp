@@ -20,7 +20,14 @@ class BartClient {
     
     func grabRoutes(cmd: String, origin: String, destination: String, date: String, time: String, success: @escaping ([Trip]) -> (), failure: @escaping (Error) -> ()){
         
-        let urlString = baseURLString + "&cmd=\(cmd)" + "&orig=\(origin)" + "&dest=\(destination)" + "&date=\(date)" + "&time=\(time)" + "&a=4" + "&b=0"
+        var a = 4
+        var b = 0
+        if cmd == "arrive" {
+            a = 0
+            b = 4
+        }
+        
+        let urlString = baseURLString + "&cmd=\(cmd)" + "&orig=\(origin)" + "&dest=\(destination)" + "&date=\(date)" + "&time=\(time)" + "&a=\(a)" + "&b=\(b)"
 
         
         print(urlString)

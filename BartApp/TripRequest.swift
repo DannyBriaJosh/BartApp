@@ -14,4 +14,5 @@ struct TripRequest{
     var departureTime: Date?
     var arrivalTime: Date?
     var timeString: String?
+    var scheduleFormat: String?
 }

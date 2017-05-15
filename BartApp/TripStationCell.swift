@@ -17,7 +17,7 @@ class TripStationCell: UITableViewCell {
     
     var leg: Leg? {
         didSet {
-            print(leg)
+            
             if let origin = leg?.origin {
                 departStationLabel.text = origin
             }
