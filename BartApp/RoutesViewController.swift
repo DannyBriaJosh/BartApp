@@ -115,6 +115,16 @@ extension RoutesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = Bundle.main.loadNibNamed("HeaderView", owner: self, options: nil)?.first as! HeaderView
         
+        let trip = trips[section]
+        print("trip: \(trip)")
+        
+        if trip.scheduleType == "arrive" {
+            headerView.timeLabel.text = "Arriving \(trip.arrivalTime!)"
+        } else {
+            headerView.timeLabel.text = "Departing \(trip.departureTime!)"
+        }
+        
+        
         headerView.tripNumberLabel.text = "Trip \(section + 1)"
         
         

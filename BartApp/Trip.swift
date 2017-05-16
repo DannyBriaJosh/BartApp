@@ -16,7 +16,7 @@ struct Trip {
     var legs: [Leg]?
     var departureTime: String?
     var arrivalTime: String?
-    
+    var scheduleType: String?
 
 }
 
