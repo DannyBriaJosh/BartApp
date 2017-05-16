@@ -16,27 +16,45 @@ class LegTableViewCell: UITableViewCell {
     @IBOutlet weak var bottomLineView: UIView!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var isLast = false
     
     var leg: Leg? {
         didSet {
-            if let time = leg?.departTime {
-                departingTimeLabel.text = time
-            }
             
-            if let stationInitial = leg?.destination {
-                let bartStations = appDelegate.allBartStations
-                if let stationIndex = BartStation.getIndex(initial: stationInitial) {
-                    let station = bartStations[stationIndex]
-                    if let stationName = station.name {
-                        departingStationLabel.text = "\(stationName) Station"
+            
+            if isLast {
+                print("test")
+                if let stationInitial = leg?.destination {
+                    let bartStations = appDelegate.allBartStations
+                    if let stationIndex = BartStation.getIndex(initial: stationInitial) {
+                        let station = bartStations[stationIndex]
+                        if let stationName = station.name {
+                            departingStationLabel.text = "\(stationName) Station"
+                        }
                     }
                 }
-            }
-            
-            if let train = leg?.line {
-                let route = BartStation.routeInfo(initial: train)
-                let line = route["name"] as! String
-                departingTrainLabel.text = line
+                if let time = leg?.arriveTime {
+                    departingTimeLabel.text = time
+                }
+                departingTrainLabel.isHidden = true
+            } else {
+                if let stationInitial = leg?.origin {
+                    let bartStations = appDelegate.allBartStations
+                    if let stationIndex = BartStation.getIndex(initial: stationInitial) {
+                        let station = bartStations[stationIndex]
+                        if let stationName = station.name {
+                            departingStationLabel.text = "\(stationName) Station"
+                        }
+                    }
+                }
+                if let time = leg?.departTime {
+                    departingTimeLabel.text = time
+                }
+                if let train = leg?.line {
+                    let route = BartStation.routeInfo(initial: train)
+                    let line = route["name"] as! String
+                    departingTrainLabel.text = line
+                }
             }
         }
     }

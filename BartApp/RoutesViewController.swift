@@ -20,6 +20,7 @@ class RoutesViewController: UIViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
+        tableView.separatorStyle = .none
         
         let originStation = userInput.startStation?.initial
         let destinationStation = userInput.endStation?.initial
@@ -63,35 +64,33 @@ class RoutesViewController: UIViewController {
 extension RoutesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let trip = trips[section]
-        return trip.legs!.count
+        return trip.legs!.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "TripStationCell") as! TripStationCell
+
         let legs = trips[indexPath.section].legs
-        let leg = legs?[indexPath.row]
-        
-//        cell.leg = leg
-//        cell.selectionStyle = .none
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "LegTableViewCell", for: indexPath) as! LegTableViewCell
-        cell.leg = leg
+        cell.selectionStyle = .none
+        
+        if indexPath.row >= (legs?.count)! {
+            cell.isLast = true
+            cell.leg = legs?[indexPath.row  - 1]
+            
+        } else {
+            cell.leg = legs?[indexPath.row]
+        }
+        
         if indexPath.row == 0 {
             cell.place = "first"
-        } else if indexPath.row == (legs?.count)! - 1 {
+        } else if indexPath.row == (legs?.count)! {
             cell.place = "last"
         } else {
             cell.place = "middle"
         }
         
-        if legs?.count == 1 {
-            cell.place = "single"
-        }
         
         return cell
-        
-        
-//        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
