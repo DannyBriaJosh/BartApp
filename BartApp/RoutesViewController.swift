@@ -83,6 +83,11 @@ extension RoutesViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             cell.place = "middle"
         }
+        
+        if legs?.count == 1 {
+            cell.place = "single"
+        }
+        
         return cell
         
         

@@ -34,7 +34,9 @@ class LegTableViewCell: UITableViewCell {
             }
             
             if let train = leg?.line {
-                departingTrainLabel.text = train
+                let route = BartStation.routeInfo(initial: train)
+                let line = route["name"] as! String
+                departingTrainLabel.text = line
             }
         }
     }
@@ -50,6 +52,8 @@ class LegTableViewCell: UITableViewCell {
                 break
             case "last":
                 topLineView.isHidden = false
+                break
+            case "single":
                 break
             default:
                 topLineView.isHidden = false
