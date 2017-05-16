@@ -204,6 +204,12 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         bartStations = appDelegate.allBartStations
         loadHomeWorkStations()
+        let time = timeToDateObject(date: "09:00AM")
+        let result = findCaltrainTrains(start: CaltrainStation.mountainview, end: CaltrainStation.sanfrancisco, time: time, startTime: false)
+        print(result.count)
+        for r in result {
+            print(r.number!)
+        }
     }
 
     override func didReceiveMemoryWarning() {

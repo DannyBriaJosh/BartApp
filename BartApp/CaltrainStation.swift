@@ -9,7 +9,8 @@
 import Foundation
 import CoreLocation
 
-struct CaltrainStation {
+class CaltrainStation {
+    
     var initial: String?
     var name: String?
     var gtfsLatitude: Double?
@@ -424,7 +425,32 @@ extension CaltrainStation {
     static var twentysecondstreet = CaltrainStation.all[1]
     static var bayshore = CaltrainStation.all[2]
     static var southsanfrancisco = CaltrainStation.all[3]
-    
-    
+    static var sanbruno = CaltrainStation.all[4]
+    static var millbrae = CaltrainStation.all[5]
+    static var broadway = CaltrainStation.all[6]
+    static var burlingame = CaltrainStation.all[7]
+    static var sanmateo = CaltrainStation.all[8]
+    static var hayward = CaltrainStation.all[9]
+    static var hillsdale = CaltrainStation.all[10]
+    static var belmont = CaltrainStation.all[11]
+    static var sancarlos = CaltrainStation.all[12]
+    static var redwoodcity = CaltrainStation.all[13]
+    static var atherton = CaltrainStation.all[14]
+    static var menlopark = CaltrainStation.all[15]
+    static var paloalto = CaltrainStation.all[16]
+    static var californiaavenue = CaltrainStation.all[17]
+    static var sanantonio = CaltrainStation.all[18]
+    static var mountainview = CaltrainStation.all[19]
+    static var sunnyvale = CaltrainStation.all[20]
+    static var lawrence = CaltrainStation.all[21]
+    static var santaclara = CaltrainStation.all[22]
+    static var collegepark = CaltrainStation.all[23]
+    static var sanjosediridon = CaltrainStation.all[24]
+    static var tamien = CaltrainStation.all[25]
+    static var capitol = CaltrainStation.all[26]
+    static var blossomhill = CaltrainStation.all[27]
+    static var morganhill = CaltrainStation.all[28]
+    static var sanmartin = CaltrainStation.all[29]
+    static var gilroy = CaltrainStation.all[30]
 }
 
