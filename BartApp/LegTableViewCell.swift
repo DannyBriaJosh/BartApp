@@ -14,16 +14,14 @@ class LegTableViewCell: UITableViewCell {
     @IBOutlet weak var departingTrainLabel: UILabel!
     @IBOutlet weak var topLineView: UIView!
     @IBOutlet weak var bottomLineView: UIView!
+    var prevLeg: Leg?
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var isLast = false
     
     var leg: Leg? {
         didSet {
-            
-            
             if isLast {
-                print("test")
                 if let stationInitial = leg?.destination {
                     let bartStations = appDelegate.allBartStations
                     if let stationIndex = BartStation.getIndex(initial: stationInitial) {
@@ -63,19 +61,25 @@ class LegTableViewCell: UITableViewCell {
         didSet {
             topLineView.isHidden = true
             bottomLineView.isHidden = true
+            topLineView.backgroundColor = hexStringToUIColor(hex: "#dfdee0")
+            bottomLineView.backgroundColor = hexStringToUIColor(hex: "#dfdee0")
             
             switch place {
+            case "single":
+                break
             case "first":
                 bottomLineView.isHidden = false
+                colorBottomLine()
                 break
             case "last":
+                colorTopLine()
                 topLineView.isHidden = false
-                break
-            case "single":
                 break
             default:
                 topLineView.isHidden = false
                 bottomLineView.isHidden = false
+                colorTopLine()
+                colorBottomLine()
                 break
             }
         }
@@ -83,13 +87,35 @@ class LegTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func colorTopLine() {
+        if let leg = prevLeg {
+            if let train = leg.line {
+                let route = BartStation.routeInfo(initial: train)
+                if let color = route["color"] as? String {
+                    topLineView.layer.backgroundColor = hexStringToUIColor(hex: color).cgColor
+                }
+            }
+        }
+
+    }
+    
+    func colorBottomLine() {
+        if let leg = leg {
+            if let train = leg.line {
+                let route = BartStation.routeInfo(initial: train)
+                if let color = route["color"] as? String {
+                    bottomLineView.layer.backgroundColor = hexStringToUIColor(hex: color).cgColor
+                }
+            }
+        }
     }
 
 }

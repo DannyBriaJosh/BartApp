@@ -249,6 +249,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LegTableViewCell", for: indexPath) as! LegTableViewCell
+        
         if indexPath.row >= legs.count {
             cell.isLast = true
             cell.leg = legs[indexPath.row  - 1]
@@ -258,16 +259,16 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
             cell.leg = legs[indexPath.row]
         }
         
+        cell.selectionStyle = .none
         if indexPath.row == 0 {
             cell.place = "first"
-        } else if indexPath.row == legs.count {
-            cell.place = "last"
         } else {
-            cell.place = "middle"
-        }
-        
-        if legs.count == 1  {
-            cell.place = "single"
+            cell.prevLeg = legs[indexPath.row - 1] // Used to color train lines
+            if indexPath.row == legs.count {
+                cell.place = "last"
+            } else {
+                cell.place = "middle"
+            }
         }
         
         return cell

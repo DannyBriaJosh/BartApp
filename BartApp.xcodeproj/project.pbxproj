@@ -17,6 +17,7 @@
 		767CD8211ECADD2700ACD0BD /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767CD8201ECADD2700ACD0BD /* Style.swift */; };
 		769395751EB058E6008C21C0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769395741EB058E6008C21C0 /* MapViewController.swift */; };
 		76EA3F4E1EC93B2C00816B7F /* LegTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EA3F4D1EC93B2C00816B7F /* LegTableViewCell.swift */; };
+		76EB12471ECB54A300ED5BD8 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EB12461ECB54A300ED5BD8 /* ColorExtension.swift */; };
 		C9256F991EA5BE5C00A2118B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9256F981EA5BE5C00A2118B /* AppDelegate.swift */; };
 		C9256F9E1EA5BE5C00A2118B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9256F9C1EA5BE5C00A2118B /* Main.storyboard */; };
 		C9256FA01EA5BE5C00A2118B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9256F9F1EA5BE5C00A2118B /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		767CD8201ECADD2700ACD0BD /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		769395741EB058E6008C21C0 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		76EA3F4D1EC93B2C00816B7F /* LegTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegTableViewCell.swift; sourceTree = "<group>"; };
+		76EB12461ECB54A300ED5BD8 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		79F1C0BBC1BEAF6D8752F040 /* Pods-BartApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BartApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BartApp/Pods-BartApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7B0B14D394FBF31FC01CCA28 /* Pods_BartApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BartApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C628493AA9D40C9CF553DE04 /* Pods-BartApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BartApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BartApp/Pods-BartApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				767CD8201ECADD2700ACD0BD /* Style.swift */,
+				76EB12461ECB54A300ED5BD8 /* ColorExtension.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				C96A44BC1EB1CDEB006EE840 /* RouteInputView.swift in Sources */,
 				C95E264E1EB15765001B262B /* RoutesViewController.swift in Sources */,
 				5FC358C71ECAA96F0067625A /* HeaderView.swift in Sources */,
+				76EB12471ECB54A300ED5BD8 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

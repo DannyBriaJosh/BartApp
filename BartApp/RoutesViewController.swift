@@ -83,10 +83,13 @@ extension RoutesViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.row == 0 {
             cell.place = "first"
-        } else if indexPath.row == (legs?.count)! {
-            cell.place = "last"
         } else {
-            cell.place = "middle"
+            cell.prevLeg = legs?[indexPath.row - 1] // Used to color train lines
+            if indexPath.row == (legs?.count)! {
+                cell.place = "last"
+            } else {
+                cell.place = "middle"
+            }
         }
         
         
