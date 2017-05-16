@@ -321,23 +321,19 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ysv-o2-zuq">
-                                        <rect key="frame" x="151" y="39" width="61" height="32"/>
+                                        <rect key="frame" x="156.5" y="39" width="62" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="PdJ-b3-oga"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                         <state key="normal" title="4:30 PM">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="onStartingTimeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Vf-SG-ZZk"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="DVq-I1-1Tt" firstAttribute="leading" secondItem="DK2-2M-6nK" secondAttribute="trailing" constant="4" id="700-8w-CgR"/>
-                                    <constraint firstItem="Ysv-o2-zuq" firstAttribute="centerX" secondItem="ApK-Dz-2xM" secondAttribute="centerX" constant="-6.5" id="BEm-My-a2k"/>
                                     <constraint firstItem="waX-1R-dOn" firstAttribute="centerY" secondItem="DK2-2M-6nK" secondAttribute="centerY" id="Bza-8r-GRj"/>
                                     <constraint firstItem="TZ8-1b-UhF" firstAttribute="centerY" secondItem="DK2-2M-6nK" secondAttribute="centerY" id="FYc-tV-uL4"/>
                                     <constraint firstItem="waX-1R-dOn" firstAttribute="leading" secondItem="TZ8-1b-UhF" secondAttribute="trailing" id="Itg-ke-CdX"/>
@@ -345,6 +341,7 @@
                                     <constraint firstAttribute="height" constant="80" id="RDD-IO-ti6"/>
                                     <constraint firstItem="DK2-2M-6nK" firstAttribute="top" secondItem="ApK-Dz-2xM" secondAttribute="top" constant="16" id="WAh-Fq-tBf"/>
                                     <constraint firstItem="DK2-2M-6nK" firstAttribute="leading" secondItem="ApK-Dz-2xM" secondAttribute="leading" constant="24" id="ZzV-N1-g98"/>
+                                    <constraint firstItem="Ysv-o2-zuq" firstAttribute="centerX" secondItem="ApK-Dz-2xM" secondAttribute="centerX" id="fOU-5B-h6c"/>
                                     <constraint firstItem="Ysv-o2-zuq" firstAttribute="top" secondItem="TZ8-1b-UhF" secondAttribute="bottom" constant="2" id="wIG-p2-yKv"/>
                                     <constraint firstItem="TZ8-1b-UhF" firstAttribute="leading" secondItem="DVq-I1-1Tt" secondAttribute="trailing" id="z5H-9L-PLD"/>
                                 </constraints>
@@ -399,37 +396,25 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ngi-Hw-Nq9" userLabel="Time Picker View">
-                                <rect key="frame" x="0.0" y="240" width="375" height="427"/>
+                                <rect key="frame" x="0.0" y="240" width="375" height="187.5"/>
                                 <subviews>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9eW-AL-BIj">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="427"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="187.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <date key="date" timeIntervalSinceReferenceDate="514872645.155249">
                                             <!--2017-04-26 04:10:45 +0000-->
                                         </date>
-                                    </datePicker>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYc-8I-bhj">
-                                        <rect key="frame" x="271" y="16" width="80" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="jhB-Tj-2JK"/>
-                                            <constraint firstAttribute="height" constant="80" id="yaI-gN-G6w"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
-                                        <state key="normal" title="Done">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
                                         <connections>
-                                            <action selector="onDoneButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oJd-kQ-le3"/>
+                                            <action selector="onChooseTime:" destination="8bC-Xf-vdC" eventType="valueChanged" id="5hT-6r-ydw"/>
                                         </connections>
-                                    </button>
+                                    </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="vYc-8I-bhj" secondAttribute="trailing" constant="24" id="01r-7Q-pVd"/>
-                                    <constraint firstItem="vYc-8I-bhj" firstAttribute="top" secondItem="ngi-Hw-Nq9" secondAttribute="top" constant="16" id="1Lq-0o-7lg"/>
-                                    <constraint firstAttribute="bottom" secondItem="9eW-AL-BIj" secondAttribute="bottom" id="Exu-yA-cLa"/>
                                     <constraint firstItem="9eW-AL-BIj" firstAttribute="leading" secondItem="ngi-Hw-Nq9" secondAttribute="leading" id="ZAN-5Y-xoY"/>
                                     <constraint firstAttribute="trailing" secondItem="9eW-AL-BIj" secondAttribute="trailing" id="d5H-oA-ZIO"/>
+                                    <constraint firstAttribute="width" secondItem="ngi-Hw-Nq9" secondAttribute="height" multiplier="2:1" id="hMN-o0-2cp"/>
+                                    <constraint firstAttribute="bottom" secondItem="9eW-AL-BIj" secondAttribute="bottom" id="mTA-um-VhB"/>
                                     <constraint firstItem="9eW-AL-BIj" firstAttribute="top" secondItem="ngi-Hw-Nq9" secondAttribute="top" id="mny-r2-Ibz"/>
                                 </constraints>
                             </view>
@@ -440,7 +425,6 @@
                             <constraint firstItem="vu3-pM-fsN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="581-2Z-9hL"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="f9d-lw-FJl" secondAttribute="bottom" constant="28" id="8sv-aL-wLI"/>
                             <constraint firstAttribute="trailing" secondItem="ApK-Dz-2xM" secondAttribute="trailing" id="Hw9-bX-ucZ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ngi-Hw-Nq9" secondAttribute="bottom" id="I1N-ZW-AaX"/>
                             <constraint firstAttribute="trailing" secondItem="vu3-pM-fsN" secondAttribute="trailing" id="M2A-zN-5fC"/>
                             <constraint firstItem="vu3-pM-fsN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="MI8-Nf-KcE"/>
                             <constraint firstItem="ApK-Dz-2xM" firstAttribute="bottom" secondItem="vu3-pM-fsN" secondAttribute="bottom" id="MXS-Pf-IWv"/>
@@ -456,7 +440,6 @@
                         <connections>
                             <outlet property="arrivalLabelButton" destination="waX-1R-dOn" id="fTJ-s4-f1d"/>
                             <outlet property="departureLabelButton" destination="TZ8-1b-UhF" id="kFF-iD-MQR"/>
-                            <outlet property="doneButton" destination="vYc-8I-bhj" id="oiV-J3-KMg"/>
                             <outlet property="endingStationButton" destination="Hao-dd-xwu" id="I7l-rr-gBS"/>
                             <outlet property="findRoutesButton" destination="f9d-lw-FJl" id="kxN-ZE-dW7"/>
                             <outlet property="leaveNowButton" destination="DVq-I1-1Tt" id="CGL-VX-EOK"/>

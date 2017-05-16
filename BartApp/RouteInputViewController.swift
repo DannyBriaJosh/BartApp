@@ -13,6 +13,7 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet var routeInputView: RouteInputView!
     @IBOutlet weak var tableView: UITableView!
     
+    
     var arrival = false
     var departure = true
     var time = Date()
@@ -68,6 +69,7 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         routeInputView.onDepartureButton()
         departure = true
         arrival = false
+        routeInputView.onStartingTimeButton()
     }
     
     @IBAction func onArrivalButton(_ sender: Any) {
@@ -75,15 +77,7 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         routeInputView.onArrivalButton()
         departure = false
         arrival = true
-    }
-    
-    @IBAction func onStartingTimeButton(_ sender: Any) {
         routeInputView.onStartingTimeButton()
-    }
-    
-    @IBAction func onDoneButton(_ sender: Any) {
-        routeInputView.onDoneButton()
-        time = routeInputView.timePicker.date
     }
     
     @IBAction func onSwitchStartEndStationButton(_ sender: Any) {
@@ -203,6 +197,7 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         routeInputView.onLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        routeInputView.delegate = self
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         bartStations = appDelegate.allBartStations
         loadHomeWorkStations()
@@ -216,5 +211,11 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+}
+
+extension RouteInputViewController: RouteInputViewDelegate {
+    func routeInputView(routeInputView: RouteInputView, didUpdateTime time: Date) {
+        self.time = time
     }
 }

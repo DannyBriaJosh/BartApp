@@ -8,6 +8,10 @@
 
 import UIKit
 
+@objc protocol RouteInputViewDelegate {
+    @objc optional func routeInputView(routeInputView: RouteInputView, didUpdateTime time: Date)
+}
+
 class RouteInputView: UIView {
 
     @IBOutlet weak var findRoutesButton: UIButton!
@@ -18,15 +22,16 @@ class RouteInputView: UIView {
     @IBOutlet weak var arrivalLabelButton: UIButton!
     @IBOutlet weak var startingTimeButton: UIButton!
     @IBOutlet weak var timePicker: UIDatePicker!
-    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var timeView: UIView!
     @IBOutlet weak var timePickerView: UIView!
     @IBOutlet weak var stationView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    weak var delegate: RouteInputViewDelegate?
     
     var userInputs = [String : Any]()
     let defaults = UserDefaults.standard
     var primaryColor = Style.primaryColor
+    var time = Date()
     
     func onLoad() {
         timePickerView.isHidden = true
@@ -50,6 +55,7 @@ class RouteInputView: UIView {
         tableView.reloadData()
         stationView.isHidden = false
         timeView.isHidden = true
+        timePickerView.isHidden = true
         //settingsButton.isEnabled = false
         //settingsButton.setTitleColor(UIColor.lightGray, for: .normal)
     }
@@ -99,7 +105,7 @@ class RouteInputView: UIView {
         arrivalLabelButton.layer.borderColor = UIColor.white.cgColor
         arrivalLabelButton.layer.backgroundColor = UIColor.white.cgColor
         startingTimeButton.isEnabled = false
-        let time = formatTime(date: Date())
+        let time = formatTime(date: self.time)
         startingTimeButton.setTitle(time, for: .normal)
         timePickerView.isHidden = true
     }
@@ -135,19 +141,7 @@ class RouteInputView: UIView {
     
     func onStartingTimeButton() {
         startingTimeButton.isEnabled = false
-        findRoutesButton.isHidden = true
         timePickerView.isHidden = false
-    }
-    
-    func onDoneButton() {
-        let startingTime = timePicker.date
-        let startingTimeString = formatTime(date: startingTime)
-        startingTimeButton.setTitle(startingTimeString, for: .normal)
-        startingTimeButton.setTitleColor(UIColor.black, for: .normal)
-        timePickerView.isHidden = true
-        startingTimeButton.isEnabled = true
-        findRoutesButton.isHidden = false
-        setFindButtonStatus()
     }
     
     func setFindButtonStatus() {
@@ -166,7 +160,7 @@ class RouteInputView: UIView {
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
-        var time = "          "
+        var time = ""
         if hour == 0 {
             time += "12"
         } else if hour < 10 {
@@ -187,11 +181,27 @@ class RouteInputView: UIView {
         } else {
             time += " PM"
         }
-        print(Calendar.current.component(.weekday, from: date))
+//        print(Calendar.current.component(.weekday, from: date))
         return time
     }
 
     func updateStyle() {
         primaryColor = Style.primaryColor
     }
+    
+    @IBAction func onChooseTime(_ sender: Any) {
+        if let picker = sender as? UIDatePicker {
+            let startingTime = picker.date
+            let startingTimeString = formatTime(date: startingTime)
+            startingTimeButton.setTitle(startingTimeString, for: .normal)
+            startingTimeButton.isEnabled = true
+            setFindButtonStatus()
+            time = startingTime
+            delegate?.routeInputView?(routeInputView: self, didUpdateTime: startingTime)
+            startingTimeButton.isEnabled = true
+            setFindButtonStatus()
+        }
+    }
+    
 }
+
