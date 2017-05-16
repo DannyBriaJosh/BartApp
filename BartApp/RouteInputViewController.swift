@@ -53,9 +53,10 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         arrival = false
     }
     
-    @IBAction func onCancelButton(_ sender: Any) {
+    func resetView() { //will be used once transportation type changes
         routeInputView.clearStartingStation()
         routeInputView.clearEndingStation()
+        routeInputView.updateStyle()
         routeInputView.onLeaveNowButton()
         trip.startStation = nil
         trip.endStation = nil
