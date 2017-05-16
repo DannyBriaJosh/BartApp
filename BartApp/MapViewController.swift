@@ -19,6 +19,8 @@ class MapViewController: UIViewController {
     @IBOutlet weak var departingStationLabel: UILabel!
     @IBOutlet weak var arrivalStationLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var startingTimeWrapperView: UIView!
+    @IBOutlet weak var endingTimeWrapperView: UIView!
     
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -38,6 +40,7 @@ class MapViewController: UIViewController {
         setupLabels()
         addStations()
         initMap()
+        styleHeaderView()
         UNUserNotificationCenter.current().delegate = self
         
     }
@@ -52,6 +55,11 @@ class MapViewController: UIViewController {
         if !isMovingToParentViewController {
             stopMonitoringGeofications()
         }
+    }
+    
+    func styleHeaderView() {
+        startingTimeWrapperView.layer.backgroundColor = Style.primaryColor.cgColor
+        endingTimeWrapperView.layer.backgroundColor = Style.primaryColor.cgColor
     }
     
     func setupLabels() {
