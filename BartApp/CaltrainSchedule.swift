@@ -16,6 +16,10 @@ enum TimeOfWeek {
     case weekday, weekend
 }
 
+enum TrainType {
+    case bullet, limited, local
+}
+
 struct Stop {
     var station: CaltrainStation?
     var time: Date?
@@ -28,13 +32,18 @@ struct Stop {
 
 struct CaltrainSchedule {
     var number: Int?
+    var trainType: TrainType?
     var direction: Direction?
     var timeOfWeek: TimeOfWeek?
     var stops: [Stop]?
     
-    init(dictionary: [String: AnyObject]){
+    
+    init(dictionary: [String: Any]){
         if let number = dictionary["number"] as? Int {
             self.number = number
+        }
+        if let trainType = dictionary["trainType"] as? TrainType {
+            self.trainType = trainType
         }
         if let direction = dictionary["direction"] as? Direction {
             self.direction = direction
@@ -51,7 +60,20 @@ struct CaltrainSchedule {
 extension CaltrainSchedule {
     
     static var all: [CaltrainSchedule] {
-        let caltrainScheduleData = [[String:AnyObject]]()
+        var caltrainScheduleData = [[String: Any]]()
+        
+        caltrainScheduleData.append(
+            [
+                "number": 101,
+                "trainType": TrainType.local,
+                "direction": Direction.northbound,
+                "timeOfWeek": TimeOfWeek.weekday,
+                "stops":
+                    [
+                        
+                    ]
+            ]
+        )
         
         var caltrainScheduleArray = [CaltrainSchedule]()
         for i in caltrainScheduleData {

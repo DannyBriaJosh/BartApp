@@ -62,12 +62,14 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func onDepartureButton(_ sender: Any) {
+        loadHomeWorkStations()
         routeInputView.onDepartureButton()
         departure = true
         arrival = false
     }
     
     @IBAction func onArrivalButton(_ sender: Any) {
+        loadHomeWorkStations()
         routeInputView.onArrivalButton()
         departure = false
         arrival = true
@@ -138,6 +140,9 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        bartStations = appDelegate.allBartStations
+        loadHomeWorkStations()
         let cell = tableView.dequeueReusableCell(withIdentifier: "StationCell", for: indexPath) as! StationCell
         cell.resetCell()
         cell.isUserInteractionEnabled = true

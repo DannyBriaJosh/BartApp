@@ -419,5 +419,12 @@ extension CaltrainStation {
         }
         return caltrainStationArray
     }
+    
+    static var sanfrancisco = CaltrainStation.all[0]
+    static var twentysecondstreet = CaltrainStation.all[1]
+    static var bayshore = CaltrainStation.all[2]
+    static var southsanfrancisco = CaltrainStation.all[3]
+    
+    
 }
 

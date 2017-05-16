@@ -22,6 +22,7 @@ class RouteInputView: UIView {
     @IBOutlet weak var timeView: UIView!
     @IBOutlet weak var timePickerView: UIView!
     @IBOutlet weak var stationView: UIView!
+    @IBOutlet weak var tableView: UITableView!
     
     var userInputs = [String : Any]()
     
@@ -39,11 +40,16 @@ class RouteInputView: UIView {
     func hideStationView() {
         stationView.isHidden = true
         timeView.isHidden = false
+        //settingsButton.isEnabled = true
+        //settingsButton.setTitleColor(UIColor.black, for: .normal)
     }
     
     func showStationView() {
+        tableView.reloadData()
         stationView.isHidden = false
         timeView.isHidden = true
+        //settingsButton.isEnabled = false
+        //settingsButton.setTitleColor(UIColor.lightGray, for: .normal)
     }
     
     func setStartingStation(startingStation: BartStation) {
