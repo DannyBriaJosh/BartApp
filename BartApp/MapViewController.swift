@@ -236,19 +236,32 @@ extension MapViewController: UNUserNotificationCenterDelegate {
 
 extension MapViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return legs.count
+        return legs.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LegTableViewCell", for: indexPath) as! LegTableViewCell
-        cell.leg = legs[indexPath.row]
+        if indexPath.row >= legs.count {
+            cell.isLast = true
+            cell.leg = legs[indexPath.row  - 1]
+            print("is last")
+            
+        } else {
+            cell.leg = legs[indexPath.row]
+        }
+        
         if indexPath.row == 0 {
             cell.place = "first"
-        } else if indexPath.row == legs.count - 1 {
+        } else if indexPath.row == legs.count {
             cell.place = "last"
         } else {
             cell.place = "middle"
         }
+        
+        if legs.count == 1  {
+            cell.place = "single"
+        }
+        
         return cell
     }
 }
