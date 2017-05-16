@@ -54,6 +54,7 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func resetView() { //will be used once transportation type changes
+        Style.loadTheme()
         routeInputView.clearStartingStation()
         routeInputView.clearEndingStation()
         routeInputView.updateStyle()

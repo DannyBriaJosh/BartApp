@@ -192,7 +192,6 @@ class RouteInputView: UIView {
     }
 
     func updateStyle() {
-        Style.loadTheme()
         primaryColor = Style.primaryColor
     }
 }

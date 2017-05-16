@@ -15,7 +15,7 @@ class HeaderView: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.backgroundColor = Style.primaryColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
