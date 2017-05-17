@@ -193,7 +193,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="job-EU-bln">
-                                        <rect key="frame" x="327" y="87" width="32" height="32"/>
+                                        <rect key="frame" x="333" y="87" width="32" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="32" id="eXN-mh-rYU"/>
                                             <constraint firstAttribute="height" constant="32" id="xm8-lR-bRU"/>
@@ -204,15 +204,14 @@
                                         </connections>
                                     </button>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hao-dd-xwu">
-                                        <rect key="frame" x="48" y="114" width="275" height="32"/>
+                                        <rect key="frame" x="48" y="114" width="277" height="32"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="VGJ-Gy-oOQ"/>
-                                            <constraint firstAttribute="width" constant="275" id="oQS-Fc-Sk6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
-                                        <state key="normal">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="ARRIVE">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -220,15 +219,14 @@
                                         </connections>
                                     </button>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtG-PC-1eZ">
-                                        <rect key="frame" x="48" y="70" width="275" height="32"/>
+                                        <rect key="frame" x="48" y="70" width="277" height="32"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="275" id="wun-A4-6Uy"/>
                                             <constraint firstAttribute="height" constant="32" id="xHK-SH-io2"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
-                                        <state key="normal">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="DEPART">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="onStartStationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P5u-AF-UuT"/>
@@ -258,12 +256,14 @@
                                     <constraint firstItem="Hao-dd-xwu" firstAttribute="top" secondItem="gtG-PC-1eZ" secondAttribute="bottom" constant="12" id="6lx-0D-DhP"/>
                                     <constraint firstItem="Hao-dd-xwu" firstAttribute="leading" secondItem="gtG-PC-1eZ" secondAttribute="leading" id="DBq-QB-jME"/>
                                     <constraint firstItem="Hao-dd-xwu" firstAttribute="centerY" secondItem="txV-9z-h3U" secondAttribute="centerY" id="Dlz-62-hr7"/>
-                                    <constraint firstAttribute="trailing" secondItem="job-EU-bln" secondAttribute="trailing" constant="16" id="FHx-39-kAi"/>
-                                    <constraint firstItem="gtG-PC-1eZ" firstAttribute="leading" secondItem="vu3-pM-fsN" secondAttribute="leading" constant="48" id="J3R-za-bHJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="job-EU-bln" secondAttribute="trailing" constant="10" id="FHx-39-kAi"/>
                                     <constraint firstItem="job-EU-bln" firstAttribute="top" secondItem="vu3-pM-fsN" secondAttribute="top" constant="87" id="QWQ-co-H7Q"/>
                                     <constraint firstItem="veA-lL-kZr" firstAttribute="leading" secondItem="vu3-pM-fsN" secondAttribute="leading" constant="20" id="VvD-9f-vYz"/>
+                                    <constraint firstItem="gtG-PC-1eZ" firstAttribute="leading" secondItem="veA-lL-kZr" secondAttribute="trailing" constant="8" id="axT-cn-qhk"/>
                                     <constraint firstItem="gtG-PC-1eZ" firstAttribute="top" secondItem="vu3-pM-fsN" secondAttribute="top" constant="70" id="b1W-fh-X87"/>
+                                    <constraint firstItem="Hao-dd-xwu" firstAttribute="trailing" secondItem="gtG-PC-1eZ" secondAttribute="trailing" id="cvD-aT-9mP"/>
                                     <constraint firstItem="txV-9z-h3U" firstAttribute="centerX" secondItem="veA-lL-kZr" secondAttribute="centerX" id="fiT-4E-vzX"/>
+                                    <constraint firstItem="job-EU-bln" firstAttribute="leading" secondItem="gtG-PC-1eZ" secondAttribute="trailing" constant="8" id="fxJ-EJ-RTU"/>
                                     <constraint firstItem="txV-9z-h3U" firstAttribute="top" secondItem="0nv-Kf-gaV" secondAttribute="bottom" id="paV-ff-e2a"/>
                                     <constraint firstItem="txV-9z-h3U" firstAttribute="centerX" secondItem="veA-lL-kZr" secondAttribute="centerX" id="prH-Ej-jmq"/>
                                     <constraint firstItem="0nv-Kf-gaV" firstAttribute="top" secondItem="veA-lL-kZr" secondAttribute="bottom" id="uxF-pb-4Ax"/>
@@ -321,11 +321,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ysv-o2-zuq">
-                                        <rect key="frame" x="156.5" y="39" width="62" height="32"/>
+                                        <rect key="frame" x="157" y="39" width="61" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="PdJ-b3-oga"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                                         <state key="normal" title="4:30 PM">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -370,7 +370,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rA-hP-Rw6">
                                                             <rect key="frame" x="16" y="19" width="42" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -610,28 +610,23 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:50pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLE-KP-itB">
-                                                    <rect key="frame" x="27" y="24" width="53" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <rect key="frame" x="27.5" y="24" width="52.5" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mM0-i6-IdF">
                                                     <rect key="frame" x="122" y="12" width="219" height="40"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHu-n0-sKj">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Montgomery Station" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHu-n0-sKj">
                                                             <rect key="frame" x="0.0" y="0.0" width="219" height="20"/>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="Montgomery Station">
-                                                                    <attributes>
-                                                                        <font key="NSFont" metaFont="system" size="17"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
+                                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                                            <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fremont Train" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBt-tB-Sw7">
                                                             <rect key="frame" x="0.0" y="20" width="219" height="20"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -747,8 +742,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="132"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STARTING TIME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="poT-SX-quI">
-                                                <rect key="frame" x="27" y="27" width="91" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <rect key="frame" x="27" y="27" width="89" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -760,7 +755,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Embarcadero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3I5-Dh-wP1">
                                                 <rect key="frame" x="27" y="90" width="133.5" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -789,7 +784,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsd-Ss-JqN">
                                                 <rect key="frame" x="27" y="27" width="22" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -805,16 +800,31 @@
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Montgomery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8t-Ee-lcH">
                                                 <rect key="frame" x="27" y="89.5" width="133.5" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBl-py-TwL">
+                                                <rect key="frame" x="157.5" y="0.0" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Qee-KK-edZ"/>
+                                                    <constraint firstAttribute="width" constant="30" id="Zne-kH-5lf"/>
+                                                </constraints>
+                                                <state key="normal" title="-">
+                                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onFakeNotification:" destination="hgk-a8-1nJ" eventType="touchUpInside" id="DNj-EX-h5a"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.96470588239999999" green="0.43921568630000002" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="m8t-Ee-lcH" firstAttribute="leading" secondItem="1fj-f4-PVq" secondAttribute="leading" constant="7" id="0V4-kX-Ixi"/>
+                                            <constraint firstItem="mBl-py-TwL" firstAttribute="top" secondItem="rWy-l4-aCM" secondAttribute="top" id="592-IH-gZJ"/>
                                             <constraint firstAttribute="bottom" secondItem="1fj-f4-PVq" secondAttribute="bottom" constant="15" id="GqG-ru-mZ7"/>
                                             <constraint firstItem="5RS-S7-XE5" firstAttribute="top" secondItem="Vsd-Ss-JqN" secondAttribute="bottom" constant="2" id="Pc3-9I-3a9"/>
+                                            <constraint firstAttribute="trailing" secondItem="mBl-py-TwL" secondAttribute="trailing" id="Pja-VB-NYz"/>
                                             <constraint firstItem="1fj-f4-PVq" firstAttribute="leading" secondItem="rWy-l4-aCM" secondAttribute="leading" constant="20" id="R1o-0c-UFL"/>
                                             <constraint firstAttribute="trailing" secondItem="1fj-f4-PVq" secondAttribute="trailing" constant="20" id="TEJ-rX-SS2"/>
                                             <constraint firstItem="1fj-f4-PVq" firstAttribute="top" secondItem="5RS-S7-XE5" secondAttribute="bottom" constant="14" id="b0M-gA-SSU"/>
@@ -855,28 +865,23 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:50pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvP-IA-Hfj">
-                                                    <rect key="frame" x="27" y="24" width="53" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <rect key="frame" x="27.5" y="24" width="52.5" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="IZs-u9-Fe2">
                                                     <rect key="frame" x="122" y="12" width="241" height="40"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZz-eb-gwy">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Montgomery Station" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZz-eb-gwy">
                                                             <rect key="frame" x="0.0" y="0.0" width="241" height="20"/>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="Montgomery Station">
-                                                                    <attributes>
-                                                                        <font key="NSFont" metaFont="system" size="17"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
+                                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                                            <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fremont Train" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qm3-Ii-yYT">
                                                             <rect key="frame" x="0.0" y="20" width="241" height="20"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>

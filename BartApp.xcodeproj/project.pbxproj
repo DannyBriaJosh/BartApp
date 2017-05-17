@@ -16,6 +16,7 @@
 		7655A22C1EC0C9DF00273660 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7655A22B1EC0C9DF00273660 /* SettingsViewController.swift */; };
 		767CD8211ECADD2700ACD0BD /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767CD8201ECADD2700ACD0BD /* Style.swift */; };
 		769395751EB058E6008C21C0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769395741EB058E6008C21C0 /* MapViewController.swift */; };
+		76994AA91ECC26380096ACAB /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 76994AA81ECC26380096ACAB /* alarm.mp3 */; };
 		76EA3F4E1EC93B2C00816B7F /* LegTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EA3F4D1EC93B2C00816B7F /* LegTableViewCell.swift */; };
 		76EB12471ECB54A300ED5BD8 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EB12461ECB54A300ED5BD8 /* ColorExtension.swift */; };
 		C9256F991EA5BE5C00A2118B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9256F981EA5BE5C00A2118B /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 		7655A22B1EC0C9DF00273660 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		767CD8201ECADD2700ACD0BD /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		769395741EB058E6008C21C0 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		76994AA81ECC26380096ACAB /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
 		76EA3F4D1EC93B2C00816B7F /* LegTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegTableViewCell.swift; sourceTree = "<group>"; };
 		76EB12461ECB54A300ED5BD8 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		79F1C0BBC1BEAF6D8752F040 /* Pods-BartApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BartApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BartApp/Pods-BartApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				76B6507F1EB03F2D00F811EC /* View Controllers */,
 				76B6507E1EB03F2600F811EC /* Views */,
 				C9256F981EA5BE5C00A2118B /* AppDelegate.swift */,
+				76994AA81ECC26380096ACAB /* alarm.mp3 */,
 				C9256F9C1EA5BE5C00A2118B /* Main.storyboard */,
 				C9256F9F1EA5BE5C00A2118B /* Assets.xcassets */,
 				C9256FA11EA5BE5C00A2118B /* LaunchScreen.storyboard */,
@@ -249,6 +252,7 @@
 				C9256FA01EA5BE5C00A2118B /* Assets.xcassets in Resources */,
 				C9256F9E1EA5BE5C00A2118B /* Main.storyboard in Resources */,
 				5FC358C81ECAA96F0067625A /* HeaderView.xib in Resources */,
+				76994AA91ECC26380096ACAB /* alarm.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

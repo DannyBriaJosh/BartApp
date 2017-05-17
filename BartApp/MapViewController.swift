@@ -42,7 +42,6 @@ class MapViewController: UIViewController {
         initMap()
         styleHeaderView()
         UNUserNotificationCenter.current().delegate = self
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,11 +63,11 @@ class MapViewController: UIViewController {
     
     func setupLabels() {
         if let departureTime = trip?.departureTime {
-            departingTimeLabel.text = departureTime
+            departingTimeLabel.text = departureTime.uppercased()
         }
         
         if let arrivalTime = trip?.arrivalTime {
-            arrivalTimeLabel.text = arrivalTime
+            arrivalTimeLabel.text = arrivalTime.uppercased()
         }
         
         if let departureStationInitial = trip?.origin {
@@ -164,6 +163,11 @@ class MapViewController: UIViewController {
         
         return region
     }
+    
+    @IBAction func onFakeNotification(_ sender: Any) {
+        let myTimer : Timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.createLocalNotification), userInfo: nil, repeats: false)
+
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -229,8 +233,10 @@ extension MapViewController: UNUserNotificationCenterDelegate {
                                                                arguments: nil)
         content.body = String.localizedUserNotificationString(forKey: "You are now approaching your stop",
                                                               arguments: nil)
-        content.sound = UNNotificationSound.default()
-//        content.sound = UNNotificationSound(named: "MySound.aiff")
+        
+//        content.sound = UNNotificationSound.default()
+        
+        content.sound = UNNotificationSound(named: "alarm.mp3")
         let request = UNNotificationRequest(identifier: "StationAlarm", content: content, trigger: nil)
         let center = UNUserNotificationCenter.current()
         center.add(request, withCompletionHandler: nil)
