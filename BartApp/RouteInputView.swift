@@ -10,6 +10,7 @@ import UIKit
 
 @objc protocol RouteInputViewDelegate {
     @objc optional func routeInputView(routeInputView: RouteInputView, didUpdateTime time: Date)
+    @objc optional func routeInputView(routeInputView: RouteInputView, didSelectTransportation train: String)
 }
 
 class RouteInputView: UIView {
@@ -35,7 +36,6 @@ class RouteInputView: UIView {
     weak var vc: RouteInputViewController?
     
     var userInputs = [String : Any]()
-    let defaults = UserDefaults.standard
     var primaryColor = Style.primaryColor
     var time = Date()
     var trainSystemMenuState = false
@@ -88,7 +88,11 @@ class RouteInputView: UIView {
     }
     
     func moveTrainSystemMenu(_ gestureRecognizer: UITapGestureRecognizer) {
-        UIView.animate(withDuration: 0.3) { 
+        toggleMenu()
+    }
+    
+    func toggleMenu() {
+        UIView.animate(withDuration: 0.3) {
             let arrowImageView = self.vc?.navigationItem.titleView?.subviews[0].subviews[1] as! UIImageView
             let transform = arrowImageView.transform
             if self.trainSystemMenuState {
@@ -265,5 +269,14 @@ class RouteInputView: UIView {
         }
     }
     
+    @IBAction func onSelectBart(_ sender: UIButton) {
+        toggleMenu()
+        delegate?.routeInputView?(routeInputView: self, didSelectTransportation: "Bart")
+    }
+    
+    @IBAction func onSelectCaltrain(_ sender: UIButton) {
+        toggleMenu()
+        delegate?.routeInputView?(routeInputView: self, didSelectTransportation: "Caltrain")
+    }
 }
 

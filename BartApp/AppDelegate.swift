@@ -38,9 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CAAnimationDelegate {
         
         self.window?.rootViewController = UIViewController()
         
-        
-        
-        
         self.mask = CALayer()
         self.mask!.contents = UIImage(named: "splash-logo")?.cgImage
         self.mask!.contentsGravity = kCAGravityResizeAspect

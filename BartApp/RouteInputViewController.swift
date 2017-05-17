@@ -13,7 +13,7 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet var routeInputView: RouteInputView!
     @IBOutlet weak var tableView: UITableView!
     
-    
+    let defaults = UserDefaults.standard
     var arrival = false
     var departure = true
     var time = Date()
@@ -212,5 +212,10 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
 extension RouteInputViewController: RouteInputViewDelegate {
     func routeInputView(routeInputView: RouteInputView, didUpdateTime time: Date) {
         self.time = time
+    }
+    
+    func routeInputView(routeInputView: RouteInputView, didSelectTransportation train: String) {
+        defaults.set(train, forKey: "trainSystem")
+        resetView()
     }
 }
