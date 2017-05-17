@@ -21,6 +21,7 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
     var time = Date()
     var trip = TripRequest()
     var stations: [Station]! = []
+    var defaultOrderStations: [Station]! = []
     var starting = false
     var ending = false
     var homeStation: Station?
@@ -47,6 +48,9 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         defaults.setValue("Caltrain", forKey: "trainSystem")
         routeInputView.onCaltrainSystemButton()
         system = "Caltrain"
+        stations = CaltrainStation.allCaltrain
+        defaultOrderStations = CaltrainStation.allCaltrain
+        tableView.reloadData()
         resetView()
     }
     
@@ -55,6 +59,9 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         defaults.setValue("Bart", forKey: "trainSystem")
         routeInputView.onBartSystemButton()
         system = "Bart"
+        stations = BartStation.allBart
+        defaultOrderStations = BartStation.allBart
+        tableView.reloadData()
         resetView()
     }
     
@@ -122,7 +129,6 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func loadHomeWorkStations() {
         let defaults = UserDefaults.standard
-        
         if let homeStationIndex = defaults.value(forKey: "Home") as? Int {
             homeStation = stations[homeStationIndex]
         }
@@ -156,8 +162,7 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        stations = appDelegate.allBartStations
+        stations = defaultOrderStations
         loadHomeWorkStations()
         let cell = tableView.dequeueReusableCell(withIdentifier: "StationCell", for: indexPath) as! StationCell
         cell.resetCell()
@@ -221,6 +226,7 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         routeInputView.onLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         stations = appDelegate.allBartStations
+        defaultOrderStations = appDelegate.allBartStations
         loadHomeWorkStations()
         routeInputView.setNavigationBar(trainSystem: "Bart")
     }

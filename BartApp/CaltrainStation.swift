@@ -72,7 +72,7 @@ struct CaltrainStation: Station {
             [
                 [
                     "initial": "SFRAN",
-                    "name": "San Francisco Caltrain",
+                    "name": "San Francisco",
                     "gtfs_latitude": 37.776348,
                     "gtfs_longitude": -122.394935,
                     "address": "700 4th St, San Francisco",
