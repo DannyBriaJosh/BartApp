@@ -65,6 +65,9 @@ class RouteInputView: UIView {
 //        bartButton.layer.borderColor = UIColor.black.cgColor
         bartButton.contentHorizontalAlignment = .left
         overlayView.alpha = 0
+        let newTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector (moveTrainSystemMenu(_:)))
+        overlayView.addGestureRecognizer(newTapGestureRecognizer)
+        bartButton.isSelected = true
     }
     
     func setNavigationBar(trainSystem: String) {
@@ -102,7 +105,7 @@ class RouteInputView: UIView {
                 arrowImageView.transform = newTransform
                 self.trainSystemView.frame.origin.y = 60
                 self.trainSystemView.isHidden = false
-                self.overlayView.alpha = 0.2
+                self.overlayView.alpha = 0.3
                 self.overlayView.isHidden = false
             }
             self.trainSystemMenuState = !self.trainSystemMenuState
