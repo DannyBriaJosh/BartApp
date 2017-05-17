@@ -26,12 +26,19 @@ class RouteInputView: UIView {
     @IBOutlet weak var timePickerView: UIView!
     @IBOutlet weak var stationView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var trainSystemView: UIView!
+    @IBOutlet weak var caltrainButton: UIButton!
+    @IBOutlet weak var bartButton: UIButton!
+    @IBOutlet weak var overlayView: UIView!
+    
     weak var delegate: RouteInputViewDelegate?
+    weak var vc: RouteInputViewController?
     
     var userInputs = [String : Any]()
     let defaults = UserDefaults.standard
     var primaryColor = Style.primaryColor
     var time = Date()
+    var trainSystemMenuState = false
     
     func onLoad() {
         timePickerView.isHidden = true
@@ -42,13 +49,69 @@ class RouteInputView: UIView {
         setFindButtonStatus()
         onLeaveNowButton()
         hideStationView()
+        initializeTrainSystemView()
+    }
+    
+    func initializeTrainSystemView() {
+        trainSystemView.isHidden = false
+        trainSystemView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        trainSystemView.layer.shadowRadius = 2.0
+        trainSystemView.layer.shadowColor = UIColor.black.cgColor
+        trainSystemView.layer.shadowOpacity = 0.5
+//        caltrainButton.layer.borderWidth = 0.5
+//        caltrainButton.layer.borderColor = UIColor.white.cgColor
+        caltrainButton.contentHorizontalAlignment = .left
+//        bartButton.layer.borderWidth = 0.5
+//        bartButton.layer.borderColor = UIColor.black.cgColor
+        bartButton.contentHorizontalAlignment = .left
+        overlayView.alpha = 0
+    }
+    
+    func setNavigationBar(trainSystem: String) {
+        let switchView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        let stackView = UIStackView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.spacing = 1
+        stackView.isUserInteractionEnabled = true
+        let newTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector (moveTrainSystemMenu(_:)))
+        stackView.addGestureRecognizer(newTapGestureRecognizer)
+        let trainLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 55, height: 50))
+        trainLabel.text = trainSystem
+        let arrowImage = UIImageView(image: #imageLiteral(resourceName: "arrow-icon-1"))
+        arrowImage.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
+        arrowImage.contentMode = .scaleAspectFit
+        stackView.addArrangedSubview(trainLabel)
+        stackView.addArrangedSubview(arrowImage)
+        switchView.addSubview(stackView)
+        vc?.navigationItem.titleView = switchView
+    }
+    
+    func moveTrainSystemMenu(_ gestureRecognizer: UITapGestureRecognizer) {
+        UIView.animate(withDuration: 0.3) { 
+            let arrowImageView = self.vc?.navigationItem.titleView?.subviews[0].subviews[1] as! UIImageView
+            let transform = arrowImageView.transform
+            if self.trainSystemMenuState {
+                let newTransform = transform.rotated(by: (-1 * (CGFloat.pi - 0.000000001)))
+                arrowImageView.transform = newTransform
+                self.trainSystemView.frame.origin.y = -120
+                self.overlayView.alpha = 0
+                self.overlayView.isHidden = true
+            } else {
+                let newTransform = transform.rotated(by: CGFloat.pi)
+                arrowImageView.transform = newTransform
+                self.trainSystemView.frame.origin.y = 60
+                self.trainSystemView.isHidden = false
+                self.overlayView.alpha = 0.2
+                self.overlayView.isHidden = false
+            }
+            self.trainSystemMenuState = !self.trainSystemMenuState
+        }
     }
     
     func hideStationView() {
         stationView.isHidden = true
         timeView.isHidden = false
-        //settingsButton.isEnabled = true
-        //settingsButton.setTitleColor(UIColor.black, for: .normal)
     }
     
     func showStationView() {
@@ -56,12 +119,11 @@ class RouteInputView: UIView {
         stationView.isHidden = false
         timeView.isHidden = true
         timePickerView.isHidden = true
-        //settingsButton.isEnabled = false
-        //settingsButton.setTitleColor(UIColor.lightGray, for: .normal)
     }
     
     func setStartingStation(startingStation: BartStation) {
-        startingStationButton.setTitle("\(startingStation.name!)", for: .normal)
+        startingStationButton.contentHorizontalAlignment = .left
+        startingStationButton.setTitle("  \(startingStation.name!)", for: .normal)
         startingStationButton.setTitleColor(UIColor.black, for: .normal)
         userInputs["Start Station"] = startingStation
         setFindButtonStatus()
@@ -82,7 +144,8 @@ class RouteInputView: UIView {
     }
     
     func setEndingStation(endingStation: BartStation) {
-        endingStationButton.setTitle("\(endingStation.name!)", for: .normal)
+        endingStationButton.contentHorizontalAlignment = .left
+        endingStationButton.setTitle("  \(endingStation.name!)", for: .normal)
         endingStationButton.setTitleColor(UIColor.black, for: .normal)
         userInputs["End Station"] = endingStation
         setFindButtonStatus()
@@ -181,7 +244,6 @@ class RouteInputView: UIView {
         } else {
             time += " PM"
         }
-//        print(Calendar.current.component(.weekday, from: date))
         return time
     }
 
