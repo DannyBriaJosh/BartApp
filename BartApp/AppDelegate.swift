@@ -74,8 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CAAnimationDelegate {
         keyFrameAnimation.keyTimes = [0, 0.3, 1]
         self.mask!.add(keyFrameAnimation, forKey: "bounds")
     }
-    
-    
+
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         self.imageView?.layer.mask = nil
         var timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(self.setRootVC), userInfo: nil, repeats: true);

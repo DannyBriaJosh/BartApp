@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="01J-lp-oVM" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
@@ -21,18 +21,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="4yl-Iu-paq">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="Rfk-hw-1nf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="4yl-Iu-paq" secondAttribute="trailing" id="BAd-5n-FxT"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="4yl-Iu-paq" secondAttribute="bottom" id="bNQ-Yt-dOx"/>
-                            <constraint firstItem="4yl-Iu-paq" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="gh9-rb-sw3"/>
-                            <constraint firstItem="4yl-Iu-paq" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="l6e-Yl-j2H"/>
+                            <constraint firstItem="Rfk-hw-1nf" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="BKa-0k-aoa"/>
+                            <constraint firstItem="Rfk-hw-1nf" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="BuZ-rc-NP0"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Rfk-hw-1nf" secondAttribute="bottom" id="g5b-DX-3zv"/>
+                            <constraint firstAttribute="trailing" secondItem="Rfk-hw-1nf" secondAttribute="trailing" id="lbF-cG-bcS"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -40,6 +43,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splash" width="375" height="667"/>
+        <image name="splash" width="465" height="830"/>
     </resources>
 </document>
