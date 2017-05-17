@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CAAnimationDelegate {
     var window: UIWindow?
     var mask: CALayer?
     var imageView: UIImageView?
-    let allBartStations = BartStation.all
+    let allBartStations = BartStation.allBart
+    
     var initalView: UINavigationController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -37,9 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CAAnimationDelegate {
         
         
         self.window?.rootViewController = UIViewController()
-        
-        
-        
         
         self.mask = CALayer()
         self.mask!.contents = UIImage(named: "splash-logo")?.cgImage

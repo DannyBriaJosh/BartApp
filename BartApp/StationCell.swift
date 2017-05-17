@@ -12,7 +12,7 @@ class StationCell: UITableViewCell {
 
     @IBOutlet weak var stationNameLabel: UILabel!
     
-    var station: BartStation! {
+    var station: Station! {
         didSet {
             stationNameLabel.text = station.name
         }

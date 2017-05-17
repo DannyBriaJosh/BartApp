@@ -22,11 +22,7 @@ class RoutesViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
         tableView.separatorStyle = .none
-        let origin = userInput.startStation? as! BartStation
-        if trainSystem == "Caltrain" {
-            origin = userInput.startStation? as! CaltrainStation
-        }
-        let originStation = origin.initial
+        let originStation = userInput.startStation?.initial
         let destinationStation = userInput.endStation?.initial
         let timeString = userInput.timeString ?? "now"
         let scheduleFormat = userInput.scheduleFormat ?? "depart"

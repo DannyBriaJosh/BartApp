@@ -21,10 +21,10 @@ enum TrainType {
 }
 
 struct Stop {
-    var station: CaltrainStation?
+    var station: Station?
     var time: Date?
     
-    init(station: CaltrainStation, time: Date) {
+    init(station: Station, time: Date) {
         self.station = station
         self.time = time
     }

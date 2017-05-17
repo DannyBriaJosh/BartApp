@@ -9,7 +9,8 @@
 import Foundation
 import CoreLocation
 
-class BartStation{
+struct BartStation: Station {
+
     var initial: String?
     var name: String?
     var gtfsLatitude: Double?
@@ -20,6 +21,8 @@ class BartStation{
     var state: String?
     var zipcode: Int?
     var stationCoordinate: CLLocationCoordinate2D?
+    var zone: Int?
+    static var allCaltrain = [CaltrainStation]()
     
     init(dictionary: [String: AnyObject]){
         if let initial = dictionary["initial"] as? String {
@@ -63,14 +66,10 @@ class BartStation{
                 self.stationCoordinate = CLLocationCoordinate2D(latitude: gtfsLatitude, longitude: gtfsLongitude)
             }
         }
+
     }
-}
-
-
-
-extension BartStation {
     
-    static var all: [BartStation] {
+    static var allBart: [BartStation] {
         
         let bartStationData =
             [
@@ -674,6 +673,6 @@ extension BartStation {
                              "color" : "#d5cfa3"],
         ]
         
-        return routes[initial] as! NSDictionary
+        return routes[initial]! as NSDictionary
     }
 }

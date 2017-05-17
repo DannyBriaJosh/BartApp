@@ -23,6 +23,7 @@
 		C9256F991EA5BE5C00A2118B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9256F981EA5BE5C00A2118B /* AppDelegate.swift */; };
 		C9256F9E1EA5BE5C00A2118B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9256F9C1EA5BE5C00A2118B /* Main.storyboard */; };
 		C9256FA01EA5BE5C00A2118B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9256F9F1EA5BE5C00A2118B /* Assets.xcassets */; };
+		C9396B941ECCEEA500D0C280 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9396B931ECCEEA500D0C280 /* Station.swift */; };
 		C95E26411EAFFFB6001B262B /* BartStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E26401EAFFFB6001B262B /* BartStation.swift */; };
 		C95E26481EB05DA5001B262B /* RouteInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E26471EB05DA5001B262B /* RouteInputViewController.swift */; };
 		C95E264A1EB05DC4001B262B /* ChooseStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E26491EB05DC4001B262B /* ChooseStationViewController.swift */; };
@@ -55,6 +56,7 @@
 		C9256F9D1EA5BE5C00A2118B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9256F9F1EA5BE5C00A2118B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9256FA41EA5BE5C00A2118B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9396B931ECCEEA500D0C280 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		C95E26401EAFFFB6001B262B /* BartStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartStation.swift; sourceTree = "<group>"; };
 		C95E26471EB05DA5001B262B /* RouteInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteInputViewController.swift; sourceTree = "<group>"; };
 		C95E26491EB05DC4001B262B /* ChooseStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseStationViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				C96A44BF1EBA92D3006EE840 /* TripRequest.swift */,
 				C96A44C31EC17484006EE840 /* CaltrainStation.swift */,
 				C9B61FEF1ECA30900026C7CE /* CaltrainSchedule.swift */,
+				C9396B931ECCEEA500D0C280 /* Station.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				C96A44C01EBA92D3006EE840 /* TripRequest.swift in Sources */,
 				C95E26481EB05DA5001B262B /* RouteInputViewController.swift in Sources */,
 				5F7384CB1EB6A61D00B11B6A /* BartClient.swift in Sources */,
+				C9396B941ECCEEA500D0C280 /* Station.swift in Sources */,
 				C96A44C41EC17484006EE840 /* CaltrainStation.swift in Sources */,
 				C9256F991EA5BE5C00A2118B /* AppDelegate.swift in Sources */,
 				769395751EB058E6008C21C0 /* MapViewController.swift in Sources */,

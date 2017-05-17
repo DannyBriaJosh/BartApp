@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-class CaltrainStation{
+struct CaltrainStation: Station {
     
     var initial: String?
     var name: String?
@@ -21,6 +21,7 @@ class CaltrainStation{
     var zipcode: Int?
     var stationCoordinate: CLLocationCoordinate2D?
     var zone: Int?
+    static var allBart = [BartStation]()
     
     init(dictionary: [String: AnyObject]){
         if let initial = dictionary["initial"] as? String {
@@ -65,11 +66,8 @@ class CaltrainStation{
             self.zone = zone
         }
     }
-}
-
-extension CaltrainStation {
     
-    static var all: [CaltrainStation] {
+    static var allCaltrain: [CaltrainStation] {
         let caltrainStationData =
             [
                 [
@@ -413,7 +411,7 @@ extension CaltrainStation {
                     "zipcode": 95020,
                     "zone": 6
                 ]
-            ]
+        ]
         
         var caltrainStationArray = [CaltrainStation]()
         
@@ -422,37 +420,38 @@ extension CaltrainStation {
         }
         return caltrainStationArray
     }
-    
-    static var sanfrancisco = CaltrainStation.all[0]
-    static var twentysecondstreet = CaltrainStation.all[1]
-    static var bayshore = CaltrainStation.all[2]
-    static var southsanfrancisco = CaltrainStation.all[3]
-    static var sanbruno = CaltrainStation.all[4]
-    static var millbrae = CaltrainStation.all[5]
-    static var broadway = CaltrainStation.all[6]
-    static var burlingame = CaltrainStation.all[7]
-    static var sanmateo = CaltrainStation.all[8]
-    static var hayward = CaltrainStation.all[9]
-    static var hillsdale = CaltrainStation.all[10]
-    static var belmont = CaltrainStation.all[11]
-    static var sancarlos = CaltrainStation.all[12]
-    static var redwoodcity = CaltrainStation.all[13]
-    static var atherton = CaltrainStation.all[14]
-    static var menlopark = CaltrainStation.all[15]
-    static var paloalto = CaltrainStation.all[16]
-    static var californiaavenue = CaltrainStation.all[17]
-    static var sanantonio = CaltrainStation.all[18]
-    static var mountainview = CaltrainStation.all[19]
-    static var sunnyvale = CaltrainStation.all[20]
-    static var lawrence = CaltrainStation.all[21]
-    static var santaclara = CaltrainStation.all[22]
-    static var collegepark = CaltrainStation.all[23]
-    static var sanjosediridon = CaltrainStation.all[24]
-    static var tamien = CaltrainStation.all[25]
-    static var capitol = CaltrainStation.all[26]
-    static var blossomhill = CaltrainStation.all[27]
-    static var morganhill = CaltrainStation.all[28]
-    static var sanmartin = CaltrainStation.all[29]
-    static var gilroy = CaltrainStation.all[30]
 }
 
+extension CaltrainStation {
+    static var sanfrancisco = CaltrainStation.allCaltrain[0]
+    static var twentysecondstreet = CaltrainStation.allCaltrain[1]
+    static var bayshore = CaltrainStation.allCaltrain[2]
+    static var southsanfrancisco = CaltrainStation.allCaltrain[3]
+    static var sanbruno = CaltrainStation.allCaltrain[4]
+    static var millbrae = CaltrainStation.allCaltrain[5]
+    static var broadway = CaltrainStation.allCaltrain[6]
+    static var burlingame = CaltrainStation.allCaltrain[7]
+    static var sanmateo = CaltrainStation.allCaltrain[8]
+    static var hillsdale = CaltrainStation.allCaltrain[9]
+    static var hayward = CaltrainStation.allCaltrain[10]
+    static var belmont = CaltrainStation.allCaltrain[11]
+    static var sancarlos = CaltrainStation.allCaltrain[12]
+    static var redwoodcity = CaltrainStation.allCaltrain[14]
+    static var menlopark = CaltrainStation.allCaltrain[15]
+    static var paloalto = CaltrainStation.allCaltrain[16]
+    static var californiaavenue = CaltrainStation.allCaltrain[17]
+    static var sanantonio = CaltrainStation.allCaltrain[18]
+    static var mountainview = CaltrainStation.allCaltrain[19]
+    static var sunnyvale = CaltrainStation.allCaltrain[20]
+    static var lawrence = CaltrainStation.allCaltrain[21]
+    static var santaclara = CaltrainStation.allCaltrain[22]
+    static var collegepark = CaltrainStation.allCaltrain[23]
+    static var sanjosediridon = CaltrainStation.allCaltrain[24]
+    static var tamien = CaltrainStation.allCaltrain[25]
+    static var capitol = CaltrainStation.allCaltrain[26]
+    static var blossomhill = CaltrainStation.allCaltrain[27]
+    static var morganhill = CaltrainStation.allCaltrain[28]
+    static var sanmartin = CaltrainStation.allCaltrain[29]
+    static var gilroy = CaltrainStation.allCaltrain[30]
+
+}
