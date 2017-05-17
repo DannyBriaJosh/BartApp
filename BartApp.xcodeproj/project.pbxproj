@@ -13,6 +13,8 @@
 		5F8D6FB01EBB951C0090523E /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8D6FAF1EBB951C0090523E /* Trip.swift */; };
 		5FC358C71ECAA96F0067625A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC358C51ECAA96F0067625A /* HeaderView.swift */; };
 		5FC358C81ECAA96F0067625A /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC358C61ECAA96F0067625A /* HeaderView.xib */; };
+		76353B601ECD0C040066E890 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76353B5F1ECD0C040066E890 /* LoadingViewController.swift */; };
+		76353B631ECD0DCF0066E890 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76353B611ECD0DCF0066E890 /* Main.storyboard */; };
 		7655A22C1EC0C9DF00273660 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7655A22B1EC0C9DF00273660 /* SettingsViewController.swift */; };
 		767CD8211ECADD2700ACD0BD /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767CD8201ECADD2700ACD0BD /* Style.swift */; };
 		769395751EB058E6008C21C0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769395741EB058E6008C21C0 /* MapViewController.swift */; };
@@ -21,7 +23,6 @@
 		76EA3F4E1EC93B2C00816B7F /* LegTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EA3F4D1EC93B2C00816B7F /* LegTableViewCell.swift */; };
 		76EB12471ECB54A300ED5BD8 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EB12461ECB54A300ED5BD8 /* ColorExtension.swift */; };
 		C9256F991EA5BE5C00A2118B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9256F981EA5BE5C00A2118B /* AppDelegate.swift */; };
-		C9256F9E1EA5BE5C00A2118B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9256F9C1EA5BE5C00A2118B /* Main.storyboard */; };
 		C9256FA01EA5BE5C00A2118B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9256F9F1EA5BE5C00A2118B /* Assets.xcassets */; };
 		C95E26411EAFFFB6001B262B /* BartStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E26401EAFFFB6001B262B /* BartStation.swift */; };
 		C95E26481EB05DA5001B262B /* RouteInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95E26471EB05DA5001B262B /* RouteInputViewController.swift */; };
@@ -40,6 +41,8 @@
 		5F8D6FAF1EBB951C0090523E /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		5FC358C51ECAA96F0067625A /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		5FC358C61ECAA96F0067625A /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		76353B5F1ECD0C040066E890 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		76353B621ECD0DCF0066E890 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7655A22B1EC0C9DF00273660 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		767CD8201ECADD2700ACD0BD /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		769395741EB058E6008C21C0 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -52,7 +55,6 @@
 		C628493AA9D40C9CF553DE04 /* Pods-BartApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BartApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BartApp/Pods-BartApp.release.xcconfig"; sourceTree = "<group>"; };
 		C9256F951EA5BE5C00A2118B /* BartApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BartApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9256F981EA5BE5C00A2118B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C9256F9D1EA5BE5C00A2118B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9256F9F1EA5BE5C00A2118B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9256FA41EA5BE5C00A2118B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C95E26401EAFFFB6001B262B /* BartStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BartStation.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		76B6507F1EB03F2D00F811EC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				76353B5F1ECD0C040066E890 /* LoadingViewController.swift */,
 				769395741EB058E6008C21C0 /* MapViewController.swift */,
 				C95E26471EB05DA5001B262B /* RouteInputViewController.swift */,
 				C95E26491EB05DC4001B262B /* ChooseStationViewController.swift */,
@@ -161,10 +164,10 @@
 				76B6507E1EB03F2600F811EC /* Views */,
 				C9256F981EA5BE5C00A2118B /* AppDelegate.swift */,
 				76994AA81ECC26380096ACAB /* alarm.mp3 */,
-				C9256F9C1EA5BE5C00A2118B /* Main.storyboard */,
 				C9256F9F1EA5BE5C00A2118B /* Assets.xcassets */,
 				C9256FA41EA5BE5C00A2118B /* Info.plist */,
 				7694E4D41ECC3E99006BF7D9 /* Launch Screen.storyboard */,
+				76353B611ECD0DCF0066E890 /* Main.storyboard */,
 			);
 			path = BartApp;
 			sourceTree = "<group>";
@@ -249,7 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9256FA01EA5BE5C00A2118B /* Assets.xcassets in Resources */,
-				C9256F9E1EA5BE5C00A2118B /* Main.storyboard in Resources */,
+				76353B631ECD0DCF0066E890 /* Main.storyboard in Resources */,
 				5FC358C81ECAA96F0067625A /* HeaderView.xib in Resources */,
 				7694E4D51ECC3E99006BF7D9 /* Launch Screen.storyboard in Resources */,
 				76994AA91ECC26380096ACAB /* alarm.mp3 in Resources */,
@@ -318,6 +321,7 @@
 				C95E26481EB05DA5001B262B /* RouteInputViewController.swift in Sources */,
 				5F7384CB1EB6A61D00B11B6A /* BartClient.swift in Sources */,
 				C96A44C41EC17484006EE840 /* CaltrainStation.swift in Sources */,
+				76353B601ECD0C040066E890 /* LoadingViewController.swift in Sources */,
 				C9256F991EA5BE5C00A2118B /* AppDelegate.swift in Sources */,
 				769395751EB058E6008C21C0 /* MapViewController.swift in Sources */,
 				C95E264C1EB05E7C001B262B /* StationCell.swift in Sources */,
@@ -336,10 +340,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C9256F9C1EA5BE5C00A2118B /* Main.storyboard */ = {
+		76353B611ECD0DCF0066E890 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C9256F9D1EA5BE5C00A2118B /* Base */,
+				76353B621ECD0DCF0066E890 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
