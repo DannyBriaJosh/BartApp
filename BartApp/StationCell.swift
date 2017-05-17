@@ -11,10 +11,24 @@ import UIKit
 class StationCell: UITableViewCell {
 
     @IBOutlet weak var stationNameLabel: UILabel!
+    @IBOutlet weak var iconImageView: UIImageView!
+    let defaults = UserDefaults.standard
     
     var station: BartStation! {
         didSet {
             stationNameLabel.text = station.name
+            iconImageView.image = nil
+            if let savedHomeInitial = defaults.object(forKey: "HomeInitial") as? String {
+                if station.initial! == savedHomeInitial {
+                    iconImageView.image = UIImage(named: "home-icon")
+                }
+            }
+            
+            if let savedWorkInitial = defaults.object(forKey: "WorkInitial")  as? String {
+                if station.initial! == savedWorkInitial {
+                    iconImageView.image = UIImage(named: "building-icon")
+                }
+            }
         }
     }
     

@@ -23,6 +23,7 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
     var ending = false
     var homeStation: BartStation?
     var workStation: BartStation?
+    @IBOutlet weak var navTitleItem: UINavigationItem!
     
     @IBAction func onStartStationButton(_ sender: Any) {
         starting = true
@@ -216,6 +217,7 @@ extension RouteInputViewController: RouteInputViewDelegate {
     
     func routeInputView(routeInputView: RouteInputView, didSelectTransportation train: String) {
         defaults.set(train, forKey: "trainSystem")
+        navTitleItem.title = train
         resetView()
     }
 }

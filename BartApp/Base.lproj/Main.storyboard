@@ -374,13 +374,23 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ef4-Pu-zMP">
+                                                            <rect key="frame" x="304.5" y="12" width="34.5" height="34.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="Ef4-Pu-zMP" secondAttribute="height" multiplier="1:1" id="ZfZ-WY-Ggh"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="0rA-hP-Rw6" firstAttribute="leading" secondItem="gGL-hh-BOi" secondAttribute="leading" constant="16" id="0Ps-Xt-YF8"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Ef4-Pu-zMP" secondAttribute="bottom" constant="12" id="9bp-4O-d6a"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Ef4-Pu-zMP" secondAttribute="trailing" constant="20" id="XGq-9Z-Gvg"/>
                                                         <constraint firstItem="0rA-hP-Rw6" firstAttribute="centerY" secondItem="gGL-hh-BOi" secondAttribute="centerY" id="foG-VT-xnU"/>
+                                                        <constraint firstItem="Ef4-Pu-zMP" firstAttribute="top" secondItem="gGL-hh-BOi" secondAttribute="top" constant="12" id="nxh-MP-dMs"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="iconImageView" destination="Ef4-Pu-zMP" id="XHz-S5-skL"/>
                                                     <outlet property="stationNameLabel" destination="0rA-hP-Rw6" id="uau-sw-Zag"/>
                                                 </connections>
                                             </tableViewCell>
@@ -452,7 +462,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71o-75-Grh" userLabel="Line">
-                                        <rect key="frame" x="0.0" y="60" width="375" height="0.5"/>
+                                        <rect key="frame" x="0.0" y="60" width="375" height="0.0"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="0.5" id="Vs4-Pl-Fw3"/>
@@ -527,6 +537,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="navTitleItem" destination="08r-ie-aCR" id="HJD-c6-cbs"/>
                         <outlet property="routeInputView" destination="8bC-Xf-vdC" id="E9f-cG-oaS"/>
                         <outlet property="tableView" destination="Z46-uQ-LTJ" id="6OU-nD-Fjz"/>
                     </connections>

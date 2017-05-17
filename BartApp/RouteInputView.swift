@@ -126,7 +126,7 @@ class RouteInputView: UIView {
     }
     
     func setStartingStation(startingStation: BartStation) {
-        startingStationButton.contentHorizontalAlignment = .left
+        startingStationButton.contentHorizontalAlignment = .center
         startingStationButton.setTitle("  \(startingStation.name!.uppercased())", for: .normal)
         startingStationButton.setTitleColor(UIColor.black, for: .normal)
         userInputs["Start Station"] = startingStation
@@ -148,7 +148,7 @@ class RouteInputView: UIView {
     }
     
     func setEndingStation(endingStation: BartStation) {
-        endingStationButton.contentHorizontalAlignment = .left
+        endingStationButton.contentHorizontalAlignment = .center
         endingStationButton.setTitle("  \(endingStation.name!.uppercased())", for: .normal)
         endingStationButton.setTitleColor(UIColor.black, for: .normal)
         userInputs["End Station"] = endingStation
