@@ -105,7 +105,6 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         if let homeStationIndex = defaults.value(forKey: "Home") as? Int {
             homeStation = bartStations[homeStationIndex]
         }
-        
         if let workStationIndex = defaults.value(forKey: "Work") as? Int {
             workStation = bartStations[workStationIndex]
         }
@@ -187,7 +186,7 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "hh:mma"
             trip.timeString = dateFormatter.string(from: time)
-            print("time string: \(dateFormatter.string(from: time))")
+//            print("time string: \(dateFormatter.string(from: time))")
             vc.userInput = trip
         }
     }
@@ -198,15 +197,11 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         routeInputView.delegate = self
+        routeInputView.vc = self
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         bartStations = appDelegate.allBartStations
         loadHomeWorkStations()
-        let time = timeToDateObject(date: "09:00AM")
-        let result = findCaltrainTrains(start: CaltrainStation.mountainview, end: CaltrainStation.sanfrancisco, time: time, startTime: false)
-        print(result.count)
-        for r in result {
-            print(r.number!)
-        }
+        routeInputView.setNavigationBar(trainSystem: "Bart")
     }
 
     override func didReceiveMemoryWarning() {

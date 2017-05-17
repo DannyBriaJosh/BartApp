@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nKa-aS-I5A">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nKa-aS-I5A">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -418,31 +418,90 @@
                                     <constraint firstItem="9eW-AL-BIj" firstAttribute="top" secondItem="ngi-Hw-Nq9" secondAttribute="top" id="mny-r2-Ibz"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hga-c5-Tzg" userLabel="Overlay">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5C2-An-asx" userLabel="Train System View">
+                                <rect key="frame" x="0.0" y="-66" width="375" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxy-at-XOp">
+                                        <rect key="frame" x="0.0" y="60" width="375" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="sh8-gk-Ewk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                        <state key="normal" title="   Caltrain">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSZ-zi-mrJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="JFl-Te-rEW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                        <state key="normal" title="   Bart">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71o-75-Grh" userLabel="Line">
+                                        <rect key="frame" x="0.0" y="60" width="375" height="0.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="0.5" id="Vs4-Pl-Fw3"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="vxy-at-XOp" firstAttribute="leading" secondItem="5C2-An-asx" secondAttribute="leading" id="3UY-Rn-92H"/>
+                                    <constraint firstItem="vxy-at-XOp" firstAttribute="top" secondItem="WSZ-zi-mrJ" secondAttribute="bottom" id="57r-cz-dIb"/>
+                                    <constraint firstItem="WSZ-zi-mrJ" firstAttribute="top" secondItem="5C2-An-asx" secondAttribute="top" id="66i-a7-CNU"/>
+                                    <constraint firstAttribute="trailing" secondItem="WSZ-zi-mrJ" secondAttribute="trailing" id="Cag-eD-556"/>
+                                    <constraint firstItem="71o-75-Grh" firstAttribute="leading" secondItem="5C2-An-asx" secondAttribute="leading" id="QhB-Hk-9aG"/>
+                                    <constraint firstItem="71o-75-Grh" firstAttribute="top" secondItem="5C2-An-asx" secondAttribute="top" constant="60" id="SjC-43-DBP"/>
+                                    <constraint firstItem="WSZ-zi-mrJ" firstAttribute="leading" secondItem="5C2-An-asx" secondAttribute="leading" id="UYZ-e4-L2a"/>
+                                    <constraint firstAttribute="trailing" secondItem="vxy-at-XOp" secondAttribute="trailing" id="pWm-7z-nGp"/>
+                                    <constraint firstAttribute="bottom" secondItem="vxy-at-XOp" secondAttribute="bottom" id="uEr-zT-Vrv"/>
+                                    <constraint firstAttribute="trailing" secondItem="71o-75-Grh" secondAttribute="trailing" id="zgR-eR-qA3"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ngi-Hw-Nq9" firstAttribute="top" secondItem="ApK-Dz-2xM" secondAttribute="bottom" id="31l-mv-VZC"/>
                             <constraint firstItem="vu3-pM-fsN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="581-2Z-9hL"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="f9d-lw-FJl" secondAttribute="bottom" constant="28" id="8sv-aL-wLI"/>
+                            <constraint firstAttribute="bottom" secondItem="hga-c5-Tzg" secondAttribute="bottom" id="F6B-LY-ajf"/>
                             <constraint firstAttribute="trailing" secondItem="ApK-Dz-2xM" secondAttribute="trailing" id="Hw9-bX-ucZ"/>
+                            <constraint firstAttribute="trailing" secondItem="hga-c5-Tzg" secondAttribute="trailing" id="IrB-70-SoD"/>
                             <constraint firstAttribute="trailing" secondItem="vu3-pM-fsN" secondAttribute="trailing" id="M2A-zN-5fC"/>
                             <constraint firstItem="vu3-pM-fsN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="MI8-Nf-KcE"/>
                             <constraint firstItem="ApK-Dz-2xM" firstAttribute="bottom" secondItem="vu3-pM-fsN" secondAttribute="bottom" id="MXS-Pf-IWv"/>
+                            <constraint firstItem="5C2-An-asx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="OYE-9h-Xow"/>
                             <constraint firstItem="f9d-lw-FJl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ou2-YS-RQe"/>
                             <constraint firstItem="ngi-Hw-Nq9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rac-Vb-wvc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pJc-WY-ebE" secondAttribute="bottom" id="XiT-Ac-2Ki"/>
                             <constraint firstAttribute="trailing" secondItem="ngi-Hw-Nq9" secondAttribute="trailing" id="YFp-Tq-P9U"/>
+                            <constraint firstItem="hga-c5-Tzg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Zxf-NM-6KB"/>
                             <constraint firstItem="pJc-WY-ebE" firstAttribute="top" secondItem="ApK-Dz-2xM" secondAttribute="top" id="bK5-eb-ssx"/>
+                            <constraint firstItem="hga-c5-Tzg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dRp-Ix-TA3"/>
                             <constraint firstItem="ApK-Dz-2xM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dkF-il-kYH"/>
+                            <constraint firstItem="5C2-An-asx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-130" id="hYs-EP-U3w"/>
+                            <constraint firstAttribute="trailing" secondItem="5C2-An-asx" secondAttribute="trailing" id="hwv-Xa-XCe"/>
                             <constraint firstAttribute="trailing" secondItem="pJc-WY-ebE" secondAttribute="trailing" id="tBO-6d-afb"/>
                             <constraint firstItem="pJc-WY-ebE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tTb-k9-uQ0"/>
                         </constraints>
                         <connections>
                             <outlet property="arrivalLabelButton" destination="waX-1R-dOn" id="fTJ-s4-f1d"/>
+                            <outlet property="bartButton" destination="WSZ-zi-mrJ" id="EJK-WB-H7e"/>
+                            <outlet property="caltrainButton" destination="vxy-at-XOp" id="qTQ-hm-wa1"/>
                             <outlet property="departureLabelButton" destination="TZ8-1b-UhF" id="kFF-iD-MQR"/>
                             <outlet property="endingStationButton" destination="Hao-dd-xwu" id="I7l-rr-gBS"/>
                             <outlet property="findRoutesButton" destination="f9d-lw-FJl" id="kxN-ZE-dW7"/>
                             <outlet property="leaveNowButton" destination="DVq-I1-1Tt" id="CGL-VX-EOK"/>
+                            <outlet property="overlayView" destination="hga-c5-Tzg" id="Rwa-St-oFc"/>
                             <outlet property="startingStationButton" destination="gtG-PC-1eZ" id="Kow-le-UyK"/>
                             <outlet property="startingTimeButton" destination="Ysv-o2-zuq" id="E0P-8E-guY"/>
                             <outlet property="stationView" destination="pJc-WY-ebE" id="LMW-dc-hbp"/>
@@ -450,6 +509,7 @@
                             <outlet property="timePicker" destination="9eW-AL-BIj" id="SQd-Oa-DFg"/>
                             <outlet property="timePickerView" destination="ngi-Hw-Nq9" id="WTm-at-kzr"/>
                             <outlet property="timeView" destination="ApK-Dz-2xM" id="AMM-yQ-rLJ"/>
+                            <outlet property="trainSystemView" destination="5C2-An-asx" id="Gf8-46-C84"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Bart" id="08r-ie-aCR">
