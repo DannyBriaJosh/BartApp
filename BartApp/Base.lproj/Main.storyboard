@@ -165,7 +165,7 @@
         <!--Bart-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RouteInputViewController" customModule="BartApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RouteInputViewController" id="BYZ-38-t0r" customClass="RouteInputViewController" customModule="BartApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -642,7 +642,7 @@
         <!--Navigation Controller-->
         <scene sceneID="3JT-KD-Uuv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nKa-aS-I5A" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RouteNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="nKa-aS-I5A" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" id="hjb-d4-Efr">

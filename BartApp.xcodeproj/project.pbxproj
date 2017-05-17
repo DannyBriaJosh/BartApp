@@ -453,6 +453,7 @@
 			baseConfigurationReference = 79F1C0BBC1BEAF6D8752F040 /* Pods-BartApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = D4PT88369P;
 				INFOPLIST_FILE = BartApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
@@ -468,6 +469,7 @@
 			baseConfigurationReference = C628493AA9D40C9CF553DE04 /* Pods-BartApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = D4PT88369P;
 				INFOPLIST_FILE = BartApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
