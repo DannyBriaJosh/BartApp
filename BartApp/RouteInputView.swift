@@ -235,6 +235,8 @@ class RouteInputView: UIView {
         departureLabelButton.layer.borderWidth = 5
         departureLabelButton.layer.borderColor = primaryColor.cgColor
         departureLabelButton.layer.backgroundColor = primaryColor.cgColor
+        let timeFormatted = formatTime(date: time)
+        startingTimeButton.setTitle(timeFormatted, for: .normal)
         startingTimeButton.isEnabled = true
     }
     
@@ -245,6 +247,8 @@ class RouteInputView: UIView {
         arrivalLabelButton.layer.borderWidth = 5
         arrivalLabelButton.layer.borderColor = primaryColor.cgColor
         arrivalLabelButton.layer.backgroundColor = primaryColor.cgColor
+        let timeFormatted = formatTime(date: time)
+        startingTimeButton.setTitle(timeFormatted, for: .normal)
         startingTimeButton.isEnabled = true
     }
     
