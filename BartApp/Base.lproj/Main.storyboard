@@ -438,8 +438,11 @@
                                         <state key="selected">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onCaltrainSystemButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uiJ-i4-RKp"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSZ-zi-mrJ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSZ-zi-mrJ">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                         <color key="backgroundColor" red="0.96470588239999999" green="0.43921568630000002" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -452,6 +455,9 @@
                                         <state key="selected">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onBartSystemButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uee-oU-HLD"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="71o-75-Grh" userLabel="Line">
                                         <rect key="frame" x="0.0" y="60" width="375" height="0.5"/>
@@ -529,6 +535,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bartSystemButton" destination="WSZ-zi-mrJ" id="PsL-u6-is6"/>
+                        <outlet property="caltrainSystemButton" destination="vxy-at-XOp" id="dyQ-PF-fkb"/>
                         <outlet property="routeInputView" destination="8bC-Xf-vdC" id="E9f-cG-oaS"/>
                         <outlet property="tableView" destination="Z46-uQ-LTJ" id="6OU-nD-Fjz"/>
                     </connections>
@@ -713,9 +721,10 @@
                 <navigationController storyboardIdentifier="RouteNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="nKa-aS-I5A" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" id="hjb-d4-Efr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hjb-d4-Efr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>

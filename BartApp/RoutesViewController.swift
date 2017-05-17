@@ -12,6 +12,7 @@ class RoutesViewController: UIViewController {
     
     var userInput: TripRequest!
     var trips = [Trip]()
+    var trainSystem = "Bart"
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,8 +22,11 @@ class RoutesViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
         tableView.separatorStyle = .none
-        
-        let originStation = userInput.startStation?.initial
+        let origin = userInput.startStation? as! BartStation
+        if trainSystem == "Caltrain" {
+            origin = userInput.startStation? as! CaltrainStation
+        }
+        let originStation = origin.initial
         let destinationStation = userInput.endStation?.initial
         let timeString = userInput.timeString ?? "now"
         let scheduleFormat = userInput.scheduleFormat ?? "depart"

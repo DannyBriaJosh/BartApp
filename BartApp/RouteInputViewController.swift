@@ -12,6 +12,8 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @IBOutlet var routeInputView: RouteInputView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var caltrainSystemButton: UIButton!
+    @IBOutlet weak var bartSystemButton: UIButton!
     
     
     var arrival = false
@@ -23,6 +25,7 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
     var ending = false
     var homeStation: BartStation?
     var workStation: BartStation?
+    var system = "Bart"
     
     @IBAction func onStartStationButton(_ sender: Any) {
         starting = true
@@ -36,6 +39,22 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         ending = true
         tableView.reloadData()
         routeInputView.showStationView()
+    }
+    
+    @IBAction func onCaltrainSystemButton(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        defaults.setValue("Caltrain", forKey: "trainSystem")
+        routeInputView.onCaltrainSystemButton()
+        system = "Caltrain"
+        resetView()
+    }
+    
+    @IBAction func onBartSystemButton(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        defaults.setValue("Bart", forKey: "trainSystem")
+        routeInputView.onBartSystemButton()
+        system = "Bart"
+        resetView()
     }
     
     func setStartingStation(chooseStationViewController: ChooseStationViewController, didSetStartingStation startingStation: BartStation) {
@@ -60,6 +79,7 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         routeInputView.clearEndingStation()
         routeInputView.updateStyle()
         routeInputView.onLeaveNowButton()
+        routeInputView.setNavigationBar(trainSystem: system)
         trip.startStation = nil
         trip.endStation = nil
     }
@@ -84,7 +104,11 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         let previousStart = trip.startStation
         let previousEnd = trip.endStation
         if previousEnd != nil {
-            routeInputView.setStartingStation(startingStation: previousEnd!)
+            if system == "Bart" {
+                routeInputView.setStartingStation(startingStation: previousEnd! as! BartStation)
+            } else if system == "Caltrain" {
+                routeInputView.setStartingStation(startingStation: previousEnd! as! CaltrainStation)
+            }
             trip.startStation = previousEnd
         } else if previousStart != nil {
             routeInputView.clearStartingStation()
@@ -142,7 +166,8 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.resetCell()
         cell.isUserInteractionEnabled = true
         cell.station = bartStations[indexPath.row]
-        if arrival && cell.station.name == trip.endStation?.name {
+        let endStation = trip.endStation
+        if arrival && cell.station.name == (endStation as? BartStation).name {
             cell.isUserInteractionEnabled = false
             cell.makeFontGray()
         }
@@ -193,11 +218,11 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        routeInputView.onLoad()
         tableView.delegate = self
         tableView.dataSource = self
         routeInputView.delegate = self
         routeInputView.vc = self
+        routeInputView.onLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         bartStations = appDelegate.allBartStations
         loadHomeWorkStations()

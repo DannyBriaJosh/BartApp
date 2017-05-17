@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-class CaltrainStation {
+class CaltrainStation{
     
     var initial: String?
     var name: String?
@@ -55,8 +55,10 @@ class CaltrainStation {
             self.zipcode = zipcode
         }
         
-        if gtfsLatitude != nil && gtfsLongitude != nil {
-            stationCoordinate = CLLocationCoordinate2D(latitude: gtfsLatitude!, longitude: gtfsLongitude!)
+        if let gtfsLatitude = dictionary["gtfs_latitude"] as? Double {
+            if let gtfsLongitude = dictionary["gtfs_longitude"] as? Double {
+                self.stationCoordinate = CLLocationCoordinate2D(latitude: gtfsLatitude, longitude: gtfsLongitude)
+            }
         }
         
         if let zone = dictionary["zone"] as? Int {

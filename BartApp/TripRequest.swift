@@ -9,8 +9,8 @@
 import Foundation
 
 struct TripRequest{
-    var startStation: BartStation? 
-    var endStation: BartStation?
+    var startStation: Any?
+    var endStation: Any?
     var departureTime: Date?
     var arrivalTime: Date?
     var timeString: String?

@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-struct BartStation {
+class BartStation{
     var initial: String?
     var name: String?
     var gtfsLatitude: Double?
@@ -58,8 +58,10 @@ struct BartStation {
             self.zipcode = zipcode
         }
         
-        if gtfsLatitude != nil && gtfsLongitude != nil {
-            stationCoordinate = CLLocationCoordinate2D(latitude: gtfsLatitude!, longitude: gtfsLongitude!)
+        if let gtfsLatitude = dictionary["gtfs_latitude"] as? Double {
+            if let gtfsLongitude = dictionary["gtfs_longitude"] as? Double {
+                self.stationCoordinate = CLLocationCoordinate2D(latitude: gtfsLatitude, longitude: gtfsLongitude)
+            }
         }
     }
 }
