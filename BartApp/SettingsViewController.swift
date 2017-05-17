@@ -113,8 +113,21 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func onSave(_ sender: Any) {
-        defaults.set(homeStationIndex, forKey: "Home")
-        defaults.set(workStationIndex, forKey: "Work")
+        
+        if let homeStationIndex = homeStationIndex {
+            defaults.set(homeStationIndex, forKey: "Home")
+            if let initial = bartStations[homeStationIndex].initial {
+                defaults.set(initial, forKey: "HomeInitial")
+            }
+        }
+        
+        if let workStationIndex = workStationIndex {
+            defaults.set(workStationIndex, forKey: "Work")
+            if let initial = bartStations[workStationIndex].initial {
+                defaults.set(initial, forKey: "WorkInitial")
+            }
+        }
+
         dismissModal()
     }
 }
