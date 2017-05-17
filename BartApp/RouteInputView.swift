@@ -42,6 +42,13 @@ class RouteInputView: UIView {
     var trainSystem = "Bart"
     
     func onLoad() {
+        let defaults = UserDefaults()
+        if let system = defaults.value(forKey: "trainSystem") as? String {
+            trainSystem = system
+        }
+        Style.loadTheme()
+        updateStyle()
+        print(trainSystem)
         timePickerView.isHidden = true
         timeView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
         timeView.layer.shadowRadius = 2.0
@@ -51,10 +58,7 @@ class RouteInputView: UIView {
         onLeaveNowButton()
         hideStationView()
         initializeTrainSystemView()
-        let defaults = UserDefaults()
-        if let system = defaults.value(forKey: "trainSystem") as? String {
-            trainSystem = system
-        }
+        setTrainSystemView()
     }
     
     func initializeTrainSystemView() {

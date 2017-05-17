@@ -221,14 +221,24 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        let defaults = UserDefaults.standard
+        print(defaults.value(forKey: "trainSystem"))
+        if let sys = defaults.value(forKey: "trainSystem") as? String {
+            system = sys
+        }
         routeInputView.delegate = self
         routeInputView.vc = self
-        routeInputView.onLoad()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        stations = appDelegate.allBartStations
-        defaultOrderStations = appDelegate.allBartStations
+        if system == "Bart" {
+            stations = BartStation.allBart
+            defaultOrderStations = BartStation.allBart
+        } else if system == "Caltrain" {
+            stations = CaltrainStation.allCaltrain
+            defaultOrderStations = CaltrainStation.allCaltrain
+        }
         loadHomeWorkStations()
-        routeInputView.setNavigationBar(trainSystem: "Bart")
+        routeInputView.onLoad()
+        routeInputView.setNavigationBar(trainSystem: system)
+        print(system)
     }
 
     override func didReceiveMemoryWarning() {
