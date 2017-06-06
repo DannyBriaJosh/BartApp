@@ -25,7 +25,7 @@ class MapViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let locationManager = CLLocationManager()
-    let GEOFENCE_RADIUS = 400.0 //in meters
+    let GEOFENCE_RADIUS = 800.0 //in meters
     var bartStations: [BartStation] = []
     var legs: [Leg] = []
     var stations: [BartStation] = []
@@ -165,7 +165,7 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func onFakeNotification(_ sender: Any) {
-        let myTimer : Timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.createLocalNotification), userInfo: nil, repeats: false)
+        let myTimer : Timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.createLocalNotification), userInfo: nil, repeats: false)
 
     }
 }

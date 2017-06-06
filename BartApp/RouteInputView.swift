@@ -125,6 +125,13 @@ class RouteInputView: UIView {
         timePickerView.isHidden = true
     }
     
+    func resetButtonText() {
+        startingStationButton.setTitleColor(UIColor.lightGray, for: .normal)
+        startingStationButton.setTitle("DEPART", for: .normal)
+        endingStationButton.setTitleColor(UIColor.lightGray, for: .normal)
+        endingStationButton.setTitle("ARRIVE", for: .normal)
+    }
+    
     func setStartingStation(startingStation: BartStation) {
         startingStationButton.contentHorizontalAlignment = .center
         startingStationButton.setTitle("  \(startingStation.name!.uppercased())", for: .normal)

@@ -63,6 +63,7 @@ class RouteInputViewController: UIViewController, UITableViewDelegate, UITableVi
         routeInputView.onLeaveNowButton()
         trip.startStation = nil
         trip.endStation = nil
+        routeInputView.resetButtonText()
     }
     
     @IBAction func onDepartureButton(_ sender: Any) {
