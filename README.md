@@ -4,21 +4,21 @@ BartApp is a Bay Area Bart commuter application for iOS. The app is able to chos
 
 ## MVP User Stories
 
-- [ ] Intakes starting location, ending location, and desired leave time.
-- [ ] Gives user best timed Bart train.
-- [ ] Gives user other well timed Bart trains.
-- [ ] User able to select a route option and sees a map view of current location, departure station, arrival station, transfer stations, and train stops.
-- [ ] Notification alarm when user within certain distance from tranfer/destination location. (Note: Cannot access Alarm app.)
+- [X] Intakes starting location, ending location, and desired leave time.
+- [X] Gives user best timed Bart train.
+- [X] Gives user other well timed Bart trains.
+- [X] User able to select a route option and sees a map view of current location, departure station, arrival station, transfer stations, and train stops.
+- [X] Notification alarm when user within certain distance from tranfer/destination location. (Note: Cannot access Alarm app.)
 
 ## Optional User Stories
 
 - [ ] Authenticating users for data tracking.
 - [ ] See full schedule of train times.
-- [ ] Ability to enter a desired arrival time when searching for train schedules.
+- [X] Ability to enter a desired arrival time when searching for train schedules.
 - [ ] Rider advisory notifications.
-- [ ] Caltrain functionality.
-- [ ] Caltrain reminder to tap on/off.
-- [ ] Save common locations (work,home,etc).
+- [X] Caltrain functionality.
+- [X] Caltrain reminder to tap on/off.
+- [X] Save common locations (work,home,etc).
 - [ ] Factor in time to train stop.
 - [ ] Send reminder of when to leave.
 
